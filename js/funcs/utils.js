@@ -1,10 +1,15 @@
 import { successStatusModal } from "/components/success_status_modal/script.js";
 import { dangertatusModal } from "/components/danger_status_modal/script.js";
+
+
 const $ = document
 const registerBody = $.querySelector("#register_body")
 
 
-// clear inputs start
+/* -------------------------------------------------------------------------- */
+/*                            clear inputs handler                            */
+/* -------------------------------------------------------------------------- */
+
 const clearInputs = () => {
     const inputs = $.querySelectorAll("input")
 
@@ -13,7 +18,13 @@ const clearInputs = () => {
         item.checked = false
     })
 }
-// clear inputs end
+
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                           registration components                          */
+/* -------------------------------------------------------------------------- */
 
 const registrationSuccesssHandler = (registerResult) => {
     window.customElements.define("status-modal-success", successStatusModal)
