@@ -1,0 +1,54 @@
+/* --------------------------- start reset styles --------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    list-style-type: none;
+    color: #fff;
+    background: none;
+    font-family: dana-farsi-num;
+    box-sizing: border-box;
+}
+
+video{
+    width: 100%;
+}
+
+/* --------------------------- finish reset styles -------------------------- */
+
+
+
+
+/* -------------------------- start default styles -------------------------- */
+html {
+    font-size: 62.5%;
+    /*10 px*/
+    scroll-behavior: smooth !important;
+}
+
+body {
+    line-height: 3rem;
+    font-size: 2rem;
+}
+
+
+/* start scrollbar customization */
+
+body::-webkit-scrollbar {
+    background-color: var(--dark-color);
+    width: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--primery-color);
+    border-radius: 2rem;
+}
+/* finish scrollbar customization */
+
+
+
+
+
+/* -------------------------- finish default styles ------------------------- */

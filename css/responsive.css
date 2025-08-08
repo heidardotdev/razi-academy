@@ -1,0 +1,839 @@
+@media (max-width: 365px) {
+    body {
+        overflow-x: hidden;
+
+    }
+}
+
+@media (min-width: 360px) {
+    .container {
+        width: 90%;
+        padding: 0 1rem !important;
+    }
+
+
+    .header-content__btn {
+        border-radius: 5rem;
+        padding: 1rem 2rem
+    }
+
+
+
+
+
+
+
+
+}
+
+/* customize container for mobile navigation */
+@media (min-width: 360px) and (max-width: 570px) {
+    nav {
+        width: 100%;
+    }
+}
+
+/* customize container for mobile navigation */
+
+
+
+
+@media (min-width: 450px) {
+    .container {
+        width: 90%;
+        padding: 0 2rem !important;
+    }
+
+    .nav-box {
+        padding: 0 2rem !important;
+    }
+
+    .header-content__btn {
+        border-radius: 5rem;
+        padding: 2rem 3rem;
+    }
+
+    .section-title__conent-title {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .section-title__content-caption {
+        font-size: 2rem;
+    }
+
+    .article__caption {
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        height: 7rem;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
+    .article__details {
+        flex-direction: row;
+    }
+
+    .article__details-author,
+    .article__details-date {
+        gap: 3px;
+    }
+
+
+
+    .footer-box__social {
+        padding: 1rem;
+    }
+
+    .news {
+        top: 5rem;
+        bottom: unset;
+    }
+
+
+    .course__chaptersAndSearch .input__box .searchBtn {
+        width: 14rem;
+    }
+
+
+
+}
+
+@media (min-width: 576px) {
+
+    .container,
+    nav {
+        width: 90%;
+    }
+
+
+    .menu__btn-text {
+        display: block;
+    }
+
+
+
+    /* remove nav-box padding and add it to nav beacuse of make nav width the same as container */
+    nav {
+        padding: 2rem !important;
+        border-bottom-left-radius: 3rem;
+        border-bottom-right-radius: 3rem;
+    }
+
+    .nav-box {
+        padding: 0 !important;
+    }
+
+    /* remove nav-box padding and add it to nav beacuse of make nav width the same as container */
+
+
+
+    .header-content__input {
+        width: unset;
+    }
+
+
+
+
+
+    .last-courses,
+    .presentations-category {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 3rem;
+    }
+
+    .articles {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-box__content {
+        text-align: start;
+    }
+
+    .news {
+        margin-right: 5rem;
+        margin-left: 5rem;
+        border-radius: 3rem;
+    }
+
+    .news__content-caption {
+        overflow-y: visible;
+    }
+
+
+
+
+    .search-result-not-found-message {
+        flex-direction: row;
+        height: 15rem;
+        justify-content: start;
+    }
+
+    .search-result-not-found-message__title {
+        font-size: 2.5rem;
+    }
+
+    .search-result-not-found-message__subtitle {
+        font-size: 1.8rem;
+    }
+
+    .register {
+        padding: 4rem;
+        width: unset;
+        position: unset !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+
+        border-radius: 2rem !important;
+        height: unset !important;
+
+
+
+    }
+
+    .status__modal {
+        border-radius: 2rem;
+        width: 350px !important;
+        top: 0;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    }
+
+    .register__input-img,
+    .register-logo {
+        width: unset;
+    }
+
+    .register__input {
+        height: 6rem;
+        font-size: 1.8rem;
+
+    }
+
+
+    .register__input-message-box {
+        margin-top: -0.2rem;
+    }
+
+    .register__input-messsage-text {
+        font-size: 1.8rem;
+        font-family: dana-medium;
+    }
+
+    .register__input-message svg {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .register__input-message svg path {
+        stroke-width: 1.5;
+    }
+
+
+
+
+    .chapter__item,
+    .chapter__itemLink {
+        justify-content: space-between;
+        padding: 2rem;
+    }
+
+    .chapter__otherInfo {
+        flex-direction: row;
+    }
+
+
+
+    .chpter__otherInfoAndIcon {
+        gap: 2rem;
+    }
+
+
+    .article__topicsBox {
+        justify-content: start;
+    }
+
+
+}
+
+@media (min-width: 768px) {
+
+    .container,
+    nav {
+        width: 720px;
+    }
+
+
+
+
+
+    aside {
+        overflow-y: visible;
+    }
+
+    .section-title__box {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .last-courses,
+    .presentations-category {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 3rem;
+    }
+
+
+    .articles {
+        grid-template-columns: repeat(2, 1fr) !important;
+        grid-template-rows: repeat(4, 300px) !important;
+    }
+
+    .article:nth-child(1) {
+        grid-column: 1/3;
+        grid-row: 1/3;
+    }
+
+    .articles>div:nth-child(2)>div,
+    .articles>div:nth-child(3)>div,
+    .articles>div:nth-child(4)>div,
+    .articles>div:nth-child(5)>div {
+        flex-direction: column;
+    }
+
+    .articles>div:nth-child(2)>p,
+    .articles>div:nth-child(3)>p,
+    .articles>div:nth-child(4)>p,
+    .articles>div:nth-child(5)>p {
+        height: 3rem;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        line-clamp: 1;
+        -webkit-box-orient: vertical;
+    }
+
+    .books__category {
+        justify-content: center;
+    }
+
+    .news {
+        padding: 5rem;
+    }
+
+    .news__detail {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .close__modal-box {
+        justify-content: start;
+    }
+
+    .modal__close-btn {
+        left: unset;
+        right: 20px;
+        top: 20px;
+
+    }
+
+    .course__top-infos {
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    .video__box {
+        grid-column: 2/3;
+        grid-row: 1/3;
+        height: 18rem;
+    }
+
+    .course__top-textbox {
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+
+    .course__btnAndPriceBox {
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+
+    .video__btn {
+        width: 5rem;
+        height: 5rem;
+    }
+
+    .course__main {
+        grid-template-columns: 1fr;
+    }
+
+    .course__features {
+        grid-row: 2/3;
+    }
+
+
+    .course__chaptersAndSearch {
+        grid-row: 2/3;
+    }
+
+
+
+
+    .course_bottom {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+
+    .course_videoSearchInput_And_Chpaters {
+        grid-column: 2/3;
+        grid-row: 1/2;
+        margin-right: 2rem;
+    }
+
+    .video__info {
+        grid-row: 1/2;
+        grid-column: 1/2;
+    }
+
+    .user__file_box label {
+        display: flex;
+        justify-content: space-between;
+        align-items: center !important;
+    }
+
+    .user__file_text {
+        margin: 0;
+        width: 100%;
+    }
+
+    .user__message .btn,
+    .user__file_box .btn {
+        width: 20%;
+    }
+
+    .presentation_teacher {
+        grid-row: 1/2 !important;
+        margin-right: 2rem;
+    }
+
+
+    .presentation_user__question {
+        grid-row: 2/3 !important;
+        grid-column: 2/3 !important;
+        margin-right: 2rem;
+        gap: 0 !important;
+        justify-content: space-between;
+    }
+
+
+    .presentation_user__question .user__info {
+        grid-row: 1/2 !important;
+        margin-bottom: 2rem;
+    }
+
+
+    .presentation_user__question .editr {
+        grid-row: 1/2 !important;
+    }
+
+    .presentation_user__question .user__file_box {
+        grid-row: 2/3 !important;
+        justify-self: end;
+
+    }
+
+    .presentation_user__question .user__file_box label {
+        display: flex;
+        flex-direction: column !important;
+        align-items: start !important;
+        gap: 1rem;
+    }
+
+
+    .presentation_user__question .btn {
+        width: 100%;
+    }
+
+
+
+
+
+    .presentation_user__comment {
+        grid-row: 2/3 !important;
+        grid-column: 1/2 !important;
+    }
+
+    .presentation_comments {
+        grid-column: 1/3 !important;
+    }
+
+}
+
+@media (min-width: 992px) {
+
+    .container,
+    nav {
+        width: 940px;
+    }
+
+    .blur {
+        display: none !important;
+    }
+
+    nav {
+        background-color: var(--dark-color) !important;
+    }
+
+    .menu-left__box .menu__btn {
+        display: flex !important;
+    }
+
+
+
+    .menu {
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+        padding-right: 0;
+
+
+    }
+
+    .mobile-menu {
+        display: none !important;
+    }
+
+
+
+    #themChanger {
+        display: flex !important;
+    }
+
+
+    .header-content__input-box {
+        width: 45%;
+    }
+
+
+    .header-content__title {
+        gap: 0;
+        grid-template-columns: 252px 100px 418px;
+        align-items: end;
+        font-size: 5rem;
+    }
+
+    .header-content__title-img {
+        grid-column: 2/3;
+        padding-right: 2rem;
+    }
+
+    .header-content__caption {
+        font-size: 4rem;
+        width: 42rem;
+        line-height: 5rem;
+    }
+
+
+
+    .article__title {
+        margin-top: 9rem;
+    }
+
+    .footer-box__content {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+
+    .footer-box__socials {
+        justify-content: start;
+        gap: 3rem;
+    }
+
+    .news__detail {
+        justify-content: start;
+    }
+
+    .news__content {
+        gap: 3rem;
+    }
+
+    .search-result {
+
+        padding: 0 10rem;
+    }
+
+    .modal__close-btn {
+        cursor: pointer;
+    }
+
+    .meeting {
+        left: 0;
+        right: 0;
+        width: 90%;
+        height: 70vh;
+        border-radius: 2rem;
+        overflow-y: hidden;
+
+        align-content: center;
+        justify-content: center;
+        justify-self: center;
+        align-self: center;
+
+    }
+
+    .meeting__wrapper {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 2rem;
+
+
+
+    }
+
+    .meeting__title-box {
+        grid-column: 1/2;
+
+    }
+
+    .meeting__items-box {
+        grid-column: 1/2;
+
+
+    }
+
+    .meeting__attendence-box {
+        display: grid;
+        grid-column: 2/3;
+        grid-row: 1/3;
+        width: 38rem;
+
+
+
+    }
+
+    .video__box {
+        height: unset;
+
+    }
+
+    .video__controles-box {
+        padding: 0 2rem 2rem;
+
+    }
+
+    .course__btnAndPriceBox {
+        align-self: flex-end;
+    }
+
+    .course__chaptersAndSearch .input__box {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .course_bottom {
+        grid-template-columns: 30% 70% !important;
+    }
+
+
+    .chapter__head {
+        grid-template-rows: unset !important;
+        align-items: center;
+    }
+
+    .chapter__otherInfo {
+        grid-row: 1/2;
+        grid-column: 3/4;
+        justify-content: center !important;
+
+    }
+
+    .chapter__head svg {
+        grid-column: 3/4;
+    }
+
+    .chapter__mainInfo {
+        grid-column: 1/2;
+    }
+
+    .chapter__itemLink {
+        flex-direction: row !important;
+        justify-content: space-between;
+    }
+
+    .chpater__itemLinkStatus {
+        width: unset;
+    }
+
+    .not__commnetBox {
+        align-items: center;
+        display: grid;
+        grid-template-columns: 30%;
+        justify-content: center;
+    }
+
+
+
+
+
+
+}
+
+@media (min-width: 1200px) {
+
+    .container,
+    nav {
+        width: 1140px;
+    }
+
+    .popular-courses {
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+
+    }
+
+
+    .search-result,
+    .close__modal-box {
+        width: 85%;
+        margin: 0 auto;
+    }
+
+    .close__modal-box {
+        border-radius: 2rem 2rem 0 0;
+    }
+
+    .meeting {
+        width: 65%;
+    }
+
+    .course__main {
+        grid-template-columns: 70% 30% !important;
+    }
+
+    .course__mainIfons {
+        grid-column: 2/3 !important;
+    }
+
+    .course__features {
+        grid-row: 1/2;
+    }
+
+    .course__bottomInfos {
+        grid-template-columns: 70% 30% !important;
+        grid-template-rows: 1fr;
+        justify-content: center;
+
+    }
+
+    .course__chaptersAndSearch {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        align-content: start;
+    }
+
+
+    .subcategory-last-courses {
+        grid-template-columns: repeat(3, 40.6rem) !important;
+        justify-content: start !important;
+    }
+
+
+    .presentation_user__question .user__file_box label {
+        display: flex;
+        flex-direction: row !important;
+        align-items: center !important;
+
+
+    }
+
+
+    .presentation_user__question .user__file_box .btn {
+        max-width: 24rem !important;
+        width: 100%;
+    }
+
+
+    .articles {
+        grid-template-columns: repeat(4, 1fr) !important;
+        grid-template-rows: repeat(2, 300px) !important;
+    }
+
+    a,
+    button {
+        cursor: pointer !important;
+    }
+
+
+
+
+}
+
+@media (min-width: 1400px) {
+
+    .container,
+    nav {
+        width: 1320px;
+    }
+
+    .meeting__attendence-box {
+        margin-right: 10rem;
+    }
+
+    .meeting {
+        width: 55%;
+    }
+
+
+    .teachers {
+        row-gap: 15rem !important;
+    }
+
+
+
+}
+
+@media (min-width: 1600px) {
+
+    .container,
+    nav {
+        width: 1520px;
+    }
+
+    .teachers {
+        gap: 3rem;
+    }
+
+    .books-section::before {
+        display: none;
+    }
+
+    .books {
+        justify-content: center;
+    }
+
+
+
+    .course__status {
+        grid-row: 1/2;
+    }
+
+    .subcategory-last-courses {
+        grid-template-columns: repeat(3, 347.5px) !important;
+        justify-content: start !important;
+    }
+
+}
+
+
+
+
+
+
+
+.container {
+    padding: 0 2rem;
+    margin: auto;
+    position: relative;
+
+
+}

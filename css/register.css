@@ -1,0 +1,217 @@
+@import "./css/variables.css";
+
+body {
+    height: 100vh;
+    overflow: hidden;
+    background-image: url(/images/registration/bg.png);
+
+}
+
+
+
+/* if click on link class should be sign up ro sing in */
+/* control class name changing with flag */
+
+
+.register--active {
+    display: flex !important;
+}
+
+
+.register {
+
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    border-radius: 2rem 2rem 0 0;
+    border-bottom: none !important;
+
+
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(2rem);
+    padding: 2rem;
+    display: flex;
+    height: 80vh;
+    overflow-y: scroll;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+}
+
+.register::-webkit-scrollbar{
+    width: 0 ;
+    
+}
+
+.register-logo {
+    width: 10rem;
+}
+
+.register-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+
+
+
+.register__input-box {
+    position: relative;
+}
+
+.register__input-img {
+    width: 100%;
+}
+
+.register__input {
+    position: absolute;
+    left: 0;
+    bottom: 15px;
+    right: 0;
+    padding-right: 3rem;
+    height: 4rem;
+    font-size: 1.4rem;
+    font-family: dana-extra-bold;
+
+
+}
+
+.register__input-message-box {
+    margin-top: -1rem;
+    display: none;
+}
+
+.register__input-message {
+
+    justify-content: start;
+    gap: 5px;
+
+
+}
+
+
+.eyes {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 1rem;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.eyes svg {
+    width: 2.7rem;
+    height: 2.7rem;
+    cursor: pointer;
+}
+
+.eyes svg path {
+    stroke: #006CFF;
+}
+
+
+#hide__password {
+    display: none;
+}
+
+
+.register__input-message-text--success {
+    color: var(--success) !important;
+}
+
+.register__input-message-icon path {
+    stroke: var(--accent-color);
+}
+
+.register__input-message-icon--success path {
+    stroke: var(--success);
+}
+
+.register__input-message svg {
+    width: 2rem;
+    height: 2rem;
+}
+
+.register__input-messsage-text {
+    font-size: 1.4rem;
+    font-family: dana-regular;
+    color: var(--accent-color);
+}
+
+#register_username_message>p,
+#singup__password_message>p {
+    font-size: 1.8rem !important;
+}
+
+
+.register__checkbox-wrapper {
+    justify-content: start;
+    gap: 1.5rem;
+}
+
+.register__checkbox-wrapper>label,
+a {
+    color: var(--primery-color);
+}
+
+
+.register__checkbox {
+    display: none;
+}
+
+.register__checkbox:checked+.register__checkbox-style {
+    background-image: url(/images/registration/checked.svg) !important;
+
+    background-position: center;
+    background-size: contain;
+
+}
+
+.register__checkbox-style {
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    border: 2px solid var(--primery-color);
+    border-radius: 100%;
+
+}
+
+.register__rules {
+    text-decoration: underline;
+}
+
+.register__btn-box {
+    width: 100%;
+    text-align: center;
+    display: grid;
+    gap: 3rem;
+}
+
+.register__btn-box p {
+    color: var(--accent-color);
+    display: none;
+}
+
+.register__btn {
+    padding: 2rem;
+    background-color: var(--primery-color);
+    border-radius: 2rem;
+    width: 100%;
+    font-size: 2rem;
+
+
+}
+
+.register__btn:hover {
+    background-color: #0159d4;
+    transition: all ease 250ms;
+}
+
+.register__link {
+    font-family: dana-regular;
+    color: #9097A4;
+}

@@ -1,0 +1,231 @@
+@import "./variables.css";
+@import "./defulat-style.css";
+@import "./fonts.css";
+@import "./responsive.css";
+
+
+
+.btn {
+    background-color: var(--primery-color) !important;
+    border-radius: 1.5rem;
+    padding: 1rem;
+    font-family: dana-demibold;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.custom-header {
+    background: none !important;
+    height: 12rem !important;
+}
+
+.center-xy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.center-xy-absolute {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.center-x-y-bottom-absolute {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.items-center-justify-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.news__author,
+.news__date,
+.news__date-text-box,
+.news__time-text-box,
+.meeting__attendece-content,
+.meeting__attendence-contacts,
+.meeting__items-list__item,
+.close__modal-box,
+.mobile-menu__list-item-link,
+.menu-left__box,
+.menu__btn,
+.header-content-box,
+.header-content__search-box,
+.popular-course__students-count-box,
+.course-rate,
+.presantions-category-item__support,
+.presantions-category-item__support-watch,
+.presantions-category-item__support-like,
+.article__details-author,
+.article__details-date,
+.course-category,
+.education-field__students-count-box,
+.education-field__tag-box,
+.book,
+.footer-box__about-us,
+.register__input-message,
+.register__checkbox-wrapper,
+.breadcrumb__item,
+.video__volume-box,
+.studentsBottomBox,
+.course__feature,
+.chapter__mainInfo,
+.chapter__itemLinkBox,
+.chpater__itemLinkStatus,
+.chpter__otherInfoAndIcon,
+.comment__profile,
+.comment__rate,
+.gallery__tag,
+.user__info {
+    display: flex;
+    align-items: center;
+}
+
+.grid-system {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-content: center;
+    gap: 3rem;
+}
+
+.grid-system-special {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    justify-content: center;
+}
+
+.glassmorphism {
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+}
+
+.glassmorphism_2 {
+    background-color: transparent;
+    backdrop-filter: blur(50px);
+}
+
+.bg_galassmorphism__dark {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(50px);
+    width: 100vw !important;
+    height: 100vh !important;
+    position: fixed;
+    z-index: 1;
+    display: none;
+}
+
+.bg_glassmorphism_2 {
+    background-color: rgba(255, 255, 255, 0.1);
+
+}
+
+.bg-img-config {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.cover-config {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    aspect-ratio: 16/9;
+}
+
+
+/* text-overflow-elipsis 1 line */
+.presentations-category-item__caption,
+.article__caption,
+.chapter__itemLinkTitle,
+.menu__btn-text {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    height: 3rem;
+    /* For 2 lines */
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+
+}
+
+/* text-overflow-elipsis 1 line */
+/* -------------------------------------------------------------------------- */
+
+
+/* direction ltr start */
+.video__time-line-box,
+.video__time-line::before,
+.video__controles-box,
+.teacher__message {
+    direction: ltr;
+}
+
+/* direction ltr end */
+
+
+/* text-overflow-elipsis 2 line */
+.teacher__caption,
+.education-field__caption,
+.course-info__caption {
+
+    width: 100%;
+    overflow: hidden;
+    display: -webkit-box;
+    height: 6rem;
+    /* For 2 lines */
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+
+
+}
+
+/* text-overflow-elipsis 2 line */
+/* -------------------------------------------------------------------------- */
+
+
+/* colors start */
+.main__darkColorBg {
+    background-color: var(--main-dark-color) !important;
+}
+
+
+
+/* colors end */
+
+/* custom scroll start */
+.userCommentText::-webkit-scrollbar,
+.teacher__bio::-webkit-scrollbar,
+.course_videoSearchInput_And_Chpaters::-webkit-scrollbar,
+.article__part::-webkit-scrollbar {
+    background-color: var(--dark-color);
+    width: 7px !important;
+
+}
+
+/* custom scroll end */
+
+/* custom scroll-thumb start */
+
+.userCommentText::-webkit-scrollbar-thumb,
+.teacher__bio::-webkit-scrollbar-thumb,
+.course_videoSearchInput_And_Chpaters::-webkit-scrollbar-thumb,
+.article__part::-webkit-scrollbar-thumb {
+    background-color: var(--primery-color);
+    border-radius: 5rem;
+}
+
+/* custom scroll-thumb end */

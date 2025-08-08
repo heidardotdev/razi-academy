@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fa-IR" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta lang="fa-IR">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- changing title value between sign up and sing in with clicking on the link -->
+    <title>رازی آکادمی | ورود یا ثبت نام</title>
+    <link rel="shortcut icon" href="./images/landing/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/fonts.css">
+    <link rel="stylesheet" href="/css/defulat-style.css">
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/register.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="css/custom-class.css">
+    <link rel="stylesheet" href="/components/success_status_modal/style.css">
+</head>
+
+
+<body class="center-xy bg-img-config " id="register_body">
+
+ 
+
+
+    <!-- sign up -->
+    <form action="#" class="register sign-up register--active">
+        <a href="index.html">
+            <img src="/images/landing/header/razi-academy-logo-and-logo-name.png" alt="رازی آکادمی لوکیشن آینده سازان"
+                class="register-logo">
+
+        </a>
+        <div class="register-wrapper">
+            <div class="register__input-wrapper" id="singup__userfullname__wrapper">
+                <div class="register__input-box">
+                    <img class="register__input-img" draggable="false" src="/images/registration/fullname.png">
+                    <input required class="register__input" autofocus type="text" name="userFullName"
+                        id="singup_userFullName">
+                </div>
+                <div class="register__input-message-box" id="userFullName_message">
+                    <p class="register__input-message">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="register__input-message-icon" width="32"
+                            height="32" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 22c5.5 0 10-4.5 10-10S17.5 2 12 2 2 6.5 2 12s4.5 10 10 10ZM12 8v5"
+                                stroke="#ef4424" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                            <path d="M11.995 16h.009" stroke="#ef4424" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                        </svg>
+                        <span class="register__input-messsage-text">نام غیر مجاز</span>
+
+
+                    </p>
+                </div>
+            </div>
+            <div class="register__input-wrapper">
+                <div class="register__input-box">
+                    <img class="register__input-img" draggable="false" src="/images/registration/username.png">
+                    <input required class="register__input" type="text" name="username" id="singup_username">
+                </div>
+                <div class="register__input-message-box" id="register_username_message">
+                    <p class="register__input-message">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="register__input-message-icon" width="32"
+                            height="32" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 22c5.5 0 10-4.5 10-10S17.5 2 12 2 2 6.5 2 12s4.5 10 10 10ZM12 8v5"
+                                stroke="#ef4424" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                            <path d="M11.995 16h.009" stroke="#ef4424" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                        </svg>
+                        <span class="register__input-messsage-text ">
+                            نام کاربری نامعتبر
+                            <p class="register__input-messsage-text">کاراکتر های مجاز: </p>
+                            <p class="register__input-messsage-text">a - z</p>
+                            <p class="register__input-messsage-text">0 - 9</p>
+                            <p class="register__input-messsage-text">نقطه، زیرخط، خط فاصله</p>
+                        </span>
+
+
+
+                    </p>
+                </div>
+            </div>
+            <div class="register__input-wrapper">
+                <div class="register__input-box">
+                    <img class="register__input-img" draggable="false" src="/images/registration/password.png">
+                    <input required class="register__input" type="password" name="password" id="singup_password">
+                    <div class="eyes">
+                        <svg id="show__password" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                            viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M15.58 12c0 1.98-1.6 3.58-3.58 3.58S8.42 13.98 8.42 12s1.6-3.58 3.58-3.58 3.58 1.6 3.58 3.58Z"
+                                stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                            <path
+                                d="M12 20.27c3.53 0 6.82-2.08 9.11-5.68.9-1.41.9-3.78 0-5.19-2.29-3.6-5.58-5.68-9.11-5.68-3.53 0-6.82 2.08-9.11 5.68-.9 1.41-.9 3.78 0 5.19 2.29 3.6 5.58 5.68 9.11 5.68Z"
+                                stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                        </svg>
+                        <svg id="hide__password" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                            viewBox="0 0 24 24" fill="none">
+                            <path d="m14.53 9.47-5.06 5.06a3.576 3.576 0 1 1 5.06-5.06Z" stroke="#ffffff"
+                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path
+                                d="M17.82 5.77C16.07 4.45 14.07 3.73 12 3.73c-3.53 0-6.82 2.08-9.11 5.68-.9 1.41-.9 3.78 0 5.19.79 1.24 1.71 2.31 2.71 3.17M8.42 19.53c1.14.48 2.35.74 3.58.74 3.53 0 6.82-2.08 9.11-5.68.9-1.41.9-3.78 0-5.19-.33-.52-.69-1.01-1.06-1.47"
+                                stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                            <path d="M15.51 12.7a3.565 3.565 0 0 1-2.82 2.82M9.47 14.53 2 22M22 2l-7.47 7.47"
+                                stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="register__input-message-box" id="singup__password_message">
+                    <p class="register__input-message">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="register__input-message-icon" width="32"
+                            height="32" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 22c5.5 0 10-4.5 10-10S17.5 2 12 2 2 6.5 2 12s4.5 10 10 10ZM12 8v5"
+                                stroke="#ef4424" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                            <path d="M11.995 16h.009" stroke="#ef4424" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                        </svg>
+                        <span class="register__input-messsage-text ">
+                            گذرواژه نامعتبر
+                            <p class="register__input-messsage-text">گذرواژه باید شامل </p>
+                            <p class="register__input-messsage-text">a - z</p>
+                            <p class="register__input-messsage-text">0 - 9</p>
+                            <p class="register__input-messsage-text">@ # $ % , غیره باشد</p>
+                        </span>
+
+
+                    </p>
+                </div>
+            </div>
+
+
+
+            <div class="register__input-box " id="checkbox__wrapper">
+                <label for="singup_checkbox" class="register__checkbox-wrapper">
+                    <input required type="checkbox" name="rulesAccepted" id="singup_checkbox"
+                        class="register__checkbox">
+                    <span class="register__checkbox-style"></span>
+                    <span>
+                        <a href="#" class="register__rules">قوانین</a>
+                        را می‌پذیرم
+                    </span>
+
+                </label>
+            </div>
+        </div>
+
+        <div class="register__btn-box">
+            <p>شما باید همه فیلد هارو پر کنید و قوانین رو بپذیرید</p>
+            <button class="register__btn" id="singup__btn">ثبت نام</button>
+            <a href="#" id="signup__link" class="register__link">ورود به حساب کاربری</a>
+        </div>
+    </form>
+    <!-- sign up -->
+    <!-- ----------------------------------------------------------------------- -->
+
+
+
+
+
+    <script type="module" src="/js/register.js"></script>
+
+</body>
+
+</html>
