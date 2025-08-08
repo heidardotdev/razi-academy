@@ -35,7 +35,7 @@ const singUp = () => {
         .then(result => {
             clearInputs()
             registrationSuccesssHandler(`${result.userFullName} عزیز`)
-            saveInLocalStorage("user", result.token)
+            saveInLocalStorage("user", `token: ${result.token}`)
         })
         .catch(() => {
             console.clear()
