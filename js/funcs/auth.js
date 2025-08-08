@@ -1,4 +1,4 @@
-import { registrationSuccesssHandler, registrationDangerHandler,clearInputs } from "./utils.js"
+import { registrationSuccesssHandler, registrationDangerHandler,clearInputs, saveInLocalStorage } from "./utils.js"
 const $ = document
 
 
@@ -35,6 +35,7 @@ const singUp = () => {
         .then(result => {
             clearInputs()
             registrationSuccesssHandler(`${result.userFullName} عزیز`)
+            saveInLocalStorage("user", result.token)
         })
         .catch(() => {
             console.clear()

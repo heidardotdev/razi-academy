@@ -20,6 +20,26 @@ const clearInputs = () => {
 }
 
 
+/* -------------------------------------------------------------------------- */
+/*                             local storage funcs                            */
+/* -------------------------------------------------------------------------- */
+
+const saveInLocalStorage = (key, value) => {
+    return localStorage.setItem(key,JSON.stringify(value))
+
+}
+
+const getLocalStorage = (key) => {
+    return localStorage.getItem(key)
+
+}
+
+
+const getToken = () => {
+    return JSON.parse(localStorage.getItem())
+}
+
+
 
 
 /* -------------------------------------------------------------------------- */
@@ -52,5 +72,8 @@ const registrationDangerHandler = () => {
 export {
     registrationSuccesssHandler,
     registrationDangerHandler, 
-    clearInputs
+    clearInputs,
+    saveInLocalStorage,
+    getLocalStorage,
+    getToken
 }
