@@ -48,6 +48,7 @@ const getToken = () => {
 
 
 
+
 /* -------------------------------------------------------------------------- */
 /*                           registration components                          */
 /* -------------------------------------------------------------------------- */
@@ -83,5 +84,5 @@ export {
     clearInputs,
     saveInLocalStorage,
     getLocalStorage,
-    getToken,
+    getToken
 }

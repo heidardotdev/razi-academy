@@ -1,4 +1,4 @@
-import { registrationSuccesssHandler, registrationDangerHandler, clearInputs, saveInLocalStorage, getToken } from "./utils.js"
+import { registrationSuccesssHandler, registrationDangerHandler, clearInputs, saveInLocalStorage } from "./utils.js"
 const $ = document
 
 
@@ -84,25 +84,7 @@ const signIn = () => {
 
 
 
-/* -------------------------------------------------------------------------- */
-/*                                token handler                               */
-/* -------------------------------------------------------------------------- */
 
-const userTokenHandler = async () => {
-    const token = getToken()
-    if (!token) {
-        return false
-    } else {
-        const res = await fetch("http://localhost:5000/api/users/profile", {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        })
-
-        const result = await res.json()
-        return result
-    }
-}
 
 
 
@@ -113,5 +95,4 @@ const userTokenHandler = async () => {
 export {
     signUp,
     signIn,
-    userTokenHandler
 }

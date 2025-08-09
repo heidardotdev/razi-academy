@@ -27,10 +27,7 @@ const registerUser = async (req, res) => {
 
   res.status(201).json({
     token,
-    userName: user.userName,
     userFullName: user.userFullName,
-    createdAt: user.createdAt,
-    userRole: user.userRole,
   });
 };
 
@@ -52,10 +49,7 @@ const loginUser = async (req, res) => {
 
   res.json({
     token,
-    userName: user.userName,
     userFullName: user.userFullName,
-    createdAt: user.createdAt,
-    userRole: user.userRole,
   });
 };
 
@@ -68,7 +62,6 @@ const getUserProfile = async (req, res) => {
   }
 
   res.json({
-    token: generateToken(user._id),
     userName: user.userName,
     userFullName: user.userFullName,
     createdAt: user.createdAt,
