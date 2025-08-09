@@ -42,7 +42,7 @@ const getToken = () => {
     return userToken ? userToken.token : null
 }
 
-const isSignenIn = () => {
+const isSignedIn = () => {
     const userToken = JSON.parse(localStorage.getItem("user"))
     return userToken ? true : false
 }
@@ -91,5 +91,5 @@ export {
     saveInLocalStorage,
     getLocalStorage,
     getToken,
-    isSignenIn
+    isSignedIn
 }
