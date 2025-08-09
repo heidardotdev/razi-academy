@@ -1,5 +1,6 @@
 import { mobileSideBarHandler } from "./funcs/sideBar.js";
 import { elementsLinkHandler } from "./funcs/elementsLink.js";
+import { menuBtnTextHandler } from "./funcs/shared.js";
 
 /* -------------------------- Mobile SideBar Start -------------------------- */
 mobileSideBarHandler()
@@ -9,6 +10,15 @@ mobileSideBarHandler()
 /* ----------------------- elements Link Handler Start ---------------------- */
 elementsLinkHandler()
 /* ------------------------ elements Link Handler End ----------------------- */
+
+
+/* -------------------------------------------------------------------------- */
+/*                            menu Btn Text Handler                           */
+/* -------------------------------------------------------------------------- */
+
+window.addEventListener("load", () => {
+    menuBtnTextHandler()
+})
 
 
 
