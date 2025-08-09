@@ -9,7 +9,7 @@ body {
 
 
 
-/* if click on link class should be sign up ro sing in */
+/* if click on link class should be sign up ro sign in */
 /* control class name changing with flag */
 
 
@@ -39,7 +39,7 @@ body {
     gap: 4rem;
 }
 
-.signIn #singup__userfullname__wrapper{
+.signIn #signup__userfullname__wrapper{
     display: none;
 }
 
@@ -177,7 +177,7 @@ body {
 }
 
 #register_username_message>p,
-#singup__password_message>p {
+#signup__password_message>p {
     font-size: 1.8rem !important;
 }
 

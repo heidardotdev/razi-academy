@@ -4,14 +4,14 @@ const $ = document
 
 
 /* -------------------------------------------------------------------------- */
-/*                              sing Up Function                              */
+/*                              sign Up Function                              */
 /* -------------------------------------------------------------------------- */
 const signUp = () => {
 
 
-    const userFullNameInput = $.querySelector("#singup_userFullName")
-    const userNameInput = $.querySelector("#singup_username")
-    const passswordInput = $.querySelector("#singup_password")
+    const userFullNameInput = $.querySelector("#signup_userFullName")
+    const userNameInput = $.querySelector("#signup_username")
+    const passswordInput = $.querySelector("#signup_password")
 
     const newUser = {
         userFullName: userFullNameInput.value.trim(),
@@ -52,8 +52,8 @@ const signUp = () => {
 
 const signIn = () => {
 
-    const userNameInput = $.querySelector("#singup_username")
-    const passswordInput = $.querySelector("#singup_password")
+    const userNameInput = $.querySelector("#signup_username")
+    const passswordInput = $.querySelector("#signup_password")
 
     const userInfo = {
         userName: userNameInput.value.toLowerCase().trim(),
