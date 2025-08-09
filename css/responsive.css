@@ -193,6 +193,10 @@
 
     }
 
+    .signIn .register{
+        height: 70rem !important;
+    }
+
     .status__modal {
         border-radius: 2rem;
         width: 350px !important;
