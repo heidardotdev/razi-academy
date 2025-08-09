@@ -1,7 +1,6 @@
 import { mobileSideBarHandler } from "./funcs/sideBar.js";
 import { elementsLinkHandler} from "./funcs/elementsLink.js";
 
-
 /* -------------------------- Mobile SideBar Start -------------------------- */
 mobileSideBarHandler()
 /* --------------------------- Mobile SideBar End --------------------------- */
@@ -12,4 +11,8 @@ elementsLinkHandler()
 /* ------------------------ elements Link Handler End ----------------------- */
 
 
+
+/* -------------------------------------------------------------------------- */
+/*                               navbar username                              */
+/* -------------------------------------------------------------------------- */
 

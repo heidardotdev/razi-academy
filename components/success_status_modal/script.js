@@ -48,7 +48,7 @@ successStatusModalTemplate.innerHTML = `
 
         <div class="status__modal__message">
             <slot name="regestration__Title" class="status__modal_title" id="regestration__Title"></slot>
-            <p class="status__modal_text">ثبت نام شما با موفقیت انجام شد</p>
+            <slot name="status__modal_text" class="status__modal_text"></slot>
             <p class="status__modal_timelinetext">انتقال به داشبورد پس از ۵ ثانیه</p>
         </div>
 
@@ -90,11 +90,11 @@ class successStatusModal extends HTMLElement {
             
             if(timeLineElemWidth === 100){
                 clearInterval(timer)
-                location.href = "/"
+                location.href = "dashboard.html"
             }
 
 
-            timeLineElemText.innerHTML = `انتقال به رازی آکادمی پس از ${--timeLineElemTime} ثانیه`
+            timeLineElemText.innerHTML = `انتقال به داشبورد پس از ${--timeLineElemTime} ثانیه`
             timeLineElem.style.width = `calc(100% - ${timeLineElemWidth}%)`
         }, 1000);
 

@@ -72,6 +72,7 @@ const getUserProfile = async (req, res) => {
     userName: user.userName,
     userFullName: user.userFullName,
     createdAt: user.createdAt,
+    updatedAt: user.updatedAt,
     userRole: user.userRole,
   });
 };

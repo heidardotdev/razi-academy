@@ -31,13 +31,19 @@ const saveInLocalStorage = (key, value) => {
 
 const getLocalStorage = (key) => {
     return localStorage.getItem(key)
+    
 
 }
+
 
 
 const getToken = () => {
-    return JSON.parse(localStorage.getItem())
+    const userInfos = JSON.parse(localStorage.getItem("user"))
+    return userInfos ? userInfos.token : null
+
 }
+
+
 
 
 
@@ -46,11 +52,13 @@ const getToken = () => {
 /*                           registration components                          */
 /* -------------------------------------------------------------------------- */
 
-const registrationSuccesssHandler = (registerResult) => {
+const registrationSuccesssHandler = (registerResultTitle, registerResultText ) => {
     window.customElements.define("status-modal-success", successStatusModal)
     registerBody.insertAdjacentHTML("afterbegin", `
         <status-modal-success>
-        <h3 slot="regestration__Title" class="status__modal_title" id="regestration__Title">${registerResult}</h3>
+        <h3 slot="regestration__Title" class="status__modal_title" id="regestration__Title">${registerResultTitle}</h3>
+        <p slot="status__modal_text" class="status__modal_text">${registerResultText}</p>
+        
         </status-modal-success>
 
         `)
@@ -75,5 +83,5 @@ export {
     clearInputs,
     saveInLocalStorage,
     getLocalStorage,
-    getToken
+    getToken,
 }

@@ -1,4 +1,4 @@
-import { singUp } from "./funcs/auth.js";
+import { signUp, signIn } from "./funcs/auth.js";
 
 
 
@@ -12,46 +12,10 @@ const userFullNameInputMessage = $.querySelector("#userFullName_message")
 const registerUserNameInputMessage = $.querySelector("#register_username_message")
 const singupPassswordMessage = $.querySelector("#singup__password_message")
 const singupEmptyInputsMessage = $.querySelector(".register__btn-box p")
+const registerBody = $.querySelector("#register_body")
+const signInBtn = $.querySelector("#signIn__btn")
+const registerLinks = $.querySelectorAll(".register__link")
 
-
-
-
-
-
-
-
-
-
-
-
-// sing up start
-const singUpBtn = $.querySelector("#singup__btn")
-
-window.addEventListener("keyup", (event) => {
-    if (event.key === "Enter") {
-        singUpHandler()
-
-    }
-})
-
- singUpBtn.addEventListener("click", event => {
-   event.preventDefault()
-    singUpHandler()
-
-
- })
-
-const singUpHandler = () => {
-    if (isUserFullNameValid && isUserNameValid && isPasswordValid && checkBoxInput.checked) {
-        singUp()
-        singupEmptyInputsMessage.style.display = "none"
-    } else {
-        singupEmptyInputsMessage.style.display = "block"
-
-    }
-
-}
-// sing up end
 
 
 
@@ -136,6 +100,102 @@ window.addEventListener("change", () => {
 })
 
 //input validation end
+
+
+
+
+
+
+
+
+
+// sing up start
+const singUpBtn = $.querySelector("#singup__btn")
+
+window.addEventListener("keyup", (event) => {
+    if (event.key === "Enter") {
+        singUpHandler()
+
+    }
+})
+
+singUpBtn.addEventListener("click", event => {
+    event.preventDefault()
+    singUpHandler()
+
+
+})
+
+const singUpHandler = () => {
+    if (isUserFullNameValid && isUserNameValid && isPasswordValid && checkBoxInput.checked) {
+        signUp()
+        singupEmptyInputsMessage.style.display = "none"
+    } else {
+        singupEmptyInputsMessage.style.display = "block"
+
+    }
+
+}
+// sing up end
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                                   sing In                                  */
+/* -------------------------------------------------------------------------- */
+
+const singInLinksHandler = () => {
+
+    registerLinks.forEach(item => {
+        item.addEventListener("click", event => {
+            event.preventDefault()
+            registerBody.classList.toggle("signIn")
+        })
+    })
+
+
+
+
+
+}
+singInLinksHandler()
+
+const signInHandler = () => {
+    if (isUserNameValid, isPasswordValid) {
+        singupEmptyInputsMessage.style.display = "none"
+        signIn()
+    } else {
+        singupEmptyInputsMessage.style.display = "block"
+    }
+
+}
+
+window.addEventListener("keyup", event => {
+    if (event.key === "Enter") {
+        signInHandler()
+    }
+})
+
+signInBtn.addEventListener("click", event => {
+    event.preventDefault()
+    signInHandler()
+
+})
+
+window.addEventListener("change", () => {
+            if (isUserNameValid, isPasswordValid) {
+                singupEmptyInputsMessage.style.display = "none"
+            }else{
+                singupEmptyInputsMessage.style.display = "block"
+
+            }
+})
+
+
+
+
+
+
 
 
 

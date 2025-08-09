@@ -39,6 +39,40 @@ body {
     gap: 4rem;
 }
 
+.signIn #singup__userfullname__wrapper{
+    display: none;
+}
+
+.signIn #checkbox__wrapper{
+    display: none ;
+}
+
+.signIn .register__link,
+.signIn .register__btn{
+    display: none;
+}
+
+.signIn #signUp__link,
+.signIn #signIn__btn{
+    display: block;
+}
+
+
+
+.signIn #sigIn_userName{
+    display: block !important;
+}
+
+
+#signUp__link,
+#signIn__btn{
+    display: none;
+}
+
+.signIn .register{
+    height: 60vh !important;
+}
+
 .register::-webkit-scrollbar{
     width: 0 ;
     

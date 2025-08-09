@@ -1,4 +1,4 @@
-import { registrationSuccesssHandler, registrationDangerHandler,clearInputs, saveInLocalStorage } from "./utils.js"
+import { registrationSuccesssHandler, registrationDangerHandler, clearInputs, saveInLocalStorage } from "./utils.js"
 const $ = document
 
 
@@ -6,7 +6,7 @@ const $ = document
 /* -------------------------------------------------------------------------- */
 /*                              sing Up Function                              */
 /* -------------------------------------------------------------------------- */
-const singUp = () => {
+const signUp = () => {
 
 
     const userFullNameInput = $.querySelector("#singup_userFullName")
@@ -34,8 +34,8 @@ const singUp = () => {
         })
         .then(result => {
             clearInputs()
-            registrationSuccesssHandler(`${result.userFullName} عزیز`)
-            saveInLocalStorage("user", `token: ${result.token}`)
+            registrationSuccesssHandler(`${result.userFullName} عزیز`, "ثبت نام شما با موفقیت انجام شد")
+            saveInLocalStorage("user", {token: result.token})
         })
         .catch(() => {
             console.clear()
@@ -46,10 +46,48 @@ const singUp = () => {
 }
 
 
+/* -------------------------------------------------------------------------- */
+/*                              sign In Function                              */
+/* -------------------------------------------------------------------------- */
+
+const signIn = () => {
+
+    const userNameInput = $.querySelector("#singup_username")
+    const passswordInput = $.querySelector("#singup_password")
+
+    const userInfo = {
+        userName: userNameInput.value.toLowerCase().trim(),
+        password: passswordInput.value
+    }
+
+    fetch("http://localhost:5000/api/users/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userInfo)
+    }).then(res => {
+        if (res.ok) {
+
+            return res.json()
+        }
+    }).then(result => {
+        clearInputs()
+        registrationSuccesssHandler(`${result.userFullName} عزیز `, "با موفقیت وارد شدید")
+        saveInLocalStorage("user", {token: result.token})
+    })
+        .catch(() => {
+            registrationDangerHandler()
+        })
+
+}
+
+
 
 
 
 
 export {
-    singUp
+    signUp,
+    signIn
 }
