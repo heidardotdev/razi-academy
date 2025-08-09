@@ -725,9 +725,9 @@ aside::-webkit-scrollbar-thumb {
 
 }
 
-.menu__btn-text{
-    width: 12rem !important;
-   
+.menu__btn svg{
+    width: 5rem !important;
+    height: 4rem !important;
     
 }
 

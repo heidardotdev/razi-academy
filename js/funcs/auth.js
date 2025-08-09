@@ -83,6 +83,7 @@ const signIn = () => {
 }
 
 
+
 /* -------------------------------------------------------------------------- */
 /*                             user token handler                             */
 /* -------------------------------------------------------------------------- */
@@ -92,17 +93,19 @@ const userTokenHandler = async() => {
 
     if(!token){
         return false
+    }else{
+        const res = await fetch("http://localhost:5000/api/users/profile", {
+            headers: {
+                Authorization: `Bearer ${token}` 
+            }
+        })
+
+        const result = await res.json()
+        return result
     }
-
-    const res = await fetch("http://localhost:5000/api/users/profile", {
-        headers: {
-            Authentication: `Bearer ${token}`
-        }
-    })
-
-    const result = await res.json()
-    return result
 }
+
+
 
 
 
