@@ -4,14 +4,14 @@ import { signUp, signIn } from "./funcs/auth.js";
 
 const $ = document
 
-const userFullNameInput = $.querySelector("#singup_userFullName")
-const userNameInput = $.querySelector("#singup_username")
-const passswordInput = $.querySelector("#singup_password")
-const checkBoxInput = $.querySelector("#singup_checkbox")
+const userFullNameInput = $.querySelector("#signup_userFullName")
+const userNameInput = $.querySelector("#signup_username")
+const passswordInput = $.querySelector("#signup_password")
+const checkBoxInput = $.querySelector("#signup_checkbox")
 const userFullNameInputMessage = $.querySelector("#userFullName_message")
 const registerUserNameInputMessage = $.querySelector("#register_username_message")
-const singupPassswordMessage = $.querySelector("#singup__password_message")
-const singupEmptyInputsMessage = $.querySelector(".register__btn-box p")
+const signupPassswordMessage = $.querySelector("#signup__password_message")
+const signUpEmptyInputsMessage = $.querySelector(".register__btn-box p")
 const registerBody = $.querySelector("#register_body")
 const signInBtn = $.querySelector("#signIn__btn")
 const registerLinks = $.querySelectorAll(".register__link")
@@ -77,15 +77,15 @@ userNameInput.addEventListener("keyup", () => {
 passswordInput.addEventListener("keyup", () => {
     const passwordValidationRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,15}$/i
     if (passswordInput.value.length === 0) {
-        singupPassswordMessage.style.display = "none"
+        signupPassswordMessage.style.display = "none"
 
     } else {
         if (passwordValidationRegex.test(passswordInput.value)) {
             isPasswordValid = true
-            singupPassswordMessage.style.display = "none"
+            signupPassswordMessage.style.display = "none"
 
         } else {
-            singupPassswordMessage.style.display = "block"
+            signupPassswordMessage.style.display = "block"
             isPasswordValid = false
 
 
@@ -97,7 +97,7 @@ passswordInput.addEventListener("keyup", () => {
 
 window.addEventListener("change", () => {
     if (isUserFullNameValid, isUserNameValid, isPasswordValid, checkBoxInput.checked) {
-        singupEmptyInputsMessage.style.display = "none"
+        signUpEmptyInputsMessage.style.display = "none"
     }
 })
 
@@ -114,7 +114,7 @@ window.addEventListener("change", () => {
 /* -------------------------------------------------------------------------- */
 /*                                   sign Up                                  */
 /* -------------------------------------------------------------------------- */
-const signUpBtn = $.querySelector("#singup__btn")
+const signUpBtn = $.querySelector("#signup__btn")
 
 window.addEventListener("keyup", (event) => {
     if (event.key === "Enter") {
@@ -133,9 +133,9 @@ signUpBtn.addEventListener("click", event => {
 const signUpHandler = () => {
     if (isUserFullNameValid && isUserNameValid && isPasswordValid && checkBoxInput.checked) {
         signUp()
-        singupEmptyInputsMessage.style.display = "none"
+        signUpEmptyInputsMessage.style.display = "none"
     } else {
-        singupEmptyInputsMessage.style.display = "block"
+        signUpEmptyInputsMessage.style.display = "block"
 
     }
 
@@ -145,10 +145,10 @@ const signUpHandler = () => {
 
 
 /* -------------------------------------------------------------------------- */
-/*                                   sing In                                  */
+/*                                   sign In                                  */
 /* -------------------------------------------------------------------------- */
 
-const singInLinksHandler = () => {
+const signInLinksHandler = () => {
 
     registerLinks.forEach(item => {
         item.addEventListener("click", event => {
@@ -162,14 +162,14 @@ const singInLinksHandler = () => {
 
 
 }
-singInLinksHandler()
+signInLinksHandler()
 
 const signInHandler = () => {
     if (isUserNameValid, isPasswordValid) {
-        singupEmptyInputsMessage.style.display = "none"
+        signUpEmptyInputsMessage.style.display = "none"
         signIn()
     } else {
-        singupEmptyInputsMessage.style.display = "block"
+        signUpEmptyInputsMessage.style.display = "block"
     }
 
 }
@@ -188,9 +188,9 @@ signInBtn.addEventListener("click", event => {
 
 window.addEventListener("change", () => {
             if (isUserNameValid, isPasswordValid) {
-                singupEmptyInputsMessage.style.display = "none"
+                signUpEmptyInputsMessage.style.display = "none"
             }else{
-                singupEmptyInputsMessage.style.display = "block"
+                signUpEmptyInputsMessage.style.display = "block"
 
             }
 })
