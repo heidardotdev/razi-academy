@@ -38,9 +38,7 @@ const getLocalStorage = (key) => {
 
 
 const getToken = () => {
-    const userInfos = JSON.parse(localStorage.getItem("user"))
-    return userInfos ? userInfos.token : null
-
+    return JSON.parse(localStorage.getItem("user")).token
 }
 
 
