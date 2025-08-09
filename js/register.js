@@ -187,13 +187,14 @@ signInBtn.addEventListener("click", event => {
 })
 
 window.addEventListener("change", () => {
-            if (isUserNameValid, isPasswordValid) {
-                signUpEmptyInputsMessage.style.display = "none"
-            }else{
-                signUpEmptyInputsMessage.style.display = "block"
+    if (isUserNameValid, isPasswordValid) {
+        signUpEmptyInputsMessage.style.display = "none"
+    } else {
+        signUpEmptyInputsMessage.style.display = "block"
 
-            }
+    }
 })
+
 
 
 
