@@ -20,7 +20,9 @@ const registerLinks = $.querySelectorAll(".register__link")
 
 
 
-//input validation start
+/* -------------------------------------------------------------------------- */
+/*                              input validation                              */
+/* -------------------------------------------------------------------------- */
 
 let isUserNameValid = false
 let isUserFullNameValid = false
@@ -99,7 +101,6 @@ window.addEventListener("change", () => {
     }
 })
 
-//input validation end
 
 
 
@@ -109,24 +110,27 @@ window.addEventListener("change", () => {
 
 
 
-// sing up start
-const singUpBtn = $.querySelector("#singup__btn")
+
+/* -------------------------------------------------------------------------- */
+/*                                   sign Up                                  */
+/* -------------------------------------------------------------------------- */
+const signUpBtn = $.querySelector("#singup__btn")
 
 window.addEventListener("keyup", (event) => {
     if (event.key === "Enter") {
-        singUpHandler()
+        signUpHandler()
 
     }
 })
 
-singUpBtn.addEventListener("click", event => {
+signUpBtn.addEventListener("click", event => {
     event.preventDefault()
-    singUpHandler()
+    signUpHandler()
 
 
 })
 
-const singUpHandler = () => {
+const signUpHandler = () => {
     if (isUserFullNameValid && isUserNameValid && isPasswordValid && checkBoxInput.checked) {
         signUp()
         singupEmptyInputsMessage.style.display = "none"
@@ -136,7 +140,7 @@ const singUpHandler = () => {
     }
 
 }
-// sing up end
+
 
 
 
@@ -199,8 +203,9 @@ window.addEventListener("change", () => {
 
 
 
-
-// show pass start
+/* -------------------------------------------------------------------------- */
+/*                           show and hide password                           */
+/* -------------------------------------------------------------------------- */
 
 const showPasswordBtn = $.querySelector("#show__password")
 const hidePasswordBtn = $.querySelector("#hide__password")
@@ -217,7 +222,6 @@ hidePasswordBtn.addEventListener("click", () => {
     hidePasswordBtn.style.display = "none"
 })
 
-// show pass end
 
 
 
