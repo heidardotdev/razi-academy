@@ -7,26 +7,28 @@ const $ = document
 /*                            menu Btn Text Handler                           */
 /* -------------------------------------------------------------------------- */
 
-const menuBtnTextHandler = () =>  {
+const menuBtnTextHandler = () => {
     const isUserSignedIn = isSignedIn()
+    const menuBtn = $.querySelector(".menu__btn")
+    const menuBtnText = $.querySelector(".menu__btn-text")
 
-    if(!isUserSignedIn){
+    if (!isUserSignedIn) {
+        menuBtn.setAttribute("href", "register.html")
         return false
+
     }
 
-    const menuBtn = $.querySelector(".menu__btn")
     menuBtn.setAttribute("href", "dashboard.html")
 
-    const menuBtnText = $.querySelector(".menu__btn-text")
     userTokenHandler().then(res => {
         menuBtnText.textContent = `${res.userFullName}`
-        
+
     })
 
 
 
 }
 
-export{
+export {
     menuBtnTextHandler
 }
