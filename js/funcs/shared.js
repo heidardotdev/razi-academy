@@ -23,6 +23,10 @@ const menuBtnTextHandler = () => {
     userTokenHandler().then(res => {
         menuBtnText.textContent = `${res.userFullName}`
 
+    }).catch(() => {
+        console.clear()
+        return false
+
     })
 
 
