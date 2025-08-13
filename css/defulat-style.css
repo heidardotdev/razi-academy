@@ -16,6 +16,11 @@
     background-color: transparent;
 }
 
+input::selection{
+    background-color: var(--primery-color);
+    color: #fff;
+}
+
 video{
     width: 100%;
 }
