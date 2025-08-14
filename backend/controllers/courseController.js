@@ -1,121 +1,278 @@
 const Course = require('../models/Course');
 const Chapter = require('../models/Chapter');
 const Lesson = require('../models/Lesson');
-const Comment = require('../models/Comment');
-const CourseTeacher = require('../models/CourseTeacher');
 const Enrollment = require('../models/Enrollment');
-const { toCourseListDTO, toCourseDetailsDTO } = require('../utils/responseFormatter');
 
-// GET /api/courses
-exports.getAllCourses = async (req, res) => {
+// کمک: ساخت خروجی تمیز
+const shapeCourseSummary = (doc) => ({
+  _id: doc._id,
+  title: doc.title,
+  description: doc.description,
+  price: doc.price,
+  coverImage: doc.coverImage,
+  category: doc.category,
+  courseAverageScore: doc.courseAverageScore || 0,
+  chaptersCount: doc.chaptersCount || 0,
+  studentsCount: doc.studentsCount || 0,
+  createdAt: doc.createdAt,
+  teacher: doc.teacher ? {
+    _id: doc.teacher._id,
+    fullName: doc.teacher.fullName,
+    avatar: doc.teacher.avatar,
+    bio: doc.teacher.bio,
+  } : null,
+});
+
+// @POST /api/courses
+exports.createCourse = async (req, res) => {
   try {
-    const courses = await Course.aggregate([
+    const created = await Course.create(req.body);
+    // populate teacher
+    const course = await Course.findById(created._id)
+      .populate('teacherId', 'fullName avatar bio')
+      .lean();
+
+    // counts
+    const [chaptersCount, studentsCount] = await Promise.all([
+      Chapter.countDocuments({ courseId: course._id }),
+      Enrollment.countDocuments({ courseId: course._id }),
+    ]);
+
+    return res.status(201).json(
+      shapeCourseSummary({
+        ...course,
+        teacher: course.teacherId,
+        chaptersCount,
+        studentsCount,
+      })
+    );
+  } catch (e) {
+    return res.status(400).json({ message: e.message });
+  }
+};
+
+// @GET /api/courses
+exports.getCourses = async (req, res) => {
+  try {
+    // aggregation برای برگشت خلاصه‌های بهینه با شمارش‌ها
+    const data = await Course.aggregate([
+      {
+        $lookup: {
+          from: 'courseteachers',
+          localField: 'teacherId',
+          foreignField: '_id',
+          as: 'teacher'
+        }
+      },
+      { $unwind: '$teacher' },
       {
         $lookup: {
           from: 'chapters',
           localField: '_id',
           foreignField: 'courseId',
-          as: 'chapters'
+          as: '_chapters'
         }
       },
-      { $addFields: { chaptersCount: { $size: '$chapters' } } },
-      { $project: { chapters: 0 } }
-    ]);
-    res.json(courses.map(toCourseListDTO));
-  } catch (e) {
-    res.status(500).json({ message: e.message });
-  }
-};
-
-// GET /api/courses/popular
-exports.getPopularCourses = async (req, res) => {
-  try {
-    const courses = await Course.find().sort({ studentsCount: -1 }).limit(3);
-    res.json(courses.map(toCourseListDTO));
-  } catch (e) {
-    res.status(500).json({ message: e.message });
-  }
-};
-
-// GET /api/courses/:id (courseDetails)
-exports.getCourseDetails = async (req, res) => {
-  try {
-    const course = await Course.findById(req.params.id);
-    if (!course) return res.status(404).json({ message: 'Course not found' });
-
-    const teacher = await CourseTeacher.findById(course.teacherId).select('fullName avatar');
-    const chapters = await Chapter.aggregate([
-      { $match: { courseId: course._id } },
       {
         $lookup: {
-          from: 'lessons',
+          from: 'enrollments',
           localField: '_id',
-          foreignField: 'chapterId',
-          as: 'lessons'
+          foreignField: 'courseId',
+          as: '_enrollments'
         }
       },
-      { $project: { title: 1, lessons: { title: 1, video: 1, attachedFile: 1 } } }
+      {
+        $addFields: {
+          chaptersCount: { $size: '$_chapters' },
+          studentsCount: { $size: '_enrollments' }
+        }
+      },
+      {
+        $project: {
+          title: 1, description: 1, price: 1, coverImage: 1, category: 1,
+          courseAverageScore: 1, createdAt: 1, chaptersCount: 1, studentsCount: 1,
+          teacher: { _id: '$teacher._id', fullName: '$teacher.fullName', avatar: '$teacher.avatar', bio: '$teacher.bio' }
+        }
+      },
+      { $sort: { createdAt: -1 } }
     ]);
 
-    const comments = await Comment.find({ courseId: course._id }).sort({ createdAt: -1 });
-
-    res.json(toCourseDetailsDTO(course, teacher, chapters, comments));
+    return res.json(data.map(shapeCourseSummary));
   } catch (e) {
-    res.status(500).json({ message: e.message });
+    return res.status(500).json({ message: e.message });
   }
 };
 
-// POST /api/courses
-exports.createCourse = async (req, res) => {
+// @GET /api/courses/popular
+exports.getPopularCourses = async (req, res) => {
   try {
-    const created = await Course.create(req.body);
-    res.status(201).json(toCourseListDTO(created));
+    const data = await Course.aggregate([
+      {
+        $lookup: {
+          from: 'courseteachers',
+          localField: 'teacherId',
+          foreignField: '_id',
+          as: 'teacher'
+        }
+      },
+      { $unwind: '$teacher' },
+      {
+        $lookup: {
+          from: 'enrollments',
+          localField: '_id',
+          foreignField: 'courseId',
+          as: '_enrollments'
+        }
+      },
+      { $addFields: { studentsCount: { $size: '$_enrollments' } } },
+      {
+        $project: {
+          title: 1, description: 1, price: 1, coverImage: 1, category: 1,
+          courseAverageScore: 1, createdAt: 1, studentsCount: 1,
+          teacher: { _id: '$teacher._id', fullName: '$teacher.fullName', avatar: '$teacher.avatar', bio: '$teacher.bio' }
+        }
+      },
+      { $sort: { studentsCount: -1, createdAt: -1 } },
+      { $limit: 3 }
+    ]);
+
+    return res.json(data.map(d => ({
+      ...shapeCourseSummary({ ...d, chaptersCount: undefined }),
+    })));
   } catch (e) {
-    res.status(400).json({ message: e.message });
+    return res.status(500).json({ message: e.message });
   }
 };
 
-// PUT /api/courses/:id
+// @GET /api/courses/:id
+exports.getCourseById = async (req, res) => {
+  try {
+    const course = await Course.findById(req.params.id)
+      .populate('teacherId', 'fullName avatar bio')
+      .lean();
+    if (!course) return res.status(404).json({ message: 'Course not found' });
+
+    const [chaptersCount, studentsCount] = await Promise.all([
+      Chapter.countDocuments({ courseId: course._id }),
+      Enrollment.countDocuments({ courseId: course._id }),
+    ]);
+
+    return res.json(shapeCourseSummary({
+      ...course, teacher: course.teacherId, chaptersCount, studentsCount
+    }));
+  } catch (e) {
+    return res.status(500).json({ message: e.message });
+  }
+};
+
+// @GET /api/courses/:id/details
+exports.getCourseDetails = async (req, res) => {
+  try {
+    const course = await Course.findById(req.params.id)
+      .populate('teacherId', 'fullName avatar bio')
+      .lean();
+    if (!course) return res.status(404).json({ message: 'Course not found' });
+
+    // chapters + lessons
+    const chapters = await Chapter.find({ courseId: course._id }).sort({ order: 1, createdAt: 1 }).lean();
+    const chapterIds = chapters.map(c => c._id);
+    const lessons = await Lesson.find({ chapterId: { $in: chapterIds } }).sort({ order: 1, createdAt: 1 }).lean();
+
+    const chaptersWithLessons = chapters.map(ch => ({
+      _id: ch._id,
+      title: ch.title,
+      order: ch.order,
+      createdAt: ch.createdAt,
+      lessons: lessons.filter(ls => String(ls.chapterId) === String(ch._id)).map(ls => ({
+        _id: ls._id,
+        title: ls.title,
+        videoUrl: ls.videoUrl,
+        attachment: ls.attachment,
+        order: ls.order,
+        createdAt: ls.createdAt,
+      }))
+    }));
+
+    const [studentsCount] = await Promise.all([
+      Enrollment.countDocuments({ courseId: course._id }),
+    ]);
+
+    return res.json({
+      _id: course._id,
+      title: course.title,
+      description: course.description,
+      price: course.price,
+      coverImage: course.coverImage,
+      category: course.category,
+      introVideo: course.introVideo,
+      courseAverageScore: course.courseAverageScore || 0,
+      studentsCount,
+      chaptersCount: chapters.length,
+      createdAt: course.createdAt,
+      teacher: {
+        _id: course.teacherId._id,
+        fullName: course.teacherId.fullName,
+        avatar: course.teacherId.avatar,
+        bio: course.teacherId.bio
+      },
+      chapters: chaptersWithLessons
+    });
+  } catch (e) {
+    return res.status(500).json({ message: e.message });
+  }
+};
+
+// @PATCH /api/courses/:id
 exports.updateCourse = async (req, res) => {
   try {
-    const updated = await Course.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    await Course.findByIdAndUpdate(req.params.id, req.body, { runValidators: true });
+    const updated = await Course.findById(req.params.id)
+      .populate('teacherId', 'fullName avatar bio')
+      .lean();
     if (!updated) return res.status(404).json({ message: 'Course not found' });
-    res.json(toCourseListDTO(updated));
+
+    const [chaptersCount, studentsCount] = await Promise.all([
+      Chapter.countDocuments({ courseId: updated._id }),
+      Enrollment.countDocuments({ courseId: updated._id }),
+    ]);
+
+    return res.json(shapeCourseSummary({
+      ...updated, teacher: updated.teacherId, chaptersCount, studentsCount
+    }));
   } catch (e) {
-    res.status(400).json({ message: e.message });
+    return res.status(400).json({ message: e.message });
   }
 };
 
-// DELETE /api/courses/:id
+// @DELETE /api/courses/:id
 exports.deleteCourse = async (req, res) => {
   try {
-    const id = req.params.id;
-    await Course.findByIdAndDelete(id);
-    await Chapter.deleteMany({ courseId: id });
-    await Comment.deleteMany({ courseId: id });
-    await Enrollment.deleteMany({ courseId: id });
-    // درس‌ها به‌صورت cascade با حذف Chapter پاک می‌شن در کنترلر chapter
-    res.json({ message: 'Course and related data deleted' });
+    await Course.findByIdAndDelete(req.params.id);
+    // (اختیاری) می‌تونی اینجا Chapters/Lessons رو هم cascade delete کنی
+    return res.json({ success: true });
   } catch (e) {
-    res.status(500).json({ message: e.message });
+    return res.status(500).json({ message: e.message });
   }
 };
 
-// POST /api/courses/:id/join  { userId }
-exports.joinCourse = async (req, res) => {
+// @GET /api/courses/:id/students
+exports.getCourseStudents = async (req, res) => {
   try {
-    const { userId } = req.body;
-    const courseId = req.params.id;
-    if (!userId) return res.status(400).json({ message: 'userId is required' });
+    const enrolls = await Enrollment.find({ courseId: req.params.id })
+      .populate('userId', 'userName userFullName')  // اسم فیلدها را با مدل User خودت هماهنگ کن
+      .lean();
 
-    await Enrollment.create({ userId, courseId, status: 'active' });
-    await Course.findByIdAndUpdate(courseId, { $inc: { studentsCount: 1 } });
+    const students = enrolls
+      .filter(e => e.userId)
+      .map(e => ({
+        _id: e.userId._id,
+        userName: e.userId.userName,
+        userFullName: e.userId.userFullName,
+        enrolledAt: e.createdAt
+      }));
 
-    res.status(201).json({ success: true, message: 'Joined course successfully', courseId, userId });
+    return res.json(students);
   } catch (e) {
-    if (e.code === 11000) {
-      return res.status(200).json({ success: true, message: 'Already enrolled' });
-    }
-    res.status(400).json({ message: e.message });
+    return res.status(500).json({ message: e.message });
   }
 };

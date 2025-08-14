@@ -1,45 +1,67 @@
 const Chapter = require('../models/Chapter');
 const Lesson = require('../models/Lesson');
-const { toChapterDTO } = require('../utils/responseFormatter');
 
-// GET /api/courses/:courseId/chapters
-exports.getChaptersByCourse = async (req, res) => {
-  try {
-    const list = await Chapter.find({ courseId: req.params.courseId }).sort({ createdAt: -1 });
-    res.json(list.map(toChapterDTO));
-  } catch (e) {
-    res.status(500).json({ message: e.message });
-  }
-};
-
-// POST /api/courses/:courseId/chapters  { title }
 exports.createChapter = async (req, res) => {
   try {
-    const chapter = await Chapter.create({ title: req.body.title, courseId: req.params.courseId });
-    res.status(201).json(toChapterDTO(chapter));
+    const chapter = await Chapter.create(req.body);
+    return res.status(201).json({
+      _id: chapter._id,
+      title: chapter.title,
+      order: chapter.order,
+      courseId: chapter.courseId,
+      createdAt: chapter.createdAt
+    });
   } catch (e) {
-    res.status(400).json({ message: e.message });
+    return res.status(400).json({ message: e.message });
   }
 };
 
-// PUT /api/chapters/:id
+exports.getChaptersByCourse = async (req, res) => {
+  try {
+    const chapters = await Chapter.find({ courseId: req.params.courseId })
+      .sort({ order: 1, createdAt: 1 })
+      .lean();
+
+    // تعداد درس‌های هر فصل
+    const chapterIds = chapters.map(c => c._id);
+    const lessonCounts = await Lesson.aggregate([
+      { $match: { chapterId: { $in: chapterIds } } },
+      { $group: { _id: '$chapterId', count: { $sum: 1 } } }
+    ]);
+
+    const countMap = {};
+    lessonCounts.forEach(x => { countMap[String(x._id)] = x.count; });
+
+    return res.json(chapters.map(ch => ({
+      _id: ch._id,
+      title: ch.title,
+      order: ch.order,
+      createdAt: ch.createdAt,
+      lessonsCount: countMap[String(ch._id)] || 0
+    })));
+  } catch (e) {
+    return res.status(500).json({ message: e.message });
+  }
+};
+
 exports.updateChapter = async (req, res) => {
   try {
-    const updated = await Chapter.findByIdAndUpdate(req.params.id, { title: req.body.title }, { new: true });
+    const updated = await Chapter.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true }).lean();
     if (!updated) return res.status(404).json({ message: 'Chapter not found' });
-    res.json(toChapterDTO(updated));
+    return res.json({
+      _id: updated._id, title: updated.title, order: updated.order, courseId: updated.courseId, createdAt: updated.createdAt
+    });
   } catch (e) {
-    res.status(400).json({ message: e.message });
+    return res.status(400).json({ message: e.message });
   }
 };
 
-// DELETE /api/chapters/:id
 exports.deleteChapter = async (req, res) => {
   try {
-    await Lesson.deleteMany({ chapterId: req.params.id });
     await Chapter.findByIdAndDelete(req.params.id);
-    res.json({ message: 'Chapter and related lessons deleted' });
+    // (اختیاری) درس‌های زیرمجموعه را هم حذف کن
+    return res.json({ success: true });
   } catch (e) {
-    res.status(500).json({ message: e.message });
+    return res.status(500).json({ message: e.message });
   }
 };

@@ -37,22 +37,13 @@ mongoose.connect(process.env.MONGO_URI)
 
 
 
-const courseRoutes = require('./routes/courseRoutes');
-const chapterRoutes = require('./routes/chapterRoutes');
-const lessonRoutes = require('./routes/lessonRoutes');
-const commentRoutes = require('./routes/commentRoutes');
-const questionRoutes = require('./routes/questionRoutes');
 
+// Routes
+app.use('/api/courses', require('./routes/courseRoutes'));
+app.use('/api/chapters', require('./routes/chapterRoutes'));
+app.use('/api/lessons', require('./routes/lessonRoutes'));
+app.use('/api/course-teachers', require('./routes/courseTeacherRoutes'));
 
-
-
-app.use('/api/courses', courseRoutes);
-app.use('/api/chapters', chapterRoutes);
-app.use('/api/lessons', lessonRoutes);
-app.use('/api/comments', commentRoutes);
-app.use('/api/questions', questionRoutes);
-
-const courseTeacherRoutes = require('./routes/courseTeacherRoutes');
-app.use('/api/course-teachers', courseTeacherRoutes);
+app.get('/', (req, res) => res.send('API is running'));
 
 

@@ -1,13 +1,29 @@
 const express = require('express');
-const router = express.Router();
-const ctrl = require('../controllers/courseController');
+const {
+  createCourse, getCourses, getCourseById, getCourseDetails,
+  updateCourse, deleteCourse, getPopularCourses, getCourseStudents
+} = require('../controllers/courseController');
 
-router.get('/', ctrl.getAllCourses);
-router.get('/popular', ctrl.getPopularCourses);
-router.get('/:id', ctrl.getCourseDetails);
-router.post('/', ctrl.createCourse);
-router.put('/:id', ctrl.updateCourse);
-router.delete('/:id', ctrl.deleteCourse);
-router.post('/:id/join', ctrl.joinCourse);
+const router = express.Router();
+
+// لیست + ساخت
+router.route('/')
+  .get(getCourses)
+  .post(createCourse);
+
+// محبوب‌ها
+router.get('/popular', getPopularCourses);
+
+// جزئیات کامل
+router.get('/:id/details', getCourseDetails);
+
+// دانشجوهای دوره
+router.get('/:id/students', getCourseStudents);
+
+// تک‌دوره
+router.route('/:id')
+  .get(getCourseById)
+  .patch(updateCourse)
+  .delete(deleteCourse);
 
 module.exports = router;

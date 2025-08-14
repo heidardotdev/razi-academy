@@ -1,43 +1,59 @@
 const Lesson = require('../models/Lesson');
-const { toLessonDTO } = require('../utils/responseFormatter');
 
-// GET /api/chapters/:chapterId/lessons
-exports.getLessonsByChapter = async (req, res) => {
-  try {
-    const list = await Lesson.find({ chapterId: req.params.chapterId }).sort({ createdAt: 1 });
-    res.json(list.map(toLessonDTO));
-  } catch (e) {
-    res.status(500).json({ message: e.message });
-  }
-};
-
-// POST /api/chapters/:chapterId/lessons  { title, video, attachedFile }
 exports.createLesson = async (req, res) => {
   try {
-    const lesson = await Lesson.create({ ...req.body, chapterId: req.params.chapterId });
-    res.status(201).json(toLessonDTO(lesson));
+    const lesson = await Lesson.create(req.body);
+    return res.status(201).json({
+      _id: lesson._id,
+      title: lesson.title,
+      videoUrl: lesson.videoUrl,
+      attachment: lesson.attachment,
+      order: lesson.order,
+      chapterId: lesson.chapterId,
+      createdAt: lesson.createdAt
+    });
   } catch (e) {
-    res.status(400).json({ message: e.message });
+    return res.status(400).json({ message: e.message });
   }
 };
 
-// PUT /api/lessons/:id
+exports.getLessonsByChapter = async (req, res) => {
+  try {
+    const lessons = await Lesson.find({ chapterId: req.params.chapterId })
+      .sort({ order: 1, createdAt: 1 })
+      .lean();
+
+    return res.json(lessons.map(ls => ({
+      _id: ls._id,
+      title: ls.title,
+      videoUrl: ls.videoUrl,
+      attachment: ls.attachment,
+      order: ls.order,
+      createdAt: ls.createdAt
+    })));
+  } catch (e) {
+    return res.status(500).json({ message: e.message });
+  }
+};
+
 exports.updateLesson = async (req, res) => {
   try {
-    const updated = await Lesson.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const updated = await Lesson.findByIdAndUpdate(req.params.id, req.body, { new: true, runValidators: true }).lean();
     if (!updated) return res.status(404).json({ message: 'Lesson not found' });
-    res.json(toLessonDTO(updated));
+    return res.json({
+      _id: updated._id, title: updated.title, videoUrl: updated.videoUrl,
+      attachment: updated.attachment, order: updated.order, chapterId: updated.chapterId, createdAt: updated.createdAt
+    });
   } catch (e) {
-    res.status(400).json({ message: e.message });
+    return res.status(400).json({ message: e.message });
   }
 };
 
-// DELETE /api/lessons/:id
 exports.deleteLesson = async (req, res) => {
   try {
     await Lesson.findByIdAndDelete(req.params.id);
-    res.json({ message: 'Lesson deleted' });
+    return res.json({ success: true });
   } catch (e) {
-    res.status(500).json({ message: e.message });
+    return res.status(500).json({ message: e.message });
   }
 };
