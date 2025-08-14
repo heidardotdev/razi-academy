@@ -3,6 +3,10 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const authRoutes = require("./routes/auth");
+const connectDB = require('./config/db');
+
+
+
 
 dotenv.config();
 
@@ -29,3 +33,26 @@ mongoose.connect(process.env.MONGO_URI)
   .catch((err) => {
     console.error("MongoDB connection error:", err);
   });
+
+
+
+
+const courseRoutes = require('./routes/courseRoutes');
+const chapterRoutes = require('./routes/chapterRoutes');
+const lessonRoutes = require('./routes/lessonRoutes');
+const commentRoutes = require('./routes/commentRoutes');
+const questionRoutes = require('./routes/questionRoutes');
+
+
+
+
+app.use('/api/courses', courseRoutes);
+app.use('/api/chapters', chapterRoutes);
+app.use('/api/lessons', lessonRoutes);
+app.use('/api/comments', commentRoutes);
+app.use('/api/questions', questionRoutes);
+
+const courseTeacherRoutes = require('./routes/courseTeacherRoutes');
+app.use('/api/course-teachers', courseTeacherRoutes);
+
+
