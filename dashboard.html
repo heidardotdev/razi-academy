@@ -16,7 +16,32 @@
 </head>
 
 <body>
-    <div class="bg_galassmorphism__dark"></div>
+
+    <svg class="icon_pack">
+        <svg id="message_linear" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+            fill="none">
+            <path
+                d="M5.7 18.4V22L9 20.1c.9.3 1.9.4 3 .4 5.5 0 10-4.1 10-9.3C22 6.1 17.5 2 12 2S2 6.1 2 11.3c0 2.9 1.4 5.4 3.7 7.1Z"
+                stroke="#ffffff" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            <path d="m11.3 9.2-3.8 4.5 3.7-.9 1.5.9 3.8-4.5-3.5.9-1.7-.9Z" stroke="#ffffff" stroke-width="1.5"
+                stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        <svg id="menu__linear" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+            fill="none">
+            <path d="M3 7h18M3 12h18M3 17h18" stroke="#fff" stroke-width="2" stroke-linecap="round">
+            </path>
+        </svg>
+
+        <svg id="sidebar__item_active_icon" width="7" height="51" viewBox="0 0 7 51" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M7 1.55623C7 0.499207 5.57368 0.164991 5.1041 1.11198L0.208194 10.9854C0.0712528 11.2615 0 11.5656 0 11.8739V39.1699C0 39.4782 0.0712523 39.7823 0.208194 40.0584L5.10409 49.9318C5.57368 50.8788 7 50.5446 7 49.4876V1.55623Z"
+                fill="#006CFF" />
+        </svg>
+
+    </svg>
+    <!-- <div class="bg_galassmorphism__dark"></div>
     <div class="status__modal bg_glassmorphism_2">
             <div class="status__modal_tag">
                 <span class="status__modal_tagـtext">عملیات موفقیت آمیز</span>
@@ -28,9 +53,50 @@
 
             <a href="/" class="status__modal_btn" style="width: 100% !important;">رازی آکادمی</a>
         </div>
-    </div>
+    </div> -->
 
+
+    <header>
+        <div class="container">
+
+            <div class="nav">
+                <div class="menu__btn">
+                    <svg width="32" height="32">
+                        <use href="#menu__linear"></use>
+                    </svg>
+                </div>
+                <div class="notification__btn">
+                    <svg width="32" height="32">
+                        <use href="#message_linear"></use>
+                    </svg>
+
+                </div>
+                <div class="search_box">
+                    <input type="text" placeholder="جستجو کردن">
+                    <button>جستجو</button>
+                </div>
+                <div class="sidebar glassmorphism_2">
+                    <div class="sidebar__topbox">
+                        <img class="mobile-menu__top-box-logo" src="/images/landing/header/razi-academy-logotype.png"
+                            alt="رازی آکادمی">
+
+                    </div>
+
+                    <ul class="sidebar__items">
+                            <a href="/dashboard.html" class="sidebar__item" >
+                                <svg width="7" height="51">
+                                    <use href="#sidebar__item_active_icon"></use>
+                                </svg>
+                            </a>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
 
 </body>
+
+<script type="module" src="/js/script.js"></script>
 
 </html>
