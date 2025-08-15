@@ -38,6 +38,10 @@ app.use("/api/users", authRoutes);
 
 
 
+// course teacher
+const courseTeacherRoutes = require("./routes/courseTeacherRoutes");
+app.use("/api/courseTeacher", courseTeacherRoutes);
+
 
 
 
