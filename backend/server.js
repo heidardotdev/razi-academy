@@ -3,7 +3,6 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const authRoutes = require("./routes/auth");
-const connectDB = require('./config/db');
 
 
 
@@ -20,9 +19,6 @@ app.use(cors({
   credentials: true,
 }));
 
-// Routes
-app.use("/api/users", authRoutes);
-
 // MongoDB connection
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
@@ -36,15 +32,15 @@ mongoose.connect(process.env.MONGO_URI)
   });
 
 
-
-
-
+  
 // Routes
-app.use('/api/courses', require('./routes/courseRoutes'));
-app.use('/api/chapters', require('./routes/chapterRoutes'));
-app.use('/api/lessons', require('./routes/lessonRoutes'));
-app.use('/api/course-teachers', require('./routes/courseTeacherRoutes'));
+app.use("/api/users", authRoutes);
 
-app.get('/', (req, res) => res.send('API is running'));
+
+
+
+
+
+
 
 
