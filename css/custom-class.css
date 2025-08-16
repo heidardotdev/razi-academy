@@ -116,8 +116,8 @@
 }
 
 .glassmorphism_2 {
-    background-color: transparent;
-    backdrop-filter: blur(50px);
+    background-color: transparent ;
+    backdrop-filter: blur(50px) ;
 }
 
 .bg_galassmorphism__dark {
