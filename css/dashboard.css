@@ -393,6 +393,16 @@ header::before{
     width: 90%;
 }
 
+.sidebar__item svg{
+    display: none;
+}
+.sidebar__item_active svg{
+    display: block;
+}
+
+.active__item_icon_active{
+    display: block !important;
+}
 .sidebar__item_active .sidebar__item_details svg {
     display: none !important;
 }
