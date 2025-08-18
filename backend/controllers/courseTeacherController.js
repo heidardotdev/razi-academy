@@ -12,43 +12,37 @@ exports.registerTeacher = async (req, res) => {
     const { userName, password, userFullName, bio, profileImg } = req.body;
 
     if (!userName || !password || !userFullName) {
-      return res
-        .status(400)
-        .json({ error: "userName, password و userFullName الزامی هستند" });
+      return res.status(400).json({ error: "userName, password و userFullName الزامی هستند" });
     }
 
-    if (password.length < 6) {
-      return res.status(400).json({ error: "حداقل طول پسورد ۶ کاراکتر است" });
-    }
-
-    const existing = await CourseTeacher.findOne({ userName });
-    if (existing) {
+    const existingTeacher = await CourseTeacher.findOne({ userName });
+    if (existingTeacher) {
       return res.status(409).json({ error: "این نام کاربری قبلاً استفاده شده است" });
     }
 
-    const hashed = await bcrypt.hash(password, 10);
-
-    const teacher = await CourseTeacher.create({
+    const teacher = new CourseTeacher({
       userName,
-      password: hashed, // ذخیره هش‌شده
+      password, // ❌ دیگه خودت هش نکن، مدل خودش هش میکنه
       userFullName,
-      bio: bio || "",
-      profileImg: profileImg || ""
+      bio,
+      profileImg
     });
 
-    return res.status(201).json({
-      token: signToken(teacher._id),
-      courseTeacherID: {
-        _id: teacher._id,
-        userFullName: teacher.userFullName,
-        bio: teacher.bio,
-        profileImg: teacher.profileImg,
-        userName: teacher.userName
-      }
+    await teacher.save();
+
+    const token = signToken(teacher._id);
+
+    res.status(201).json({
+      token,
+      _id: teacher._id,
+      userFullName: teacher.userFullName,
+      bio: teacher.bio,
+      profileImg: teacher.profileImg,
+      userName: teacher.userName
     });
-  } catch (err) {
-    console.error("registerTeacher error:", err);
-    return res.status(500).json({ error: "Server error" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Server error" });
   }
 };
 
@@ -57,36 +51,85 @@ exports.loginTeacher = async (req, res) => {
   try {
     const { userName, password } = req.body;
 
-    if (!userName || !password) {
-      return res.status(400).json({ error: "userName و password الزامی هستند" });
-    }
-
-    // نکته‌ی مهم: پسورد را صراحتاً انتخاب کن
-    const teacher = await CourseTeacher.findOne({ userName }).select("+password");
+    const teacher = await CourseTeacher.findOne({ userName });
     if (!teacher) {
       return res.status(404).json({ error: "Teacher not found" });
     }
 
-    const isMatch = await bcrypt.compare(password, teacher.password);
+    const isMatch = await teacher.matchPassword(password); // ✅ از متد مدل استفاده کن
     if (!isMatch) {
-      return res.status(401).json({ error: "Invalid password" });
+      return res.status(401).json({ message: "رمز عبور اشتباه است." });
     }
 
-    return res.json({
-      token: signToken(teacher._id),
-      courseTeacherID: {
-        _id: teacher._id,
-        userFullName: teacher.userFullName,
-        bio: teacher.bio,
-        profileImg: teacher.profileImg,
-        userName: teacher.userName
-      }
+    const token = signToken(teacher._id);
+
+    res.json({
+      token,
+      _id: teacher._id,
+      userFullName: teacher.userFullName,
+      bio: teacher.bio,
+      profileImg: teacher.profileImg,
+      userName: teacher.userName
     });
-  } catch (err) {
-    console.error("loginTeacher error:", err);
-    return res.status(500).json({ error: "Server error" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Server error" });
   }
 };
+
+
+// ---------------- UPDATE TEACHER ----------------
+exports.updateTeacher = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { userName, password, userFullName, bio, profileImg } = req.body;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ error: "Invalid ID format" });
+    }
+
+    const teacher = await CourseTeacher.findById(id);
+    if (!teacher) {
+      return res.status(404).json({ error: "Teacher not found" });
+    }
+
+    // بررسی اینکه آیا یوزرنیم تکراریه یا نه
+    if (userName && userName !== teacher.userName) {
+      const existingTeacher = await CourseTeacher.findOne({ userName });
+      if (existingTeacher) {
+        return res.status(409).json({ error: "This username is already taken" });
+      }
+      teacher.userName = userName;
+    }
+
+    if (password) {
+      const hashedPassword = await bcrypt.hash(password, 10);
+      teacher.password = hashedPassword;
+    }
+
+    if (userFullName) teacher.userFullName = userFullName;
+    if (bio) teacher.bio = bio;
+    if (profileImg) teacher.profileImg = profileImg;
+
+    await teacher.save();
+
+    res.json({
+      message: "Teacher updated successfully",
+      teacher: {
+        id: teacher._id,
+        userName: teacher.userName,
+        userFullName: teacher.userFullName,
+        bio: teacher.bio,
+        profileImg: teacher.profileImg
+      }
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Server error" });
+  }
+};
+
+
 
 // ---------------- PROFILE (با توکن) ----------------
 exports.getTeacherProfile = async (req, res) => {
@@ -98,13 +141,11 @@ exports.getTeacherProfile = async (req, res) => {
     }
 
     return res.json({
-      courseTeacherID: {
-        _id: teacher._id,
-        userFullName: teacher.userFullName,
-        bio: teacher.bio,
-        profileImg: teacher.profileImg,
-        userName: teacher.userName
-      }
+      _id: teacher._id,
+      userFullName: teacher.userFullName,
+      bio: teacher.bio,
+      profileImg: teacher.profileImg,
+      userName: teacher.userName
     });
   } catch (err) {
     console.error("getTeacherProfile error:", err);

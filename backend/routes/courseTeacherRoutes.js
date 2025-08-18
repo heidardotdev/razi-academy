@@ -7,7 +7,8 @@ const {
     getTeacherProfile,
     getAllTeachers,
     getTeacherById,
-    deleteTeacher
+    deleteTeacher,
+    updateTeacher
 } = require("../controllers/courseTeacherController");
 const { protectTeacher } = require("../middleware/courseTeacherAuth");
 
@@ -17,5 +18,7 @@ router.get("/profile", protectTeacher, getTeacherProfile);
 router.get("/", getAllTeachers);
 router.get("/:id", getTeacherById);
 router.delete("/:id", deleteTeacher);
+router.put("/:id", updateTeacher);
+
 
 module.exports = router;
