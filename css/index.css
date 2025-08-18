@@ -605,7 +605,7 @@ aside::-webkit-scrollbar-thumb {
 }
 
 
-.mobile-menu__top-box-close{
+.mobile-menu__top-box-close {
     height: 32px;
     display: block;
 }
@@ -725,10 +725,10 @@ aside::-webkit-scrollbar-thumb {
 
 }
 
-.menu__btn svg{
+.menu__btn svg {
     width: 5rem !important;
     height: 4rem !important;
-    
+
 }
 
 
@@ -746,21 +746,22 @@ aside::-webkit-scrollbar-thumb {
 
 
 
-.header-content__title-box{
+.header-content__title-box {
     animation: headerContentTitleBox forwards linear 300ms;
 
 }
 
 @keyframes headerContentTitleBox {
-    from{
+    from {
         transform: translateY(10rem);
         filter: blur(5rem);
     }
-    to{
+
+    to {
         transform: translateY(0);
         filter: blur(0);
     }
-    
+
 }
 
 .header-content__title {
@@ -783,21 +784,22 @@ aside::-webkit-scrollbar-thumb {
     border-radius: 10rem;
     border: 2px solid var(--accent-color);
     width: 85%;
-    animation: headerContentInputBox 500ms 250ms   forwards linear;
+    animation: headerContentInputBox 500ms 250ms forwards linear;
 
 
 }
 
 @keyframes headerContentInputBox {
-    from{
+    from {
         transform: translateY(15rem);
         opacity: 0;
     }
-    to{
+
+    to {
         transform: translateY(0);
         opacity: 1;
     }
-    
+
 }
 
 .header-content__search-box {
@@ -841,15 +843,16 @@ aside::-webkit-scrollbar-thumb {
 }
 
 @keyframes headerContentCaption {
-    from{
+    from {
         transform: translateY(20rem);
         filter: blur(5rem);
     }
-    to{
+
+    to {
         transform: translateY(0);
         filter: blur(0);
     }
-    
+
 }
 
 /* end header content */
@@ -993,7 +996,7 @@ main section {
 .course {
     background-color: var(--main-dark-color);
     border-radius: 2rem;
-    
+
 }
 
 .course__cover {
@@ -1065,7 +1068,7 @@ main section {
 
 
 .presentations-category-item {
-    background-image: linear-gradient(0deg, var(--accounting-present-category) 8%, transparent 50%),url(/images/landing/presentaions-category/computer.png);
+    background-image: linear-gradient(0deg, var(--accounting-present-category) 8%, transparent 50%), url(/images/landing/presentaions-category/computer.png);
     border-radius: 1rem;
 
     display: flex;
@@ -1451,17 +1454,19 @@ main section {
     justify-content: center;
 }
 
-.gallery__item:hover .gallery__details > a{
+.gallery__item:hover .gallery__details>a {
     display: none;
 }
 
-.gallery__item:hover .gallery__details > a{
+.gallery__item:hover .gallery__details>a {
     display: none;
 }
-.gallery__item:hover .gallery__title{
+
+.gallery__item:hover .gallery__title {
     color: var(--primery-color);
 }
-.gallery__item:hover .gallery__item_items{
+
+.gallery__item:hover .gallery__item_items {
     display: flex;
 }
 
@@ -1585,7 +1590,12 @@ main section {
     display: flex;
     justify-content: start;
     gap: 2rem;
-    overflow-x: hidden;
+    overflow-x: auto;
+}
+
+.books__category::-webkit-scrollbar,
+.books::-webkit-scrollbar {
+    background-color: var(--bg-color);
 
 }
 
@@ -1611,7 +1621,7 @@ main section {
     justify-content: start;
     justify-items: center;
     gap: 2rem;
-    overflow-x: hidden;
+    overflow-x: auto;
 
 }
 
