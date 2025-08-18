@@ -993,6 +993,7 @@ main section {
 .course {
     background-color: var(--main-dark-color);
     border-radius: 2rem;
+    
 }
 
 .course__cover {

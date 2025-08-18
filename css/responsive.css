@@ -3,6 +3,7 @@
         overflow-x: hidden;
 
     }
+
 }
 
 @media (min-width: 360px) {
@@ -193,7 +194,7 @@
 
     }
 
-    .signIn .register{
+    .signIn .register {
         height: 70rem !important;
     }
 
@@ -482,8 +483,17 @@
         width: 940px;
     }
 
-    .blur {
+    .blur,
+    .dashboard_menu__btn {
         display: none !important;
+    }
+    .sidebar{
+        right: 0;
+        display: block;
+    }
+
+    .nav{
+        justify-content: end;
     }
 
     nav {

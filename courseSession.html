@@ -37,7 +37,7 @@
                     </svg>
 
 
-               <!-- start sidebar  -->
+                    <!-- start sidebar  -->
                     <aside>
                         <div class="mobile-menu__top-box items-center-justify-between">
                             <img class="mobile-menu__top-box-logo"
@@ -310,21 +310,11 @@
                 <div class="video__box">
                     <video src="/1.mp4"></video>
                     <div class="video__controllBtns center-xy-absolute center-xy">
-                        <!-- previuse video -->
-                        <button class="video__btn  center-xy   video__btn ">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="none">
-                                <path
-                                    d="M3.762 7.22v9.57c0 1.96 2.13 3.19 3.83 2.21l4.15-2.39 4.15-2.4c1.7-.98 1.7-3.43 0-4.41l-4.15-2.4-4.15-2.39c-1.7-.98-3.83.24-3.83 2.21ZM20.238 18.93c-.41 0-.75-.34-.75-.75V5.82c0-.41.34-.75.75-.75s.75.34.75.75v12.36c0 .41-.33.75-.75.75Z"
-                                    fill="#ffffff"></path>
-                            </svg>
-
-
-                        </button>
-                        <!-- previuse video -->
+          
 
                         <!-- play and puase video -->
-                        <button class="video__btn center-xy center-xy-absolute  video__btn--play ">
+                        <button class="video__btn center-xy center-xy-absolute playPuaseBtn puase" id="playPuaseBtn">
+
                             <svg width="17" height="20" viewBox="0 0 20 23" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -344,32 +334,19 @@
                         <!-- play and puase video -->
 
 
-                        <!-- next video -->
-                        <button class="video__btn center-xy ">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="none">
-                                <path
-                                    d="M20.24 7.22v9.57c0 1.96-2.13 3.19-3.83 2.21l-4.15-2.39-4.15-2.4c-1.7-.98-1.7-3.43 0-4.41l4.15-2.4 4.15-2.39c1.7-.98 3.83.24 3.83 2.21ZM3.762 18.93c-.41 0-.75-.34-.75-.75V5.82c0-.41.34-.75.75-.75s.75.34.75.75v12.36c0 .41-.34.75-.75.75Z"
-                                    fill="#ffffff"></path>
-                            </svg>
-
-
-                        </button>
-
-                        <!-- next video -->
 
 
                     </div>
                     <div class="video__controles-box center-x-y-bottom-absolute ">
                         <div class="video__time-controles-box items-center-justify-between">
 
-                            <span class="video__time" id="reminingTime">20:00</span>
+                            <span class="video__time" id="currentTime">00:00</span>
 
                             <div class="video__time-line-box">
                                 <div class="video__time-line"></div>
                             </div>
 
-                            <span class="video__time" id="duration">01:00:00</span>
+                            <span class="video__time" id="duration">00:00</span>
 
                         </div>
                         <div class="video__sount-and-screen-controles items-center-justify-between">
@@ -660,17 +637,17 @@
                         <div class="user__mainMessage">
                             <p class="user__mainMessage_text">
                                 سلام وقتتنون بخیر لطفا مبحث فلانی رو برای من توضیح بدید
-                                    <a href="#" class=" center-xy btn user__file_inMessage">
-                                نام فایل
-                         </a>
+                                <a href="#" class=" center-xy btn user__file_inMessage">
+                                    نام فایل
+                                </a>
                             </p>
                             <span class="user__mainMessage_time">۱۲:۲۰ ب.ظ</span>
                         </div>
-                     
+
 
                     </div>
                     <div class="teacher__message">
-                      <div class="user__info">
+                        <div class="user__info">
                             <div class="user__profile">
                                 <img src="/images/landing/news/profile.png" class="user__profile_img">
                             </div>
@@ -683,14 +660,18 @@
                             <p class="user__mainMessage_text">
                                 سلام وقتتنون بخیر لطفا مبحث فلانی رو برای من توضیح بدید
                             </p>
-                            
+
                             <span class="user__mainMessage_time">۱۲:۲۰ ب.ظ</span>
                         </div>
                     </div>
-                    
+
                     <div class="chat__box">
                         <textarea rows="1" placeholder="پیامی وارد کنید"></textarea>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="m18.07 8.509-8.56-4.28c-5.75-2.88-8.11-.52-5.23 5.23l.87 1.74c.25.51.25 1.1 0 1.61l-.87 1.73c-2.88 5.75-.53 8.11 5.23 5.23l8.56-4.28c3.84-1.92 3.84-5.06 0-6.98Zm-3.23 4.24h-5.4c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h5.4c.41 0 .75.34.75.75s-.34.75-.75.75Z" fill="#006cff"></path></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="m18.07 8.509-8.56-4.28c-5.75-2.88-8.11-.52-5.23 5.23l.87 1.74c.25.51.25 1.1 0 1.61l-.87 1.73c-2.88 5.75-.53 8.11 5.23 5.23l8.56-4.28c3.84-1.92 3.84-5.06 0-6.98Zm-3.23 4.24h-5.4c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h5.4c.41 0 .75.34.75.75s-.34.75-.75.75Z"
+                                fill="#006cff"></path>
+                        </svg>
                     </div>
 
                 </section>
@@ -815,7 +796,8 @@
     </footer>
 
 
-  <script type="module" src="/js/script.js"></script>
+    <script type="module" src="/js/script.js"></script>
+    <script src="/js/videoPlayer.js"></script>
 </body>
 
 </html>

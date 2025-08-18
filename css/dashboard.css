@@ -190,7 +190,7 @@ header::before{
 .nav {
     display: flex;
     flex-direction: row-reverse;
-    justify-content: end;
+    justify-content: center;
     gap: 1rem;
     align-items: center;
 }
@@ -280,9 +280,10 @@ header::before{
     z-index: 1;
     overflow-y: auto;
     animation: sidebarAnimation forwards linear 500ms;
-   
-
+    display: none;
 }
+
+
 
 @keyframes sidebarAnimation {
     from {

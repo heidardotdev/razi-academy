@@ -6,7 +6,11 @@
 
 /* video player */
 
+.container.fullscreen{
+    width: 100%;
+    max-width: 100%;
 
+}
 
 .video__box {
     position: relative;
@@ -35,17 +39,22 @@
 
 
 
+
+}
+
+.playPuaseBtn svg:first-child {
+    display: none !important;
+}
+
+.puase svg:first-child {
+    display: block !important;
+}
+
+.puase svg:last-child {
+    display: none !important;
 }
 
 
-.video__btn--play svg:last-child {
-    display: none;
-}
-
-.video__btn--puase svg:first-child {
-    display: none;
-
-}
 
 .video__controles-box {
     display: flex;
@@ -76,7 +85,7 @@
 
 .video__time-line {
     position: relative;
-    width: 10%;
+    width: 0%;
     height: 1rem;
     background-color: var(--primery-color);
     border-radius: 5rem;
@@ -553,22 +562,22 @@ progress::-webkit-progress-value {
 }
 
 
-.editr{
+.editr {
     background-color: var(--main-dark-color);
     height: 30rem;
     border-radius: 2rem;
 }
 
 
-.user__file_text{
+.user__file_text {
     margin-bottom: 1rem;
 }
 
-.user__file{
+.user__file {
     display: none;
 }
 
-.user__file_box .btn{
+.user__file_box .btn {
     border: 2px solid var(--primery-color);
     background: none !important;
     width: 100%;
@@ -577,7 +586,7 @@ progress::-webkit-progress-value {
 
 }
 
-.chat{
+.chat {
     background-color: #262839;
     border-radius: 2rem;
     padding: 2rem;
@@ -589,18 +598,18 @@ progress::-webkit-progress-value {
 }
 
 
-.user__mainMessage{
+.user__mainMessage {
     background-color: var(--dark-color);
     border-radius: 2rem 0rem 2rem 2rem;
     padding: 2rem;
     position: relative;
 }
 
-.user__message .user__info{
+.user__message .user__info {
     margin-bottom: 1rem;
 }
 
-.user__mainMessage_time{
+.user__mainMessage_time {
     position: absolute;
     font-size: 1.4rem;
     bottom: -7px;
@@ -610,31 +619,32 @@ progress::-webkit-progress-value {
 
 
 
-.teacher__message .user__info{
+.teacher__message .user__info {
     margin-bottom: 1rem;
 }
-.teacher__message .user__mainMessage{
+
+.teacher__message .user__mainMessage {
     border-radius: 0rem 2rem 2rem 2rem;
     background-color: var(--main-dark-color);
 }
 
-.teacher__message .user__mainMessage_text{
+.teacher__message .user__mainMessage_text {
     direction: rtl !important;
 }
 
-.chat__box{
+.chat__box {
     display: flex;
     justify-content: space-between;
 
 }
 
-.chat__box svg{
+.chat__box svg {
     rotate: 180deg;
     align-self: flex-end;
 
 }
 
-.chat__box textarea{
+.chat__box textarea {
     width: 100%;
     background-color: var(--dark-color);
     padding: 2rem;
@@ -643,10 +653,10 @@ progress::-webkit-progress-value {
     overflow-y: visible;
 
 
-    
+
 }
 
-.user__message .btn{
+.user__message .btn {
     border: 2px solid var(--primery-color);
     width: 100%;
     background: none !important;
