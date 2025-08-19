@@ -375,6 +375,10 @@ header::before{
     animation: sidebarItemAnimation forwards 2600ms 300ms ease;
 
 }
+.sidebar__item:nth-child(9) {
+    animation: sidebarItemAnimation forwards 2800ms 300ms ease;
+
+}
 
 @keyframes sidebarItemAnimation {
     from {
