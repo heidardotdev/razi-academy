@@ -488,8 +488,8 @@
         display: none !important;
     }
     .sidebar{
-        right: 0;
-        display: block;
+        right: 0 !important;
+        display: block !important;
     }
 
     .nav{
