@@ -32,7 +32,7 @@ mongoose.connect(process.env.MONGO_URI)
   });
 
 
-  
+
 // Routes
 app.use("/api/users", authRoutes);
 
@@ -46,5 +46,8 @@ app.use("/api/courseTeacher", courseTeacherRoutes);
 
 
 
+// course category
+const courseCategoryRoutes = require("./routes/courseCategoryRoutes");
+app.use("/api/course-categories", courseCategoryRoutes);
 
 
