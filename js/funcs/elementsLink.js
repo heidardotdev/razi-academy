@@ -8,7 +8,7 @@ const elementsLinkHandler = () => {
     const popularCourseElems = $.querySelectorAll(".popular-course")
     popularCourseElems.forEach(item => {
         item.addEventListener("click", () => {
-            location.href = "course.html"
+            location.href = "courseSession.html"
         })
     })
     /* ------------------------- popular Course Elem End ------------------------ */
