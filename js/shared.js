@@ -60,6 +60,7 @@ const showLastCourses = () => {
 const showAllCourses = () => {
         getAllCourses().then(courses => {
         const lastCoursesContainer = $.querySelector("#last-courses")
+        lastCoursesContainer.innerHTML = ""
         courses.map(course => {
             lastCoursesContainer.insertAdjacentHTML("beforeend", `
                 
