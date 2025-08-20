@@ -5,7 +5,7 @@ const $ = document
 const showLastCourses = () => {
     getAllCourses().then(courses => {
         const lastCoursesContainer = $.querySelector("#last-courses")
-        courses.slice(0,8).map(course => {
+        courses.slice(0, 8).map(course => {
             lastCoursesContainer.insertAdjacentHTML("beforeend", `
                 
                 <div class="course">
@@ -49,7 +49,7 @@ const showLastCourses = () => {
         })
 
 
-        
+
 
 
 
@@ -58,7 +58,7 @@ const showLastCourses = () => {
 }
 
 const showAllCourses = () => {
-        getAllCourses().then(courses => {
+    getAllCourses().then(courses => {
         const lastCoursesContainer = $.querySelector("#last-courses")
         lastCoursesContainer.innerHTML = ""
         courses.map(course => {
@@ -105,7 +105,7 @@ const showAllCourses = () => {
         })
 
 
-        
+
 
 
 
@@ -113,7 +113,31 @@ const showAllCourses = () => {
 
 }
 
+
+const filters = $.querySelectorAll(".filter")
+filters.forEach(filter => {
+    filter.onclick = () => {
+
+        filters.forEach(filter => {
+            if(filter.className.includes("filter--active")){
+                filter.className = "filter"
+            }
+        })
+
+
+
+
+        filter.classList.add("filter--active")
+        
+
+
+    }
+
+
+
+})
+
 export {
-    showLastCourses, 
+    showLastCourses,
     showAllCourses
 }
