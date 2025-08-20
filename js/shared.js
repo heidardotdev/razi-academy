@@ -2,6 +2,10 @@ import { getAllCourses } from "./funcs/shared.js";
 const $ = document
 
 
+
+/* -------------------------------------------------------------------------- */
+/*                                   courses                                  */
+/* -------------------------------------------------------------------------- */
 const showLastCourses = () => {
     getAllCourses().then(courses => {
         const lastCoursesContainer = $.querySelector("#last-courses")
