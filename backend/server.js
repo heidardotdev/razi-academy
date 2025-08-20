@@ -51,3 +51,7 @@ const courseCategoryRoutes = require("./routes/courseCategoryRoutes");
 app.use("/api/course-categories", courseCategoryRoutes);
 
 
+// course
+const courseRoutes = require("./routes/courseRoutes");
+app.use("/api/courses", courseRoutes);
+
