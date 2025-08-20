@@ -118,6 +118,10 @@ const showAllCourses = () => {
 }
 
 
+/* -------------------------------------------------------------------------- */
+/*                             all courses filters                            */
+/* -------------------------------------------------------------------------- */
+
 const filters = $.querySelectorAll(".filter")
 filters.forEach(filter => {
     filter.onclick = () => {
