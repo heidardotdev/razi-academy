@@ -33,6 +33,20 @@ const menuBtnTextHandler = () => {
 
 }
 
+
+
+/* -------------------------------------------------------------------------- */
+/*                                   courses                                  */
+/* -------------------------------------------------------------------------- */
+
+const getAllCourses = async() => {
+    const res = await fetch("http://localhost:5000/api/courses")
+    const result = await res.json()
+
+    return result
+}
+
 export {
-    menuBtnTextHandler
+    menuBtnTextHandler,
+    getAllCourses
 }
