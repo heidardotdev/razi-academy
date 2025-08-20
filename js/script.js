@@ -1,7 +1,7 @@
 import { mobileSideBarHandler } from "./funcs/sideBar.js";
 import { elementsLinkHandler } from "./funcs/elementsLink.js";
 import { menuBtnTextHandler } from "./funcs/shared.js";
-import { showAllCourses } from "./shared.js";
+import { showLastCourses } from "./shared.js";
 
 /* -------------------------- Mobile SideBar Start -------------------------- */
 mobileSideBarHandler()
@@ -19,7 +19,7 @@ elementsLinkHandler()
 
 window.addEventListener("load", () => {
     menuBtnTextHandler()
-    showAllCourses()
+    showLastCourses()
 
 })
 
