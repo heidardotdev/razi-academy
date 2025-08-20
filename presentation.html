@@ -309,28 +309,18 @@
         <div class="container">
 
 
-            <!-- video player -->
+          <!-- video player -->
             <section class="video__player grid-system">
 
                 <!-- video player -->
                 <div class="video__box">
                     <video src="/1.mp4"></video>
                     <div class="video__controllBtns center-xy-absolute center-xy">
-                        <!-- previuse video -->
-                        <button class="video__btn  center-xy   video__btn ">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="none">
-                                <path
-                                    d="M3.762 7.22v9.57c0 1.96 2.13 3.19 3.83 2.21l4.15-2.39 4.15-2.4c1.7-.98 1.7-3.43 0-4.41l-4.15-2.4-4.15-2.39c-1.7-.98-3.83.24-3.83 2.21ZM20.238 18.93c-.41 0-.75-.34-.75-.75V5.82c0-.41.34-.75.75-.75s.75.34.75.75v12.36c0 .41-.33.75-.75.75Z"
-                                    fill="#ffffff"></path>
-                            </svg>
-
-
-                        </button>
-                        <!-- previuse video -->
+          
 
                         <!-- play and puase video -->
-                        <button class="video__btn center-xy center-xy-absolute  video__btn--play ">
+                        <button class="video__btn center-xy center-xy-absolute playPuaseBtn puase" id="playPuaseBtn">
+
                             <svg width="17" height="20" viewBox="0 0 20 23" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -350,32 +340,19 @@
                         <!-- play and puase video -->
 
 
-                        <!-- next video -->
-                        <button class="video__btn center-xy ">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="none">
-                                <path
-                                    d="M20.24 7.22v9.57c0 1.96-2.13 3.19-3.83 2.21l-4.15-2.39-4.15-2.4c-1.7-.98-1.7-3.43 0-4.41l4.15-2.4 4.15-2.39c1.7-.98 3.83.24 3.83 2.21ZM3.762 18.93c-.41 0-.75-.34-.75-.75V5.82c0-.41.34-.75.75-.75s.75.34.75.75v12.36c0 .41-.34.75-.75.75Z"
-                                    fill="#ffffff"></path>
-                            </svg>
-
-
-                        </button>
-
-                        <!-- next video -->
 
 
                     </div>
                     <div class="video__controles-box center-x-y-bottom-absolute ">
                         <div class="video__time-controles-box items-center-justify-between">
 
-                            <span class="video__time" id="reminingTime">20:00</span>
+                            <span class="video__time" id="currentTime">00:00</span>
 
                             <div class="video__time-line-box">
                                 <div class="video__time-line"></div>
                             </div>
 
-                            <span class="video__time" id="duration">01:00:00</span>
+                            <span class="video__time" id="duration">00:00</span>
 
                         </div>
                         <div class="video__sount-and-screen-controles items-center-justify-between">
@@ -422,6 +399,7 @@
             </section>
             <!-- video player -->
             <!-- ----------------------------------------------------------------------- -->
+
 
 
             <section class="course_bottom grid-system">
@@ -864,6 +842,8 @@
 
 
     <script type="module" src="/js/script.js"></script>
+    <script src="/js/videoPlayer.js"></script>
+
 </body>
 
 </html>
