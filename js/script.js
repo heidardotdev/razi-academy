@@ -20,6 +20,7 @@ elementsLinkHandler()
 window.addEventListener("load", () => {
     menuBtnTextHandler()
     showLastCourses()
+    
 
 })
 
