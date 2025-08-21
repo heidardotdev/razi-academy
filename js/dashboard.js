@@ -118,8 +118,7 @@ const getAndShowAllCourses = () => {
         
         
         
-    }).catch(console.clear()
-    )
+    }).catch(console.clear())
 }
 
 
