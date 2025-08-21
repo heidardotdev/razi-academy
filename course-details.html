@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/css/defulat-style.css">
     <link rel="stylesheet" href="/css/variables.css">
     <link rel="stylesheet" href="/css/course-details.css">
+    <link rel="stylesheet" href="/css/course.css">
     <link rel="stylesheet" href="/css/header-footer.css">
     <link rel="stylesheet" href="/css/responsive.css">
     <link rel="stylesheet" href="/css/custom-class.css">
@@ -309,34 +310,48 @@
             <!-- course top infos -->
             <section class="course__top-infos grid-system">
 
+
                 <!-- video player -->
                 <div class="video__box">
                     <video src="/1.mp4"></video>
-                    <button class="video__btn center-xy center-xy-absolute video__btn--play ">
-                        <svg width="17" height="20" viewBox="0 0 20 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M0 11.4733V7.0318C0 1.49988 3.90958 -0.760755 8.69681 2.0052L12.5532 4.23925L16.4096 6.47329C21.1968 9.23925 21.1968 13.7605 16.4096 16.5265L12.5532 18.7605L8.69681 20.9946C3.90958 23.7605 0 21.4999 0 15.968V11.4733Z"
-                                fill="white" />
-                        </svg>
+                    <div class="video__controllBtns center-xy-absolute center-xy">
+          
 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path
-                                d="M10.65 19.11V4.89c0-1.35-.57-1.89-2.01-1.89H5.01C3.57 3 3 3.54 3 4.89v14.22C3 20.46 3.57 21 5.01 21h3.63c1.44 0 2.01-.54 2.01-1.89ZM21.002 19.11V4.89c0-1.35-.57-1.89-2.01-1.89h-3.63c-1.43 0-2.01.54-2.01 1.89v14.22c0 1.35.57 1.89 2.01 1.89h3.63c1.44 0 2.01-.54 2.01-1.89Z"
-                                fill="#ffffff"></path>
-                        </svg>
+                        <!-- play and puase video -->
+                        <button class="video__btn center-xy center-xy-absolute playPuaseBtn puase" id="playPuaseBtn">
+
+                            <svg width="17" height="20" viewBox="0 0 20 23" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M0 11.4733V7.0318C0 1.49988 3.90958 -0.760755 8.69681 2.0052L12.5532 4.23925L16.4096 6.47329C21.1968 9.23925 21.1968 13.7605 16.4096 16.5265L12.5532 18.7605L8.69681 20.9946C3.90958 23.7605 0 21.4999 0 15.968V11.4733Z"
+                                    fill="white" />
+                            </svg>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none">
+                                <path
+                                    d="M10.65 19.11V4.89c0-1.35-.57-1.89-2.01-1.89H5.01C3.57 3 3 3.54 3 4.89v14.22C3 20.46 3.57 21 5.01 21h3.63c1.44 0 2.01-.54 2.01-1.89ZM21.002 19.11V4.89c0-1.35-.57-1.89-2.01-1.89h-3.63c-1.43 0-2.01.54-2.01 1.89v14.22c0 1.35.57 1.89 2.01 1.89h3.63c1.44 0 2.01-.54 2.01-1.89Z"
+                                    fill="#ffffff"></path>
+                            </svg>
 
 
-                    </button>
+                        </button>
+                        <!-- play and puase video -->
+
+
+
+
+                    </div>
                     <div class="video__controles-box center-x-y-bottom-absolute ">
                         <div class="video__time-controles-box items-center-justify-between">
 
-                            <span class="video__time" id="reminingTime">20:00</span>
+                            <span class="video__time" id="currentTime">00:00</span>
 
                             <div class="video__time-line-box">
                                 <div class="video__time-line"></div>
                             </div>
 
-                            <span class="video__time" id="duration">01:00:00</span>
+                            <span class="video__time" id="duration">00:00</span>
 
                         </div>
                         <div class="video__sount-and-screen-controles items-center-justify-between">
@@ -1083,6 +1098,7 @@
 
 
     <script type="module" src="/js/script.js"></script>
+    <script src="/js/videoPlayer.js"></script>
 </body>
 
 </html>
