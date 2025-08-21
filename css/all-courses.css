@@ -78,3 +78,8 @@
     max-width: 40rem;
 
 }
+
+
+.section-title__content-caption{
+    font-family: dana-farsi-num !important;
+}
