@@ -54,7 +54,7 @@ successStatusModalTemplate.innerHTML = `
 
         <div class="status__modal_btns">
             <a href="/" class="status__modal_btn">رازی آکادمی</a>
-            <a href="dashboard.html" class="status__modal_btn status__modal_btn_important">داشبورد</a>
+            <a href="dashboard.html"  class="status__modal_btn status__modal_btn_important">داشبورد</a>
         </div>
 
 

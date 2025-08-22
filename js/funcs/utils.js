@@ -25,13 +25,13 @@ const clearInputs = () => {
 /* -------------------------------------------------------------------------- */
 
 const saveInLocalStorage = (key, value) => {
-    return localStorage.setItem(key,JSON.stringify(value))
+    return localStorage.setItem(key, JSON.stringify(value))
 
 }
 
 const getLocalStorage = (key) => {
     return localStorage.getItem(key)
-    
+
 
 }
 
@@ -59,7 +59,7 @@ const isSignedIn = () => {
 /*                           registration components                          */
 /* -------------------------------------------------------------------------- */
 
-const registrationSuccesssHandler = (registerResultTitle, registerResultText ) => {
+const registrationSuccesssHandler = (registerResultTitle, registerResultText, modalImportantBtnHref) => {
     window.customElements.define("status-modal-success", successStatusModal)
     registerBody.insertAdjacentHTML("afterbegin", `
         <status-modal-success>
@@ -86,7 +86,7 @@ const registrationDangerHandler = () => {
 
 export {
     registrationSuccesssHandler,
-    registrationDangerHandler, 
+    registrationDangerHandler,
     clearInputs,
     saveInLocalStorage,
     getLocalStorage,
