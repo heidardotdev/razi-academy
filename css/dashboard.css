@@ -644,7 +644,7 @@ main section {
 }
 
 .createItem .tab__content__items,
-.new__item{
+.createItem .new__item{
     display: none !important;
 }
 
