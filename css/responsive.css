@@ -487,12 +487,13 @@
     .dashboard_menu__btn {
         display: none !important;
     }
-    .sidebar{
+
+    .sidebar {
         right: 0 !important;
         display: block !important;
     }
 
-    .nav{
+    .nav {
         justify-content: end;
     }
 
@@ -687,9 +688,25 @@
     }
 
 
-    .tab__content{
-        margin-right: 15rem;
+    .tab__content {
+        margin-right: 20rem;
     }
+
+
+    .tab__content__btns {
+        width: 50%;
+
+    }
+
+    .createItem .dashboard__blur {
+        display: block !important;
+    }
+
+    .course__cover_box {
+        width: 30% !important;
+    }
+
+
 
 
 
@@ -781,12 +798,12 @@
         cursor: pointer !important;
     }
 
-    .all_courses_courses{
+    .all_courses_courses {
         grid-template-columns: repeat(4, 32rem) !important;
         justify-content: start !important;
     }
 
-    .all_courses_courses .not__commnetBox{
+    .all_courses_courses .not__commnetBox {
         grid-column: 1/5;
     }
 

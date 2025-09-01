@@ -57,7 +57,7 @@ const blurElem = $.querySelector(".blur")
 menuBtnElem.addEventListener("click", () => {
     sidebar.style.display = "block"
     sidebar.style.right = "0"
-    
+
 
     blurElem.style.display = "block"
     blurElem.addEventListener("click", () => {
@@ -76,7 +76,7 @@ coursesContainer.innerHTML = ""
 
 
 const getAndShowAllCourses = () => {
-      getAllCourses().then(courses =>{
+    getAllCourses().then(courses => {
         courses.map(course => {
             coursesContainer.insertAdjacentHTML("beforeend", `
                 <div class="tab__content__item glassmorphism_2">
@@ -115,17 +115,88 @@ const getAndShowAllCourses = () => {
                         </div>
                 `)
         })
-        
-        
-        
+
+
+
     }).catch(console.clear())
 }
 
 
 window.addEventListener("load", () => {
     getAndShowAllCourses()
-  
-        
+
+
+})
+
+
+
+
+// controll stepper btns
+
+const NextStepBtn = $.querySelector("#NextStepBtn")
+const previousStepBtn = $.querySelector("#previousStepBtn")
+const cancelActionsBtn = $.querySelector("#cancelActionsBtn")
+const tabContentBtnsBox = $.querySelector(".tab__content__btns")
+
+const stepps = $.querySelectorAll(".step")
+let stepIndex = 0
+NextStepBtn.addEventListener("click", () => {
+
+
+    stepIndex++
+    stepps[stepIndex].className = "step step__active"
+
+    if (tabContentBtnsBox.className.includes("course__coverBox__active")) {
+        tabContentBtnsBox.classList.remove("course__coverBox__active")
+    }
+
+
+
+
+
+
+})
+
+
+
+previousStepBtn.addEventListener("click", () => {
+    stepIndex--
+    stepps[stepIndex + 1].className = "step"
+    if (stepIndex === 0) {
+        tabContentBtnsBox.classList.add("course__coverBox__active")
+
+
+    }
+
+
+
+
+})
+
+
+
+
+cancelActionsBtn.addEventListener("click", () => {
+    document.body.classList.remove("createItem")
+    stepps.forEach(item => {
+        item.className = "step"
+    })
+    stepps[0].className = "step__active"
+
+
+})
+
+
+
+
+// create new item btn 
+
+const createNewItemBtn = $.querySelector(".new__item")
+createNewItemBtn.addEventListener("click", () => {
+    document.body.classList.add("createItem")
+    tabContentBtnsBox.classList.add("course__coverBox__active")
+
+
 })
 
 

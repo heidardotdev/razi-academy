@@ -74,7 +74,7 @@ const signIn = () => {
     }).then(result => {
         clearInputs()
         registrationSuccesssHandler(`${result.userFullName} عزیز `, "با موفقیت وارد شدید")
-        saveInLocalStorage("user", { token: result.token })
+        saveInLocaWlStorage("user", { token: result.token })
     })
         .catch(() => {
             registrationDangerHandler()
