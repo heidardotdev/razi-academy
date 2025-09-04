@@ -55,3 +55,9 @@ app.use("/api/course-categories", courseCategoryRoutes);
 const courseRoutes = require("./routes/courseRoutes");
 app.use("/api/courses", courseRoutes);
 
+//course cover uploader
+const courseCoverRoutes = require("./routes/courseCoverRoutes");
+app.use("/api/course-cover", courseCoverRoutes);
+
+
+
