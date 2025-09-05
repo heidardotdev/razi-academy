@@ -68,3 +68,6 @@ app.use("/api/presentation-covers", presentationCoverRoutes);
 const articleCoverRoutes = require('./routes/articleCoverRoutes');
 app.use('/api/article-covers', articleCoverRoutes);
 
+//user profile uploader
+const userProfileRoutes = require("./routes/userProfileRoutes");
+app.use("/api/user-profiles", userProfileRoutes);
