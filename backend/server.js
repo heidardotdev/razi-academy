@@ -71,3 +71,8 @@ app.use('/api/article-covers', articleCoverRoutes);
 //user profile uploader
 const userProfileRoutes = require("./routes/userProfileRoutes");
 app.use("/api/user-profiles", userProfileRoutes);
+
+
+//course teacher profile uploader
+const courseTeacherProfileRoutes = require("./routes/courseTeacherProfileRoutes");
+app.use("/api/course-teacher-profiles", courseTeacherProfileRoutes);
