@@ -59,5 +59,12 @@ app.use("/api/courses", courseRoutes);
 const courseCoverRoutes = require("./routes/courseCoverRoutes");
 app.use("/api/course-cover", courseCoverRoutes);
 
+//presentation cover uploader
+const presentationCoverRoutes = require("./routes/presentationCoverRoutes");
+app.use("/api/presentation-covers", presentationCoverRoutes);
 
+
+//article cover uploader
+const articleCoverRoutes = require('./routes/articleCoverRoutes');
+app.use('/api/article-covers', articleCoverRoutes);
 
