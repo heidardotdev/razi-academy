@@ -41,7 +41,7 @@ const elementsLinkHandler = () => {
     const articleCategoryItems = $.querySelectorAll(".article")
     articleCategoryItems.forEach(item => {
         item.addEventListener("click", () => {
-            location.href = "all-articles.html"
+            location.href = "article.html"
         })
     })
     /* -------------------------- article Category End -------------------------- */
