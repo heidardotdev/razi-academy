@@ -76,3 +76,13 @@ app.use("/api/user-profiles", userProfileRoutes);
 //course teacher profile uploader
 const courseTeacherProfileRoutes = require("./routes/courseTeacherProfileRoutes");
 app.use("/api/course-teacher-profiles", courseTeacherProfileRoutes);
+
+
+//school teacher profile uploader 
+const teacherProfileRoutes = require('./routes/teacherProfileRoutes');
+app.use('/api/teacher-profile', teacherProfileRoutes);
+
+
+//education filed cover uploader
+const educationFieldCoverRoutes = require('./routes/educationFieldCoverRoutes');
+app.use('/api/education-field-covers', educationFieldCoverRoutes);
