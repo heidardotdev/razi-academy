@@ -55,38 +55,8 @@ const isSignedIn = () => {
 
 
 
-/* -------------------------------------------------------------------------- */
-/*                           registration components                          */
-/* -------------------------------------------------------------------------- */
-
-const registrationSuccesssHandler = (registerResultTitle, registerResultText, modalImportantBtnHref) => {
-    window.customElements.define("status-modal-success", successStatusModal)
-    registerBody.insertAdjacentHTML("afterbegin", `
-        <status-modal-success>
-        <h3 slot="regestration__Title" class="status__modal_title" id="regestration__Title">${registerResultTitle}</h3>
-        <p slot="status__modal_text" class="status__modal_text">${registerResultText}</p>
-        
-        </status-modal-success>
-
-        `)
-
-}
-
-const registrationDangerHandler = () => {
-    window.customElements.define("status-modal-danger", dangertatusModal)
-    registerBody.insertAdjacentHTML("afterbegin", `
-        
-        <status-modal-danger>
-        </status-modal-danger>
-
-        `)
-
-}
-
 
 export {
-    registrationSuccesssHandler,
-    registrationDangerHandler,
     clearInputs,
     saveInLocalStorage,
     getLocalStorage,

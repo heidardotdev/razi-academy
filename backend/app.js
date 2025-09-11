@@ -14,4 +14,13 @@ app.use('/api/users', userRoutes);
 // Error Middleware
 app.use(errorHandler);
 
+
+app.use(express.json());
+
+// روت‌ها
+app.get('/', (req, res) => {
+  res.send('سرور بالا هست 😎');
+});
+
+
 module.exports = app;

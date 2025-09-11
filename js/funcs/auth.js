@@ -1,11 +1,9 @@
-import { registrationSuccesssHandler, registrationDangerHandler, clearInputs, saveInLocalStorage, getToken } from "./utils.js"
+import { clearInputs, saveInLocalStorage, getToken } from "./utils.js"
 const $ = document
 
 
 
-/* -------------------------------------------------------------------------- */
-/*                              sign Up Function                              */
-/* -------------------------------------------------------------------------- */
+
 const signUp = () => {
 
 
@@ -13,18 +11,16 @@ const signUp = () => {
     const userNameInput = $.querySelector("#signup_username")
     const passswordInput = $.querySelector("#signup_password")
 
-    const newUser = {
-        userFullName: userFullNameInput.value.trim(),
-        userName: userNameInput.value.toLowerCase().trim(),
-        password: passswordInput.value.trim()
-    }
+    const formData = new FormData()
+    formData.append("profile", "")
+    formData.append("username", userNameInput.value.trim())
+    formData.append("fullname", userFullNameInput.value.trim())
+    formData.append("password", passswordInput.value.trim())
+    formData.append("role", "user")
 
-    fetch("http://localhost:5000/api/users/register", {
+    fetch(`http://localhost:5000/api/users/signup`, {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(newUser)
+        body: formData,
     })
         .then(res => {
             if (res.status === 201) {
@@ -34,7 +30,7 @@ const signUp = () => {
         })
         .then(result => {
             clearInputs()
-            registrationSuccesssHandler(`${result.userFullName} عزیز`, "ثبت نام شما با موفقیت انجام شد")
+            registrationSuccesssHandler(`${result.fullname} عزیز`, "ثبت نام شما با موفقیت انجام شد")
             saveInLocalStorage("user", { token: result.token })
         })
         .catch(() => {
@@ -46,9 +42,6 @@ const signUp = () => {
 }
 
 
-/* -------------------------------------------------------------------------- */
-/*                              sign In Function                              */
-/* -------------------------------------------------------------------------- */
 
 const signIn = () => {
 
@@ -88,15 +81,15 @@ const signIn = () => {
 /*                             user token handler                             */
 /* -------------------------------------------------------------------------- */
 
-const userTokenHandler = async() => {
+const userTokenHandler = async () => {
     const token = getToken()
 
-    if(!token){
+    if (!token) {
         return false
-    }else{
+    } else {
         const res = await fetch("http://localhost:5000/api/users/profile", {
             headers: {
-                Authorization: `Bearer ${token}` 
+                Authorization: `Bearer ${token}`
             }
         })
 
