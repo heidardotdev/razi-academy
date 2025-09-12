@@ -1,9 +1,4 @@
-import { successStatusModal } from "/components/success_status_modal/script.js";
-import { dangertatusModal } from "/components/danger_status_modal/script.js";
-
-
 const $ = document
-const registerBody = $.querySelector("#register_body")
 
 
 /* -------------------------------------------------------------------------- */

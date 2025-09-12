@@ -1,4 +1,14 @@
-import { clearInputs, saveInLocalStorage, getToken } from "./utils.js"
+import {
+    registrationSuccesssHandler,
+    registrationDangerHandler,
+
+
+} from "../register.js";
+import {
+    clearInputs,
+    saveInLocalStorage,
+    getToken
+} from "./utils.js";
 const $ = document
 
 

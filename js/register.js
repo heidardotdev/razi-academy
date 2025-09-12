@@ -12,7 +12,6 @@ const userFullNameInputMessage = $.querySelector("#userFullName_message")
 const registerUserNameInputMessage = $.querySelector("#register_username_message")
 const signupPassswordMessage = $.querySelector("#signup__password_message")
 const signUpEmptyInputsMessage = $.querySelector(".register__btn-box p")
-const registerBody = $.querySelector("#register_body")
 const signInBtn = $.querySelector("#signIn__btn")
 const registerLinks = $.querySelectorAll(".register__link")
 
@@ -225,12 +224,38 @@ hidePasswordBtn.addEventListener("click", () => {
 
 
 
+// register status modals
+
+const statusModalTimer = (userLocation) => {
+
+
+    let timeLineElemTime = 5
+    let timeLineElemWidth = 0
+
+    const timer = setInterval(() => {
+        timeLineElemWidth += 20
+
+        if (timeLineElemWidth === 100) {
+            clearInterval(timer)
+            location.href = userLocation
+        }
+
+
+        let timeLineElem = document.querySelector(".status__modal_timeline")
+        let timeLineElemText = document.querySelector(".status__modal_timelinetext")
+        timeLineElemText.innerHTML = `انتقال به داشبورد پس از ${--timeLineElemTime} ثانیه`
+        timeLineElem.style.width = `calc(100% - ${timeLineElemWidth}%)`
+    }, 1000);
+}
 
 
 
 
+const registerBody = document.querySelector("#register_body")
+const registrationSuccesssHandler = (fullname, message) => {
+    statusModalTimer("dashboard.html")
 
-const successStatusModalTemplate = `
+    const successStatusModalTemplate = `
 
  <div class="bg_galassmorphism__dark"></div>
  <div class="status__modal bg_glassmorphism_2 ">
@@ -245,8 +270,8 @@ const successStatusModalTemplate = `
         </div>
 
         <div class="status__modal__message">
-            <slot name="regestration__Title" class="status__modal_title" id="regestration__Title"></slot>
-            <slot name="status__modal_text" class="status__modal_text"></slot>
+            <h3 name="regestration__Title" class="status__modal_title" id="regestration__Title">${fullname}</h3>
+            <p name="status__modal_text" class="status__modal_text">${message}</p>
             <p class="status__modal_timelinetext">انتقال به داشبورد پس از ۵ ثانیه</p>
         </div>
 
@@ -263,27 +288,17 @@ const successStatusModalTemplate = `
 
 `
 
-
-const timeLineElem = this.shadowRoot.querySelector(".status__modal_timeline")
-const timeLineElemText = this.shadowRoot.querySelector(".status__modal_timelinetext")
-let timeLineElemTime = 5
-let timeLineElemWidth = 0
-
-const timer = setInterval(() => {
-    timeLineElemWidth += 20
-
-    if (timeLineElemWidth === 100) {
-        clearInterval(timer)
-        location.href = "dashboard.html"
-    }
+    registerBody.innerHTML = successStatusModalTemplate
 
 
-    timeLineElemText.innerHTML = `انتقال به داشبورد پس از ${--timeLineElemTime} ثانیه`
-    timeLineElem.style.width = `calc(100% - ${timeLineElemWidth}%)`
-}, 1000);
+}
 
 
-const dangerStatusModalTemplate = `
+
+const registrationDangerHandler = () => {
+    statusModalTimer("register.html")
+
+    const dangerStatusModalTemplate = `
 
 
     <div class="bg_galassmorphism__dark"></div>
@@ -294,7 +309,7 @@ const dangerStatusModalTemplate = `
         </div>
 
         <div class="status__modal__message">
-            <slot name="regestration__Title" class="status__modal_title" id="regestration__Title">عزیز یه جای کار میلنگه</slot>
+            <h3 name="regestration__Title" class="status__modal_title" id="regestration__Title">عزیز یه جای کار میلنگه</h3>
             <p class="status__modal_text">دوباره سعی کنین :) </p>
             <p class="status__modal_timelinetext">لغو پس از ۵ ثانیه</p>
         </div>
@@ -311,23 +326,24 @@ const dangerStatusModalTemplate = `
     </div>
 `
 
+    registerBody.innerHTML = dangerStatusModalTemplate
 
 
-// const timeLineElem = this.shadowRoot.querySelector(".status__modal_timeline")
-// const timeLineElemText = this.shadowRoot.querySelector(".status__modal_timelinetext")
-// let timeLineElemTime = 5
-// let timeLineElemWidth = 0
-
-// const timer = setInterval(() => {
-//     timeLineElemWidth += 20
-
-//     if (timeLineElemWidth === 100) {
-//         clearInterval(timer)
-//         location.href = "register.html"
-//     }
 
 
-//     timeLineElemText.innerHTML = `   لغو پس از ${--timeLineElemTime} ثانیه`
-//     timeLineElem.style.width = `calc(100% - ${timeLineElemWidth}%)`
-// }, 1000);
+
+}
+
+export {
+    registrationSuccesssHandler,
+    registrationDangerHandler,
+}
+
+
+
+
+
+
+
+
 
