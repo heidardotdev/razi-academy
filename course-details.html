@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/css/variables.css">
     <link rel="stylesheet" href="/css/course-details.css">
     <link rel="stylesheet" href="/css/course.css">
+    <link rel="stylesheet" href="/css/videoPlayr.css">
     <link rel="stylesheet" href="/css/header-footer.css">
     <link rel="stylesheet" href="/css/responsive.css">
     <link rel="stylesheet" href="/css/custom-class.css">
@@ -315,7 +316,7 @@
                 <div class="video__box">
                     <video src="/1.mp4"></video>
                     <div class="video__controllBtns center-xy-absolute center-xy">
-          
+
 
                         <!-- play and puase video -->
                         <button class="video__btn center-xy center-xy-absolute playPuaseBtn puase" id="playPuaseBtn">
@@ -356,8 +357,8 @@
                         </div>
                         <div class="video__sount-and-screen-controles items-center-justify-between">
                             <div class="video__volume-box video--unmute">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
-                                    fill="none">
+                                <svg id="unmute" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                    viewBox="0 0 24 24" fill="none">
                                     <path
                                         d="M18 16.75a.75.75 0 0 1-.6-1.2 5.94 5.94 0 0 0 0-7.1.75.75 0 0 1 1.2-.9c1.96 2.62 1.96 6.28 0 8.9-.15.2-.37.3-.6.3Z"
                                         fill="#ffffff"></path>
@@ -365,8 +366,8 @@
                                         d="M19.828 19.25a.75.75 0 0 1-.6-1.2c2.67-3.56 2.67-8.54 0-12.1a.75.75 0 0 1 1.2-.9c3.07 4.09 3.07 9.81 0 13.9-.14.2-.37.3-.6.3ZM14.02 3.782c-1.12-.62-2.55-.46-4.01.45l-2.92 1.83c-.2.12-.43.19-.66.19H5c-2.42 0-3.75 1.33-3.75 3.75v4c0 2.42 1.33 3.75 3.75 3.75H6.43c.23 0 .46.07.66.19l2.92 1.83c.88.55 1.74.82 2.54.82a3 3 0 0 0 1.47-.37c1.11-.62 1.73-1.91 1.73-3.63v-9.18c0-1.72-.62-3.01-1.73-3.63Z"
                                         fill="#ffffff"></path>
                                 </svg>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
-                                    fill="none">
+                                <svg id="mute" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                                    viewBox="0 0 24 24" fill="none">
                                     <path
                                         d="M18 16.75a.75.75 0 0 1-.6-1.2 5.926 5.926 0 0 0 .72-5.84.75.75 0 0 1 .4-.98c.38-.16.82.02.98.4 1.02 2.42.67 5.23-.9 7.33-.15.19-.37.29-.6.29Z"
                                         fill="#ffffff"></path>
@@ -395,8 +396,6 @@
                 </div>
                 <!-- video player -->
                 <!-- ----------------------------------------------------------------------- -->
-
-
 
                 <!-- course top body -->
                 <div class="course__top-textbox">
