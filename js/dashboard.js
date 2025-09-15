@@ -1,3 +1,6 @@
+import { getAllUsers } from "./funcs/shared.js"
+
+
 const $ = document
 
 
@@ -33,7 +36,11 @@ const sidebarHandler = () => {
 
 
     const sidebarItems = $.querySelectorAll(".sidebar__item")
+
     sidebarItems.forEach(item => {
+
+
+
 
         const tabContentHandler = () => {
             const tabContents = document.querySelectorAll(".tab__content")
@@ -52,6 +59,13 @@ const sidebarHandler = () => {
             })
 
         }
+
+
+
+
+
+
+
 
         item.addEventListener("click", event => {
             event.preventDefault()
@@ -75,6 +89,7 @@ const sidebarHandler = () => {
 
 
 
+
             item.classList.add("sidebar__item_active")
             tabContentHandler()
 
@@ -94,8 +109,19 @@ const sidebarHandler = () => {
 
 
 
+
+
+
         if (item.className.includes("sidebar__item_active")) {
             tabContentHandler()
+
+
+
+
+
+
+
+
 
 
 
@@ -184,12 +210,76 @@ const stepperHandler = () => {
 }
 
 
+const showAllUsers = () => {
+
+    getAllUsers().then(users => {
+        users.forEach(user => {
+            
+            const usersTabContentItems = $.querySelector("#users .tab__content__items")
+            usersTabContentItems.insertAdjacentHTML("beforeend", `
+                
+                <div class="user glassmorphism_2">
+                        <img src="/images/landing/teachers/programmer.webp" alt="profile" draggable="false"
+                            class="user__profile_img">
+
+                        <div class="user__details">
+                            <h3 class="userFullName">${user.fullname}</h3>
+                            <div class="user__role_box">
+                                <svg width="32" height="32">
+                                    <use href="#profile__linear"></use>
+                                </svg>
+                                <p class="user__role">کاربر</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="user__controlls">
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#trash__linear"></use>
+                                </svg>
+
+                            </button>
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#edit__linear"></use>
+                                </svg>
+
+                            </button>
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#userEdit__linear"></use>
+                                </svg>
+
+                            </button>
+                        </div>
+                
+            `)
+
+
+
+        })
+    })
+
+}
+
 
 
 
 window.addEventListener("load", () => {
     sidebarHandler()
     stepperHandler()
+    showAllUsers()
+
+
+
+
+
+
+
+
+
 
 
 })
