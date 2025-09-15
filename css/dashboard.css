@@ -465,6 +465,147 @@ main section {
 }
 
 
+
+
+/* filters start */
+.couses__filters {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 3rem;
+}
+
+.couses__filters::-webkit-scrollbar {
+    height: 0 !important;
+}
+
+
+
+.courses__filters_topBox {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: absolute;
+}
+
+.filters {
+    display: flex;
+    gap: 4rem;
+    overflow-x: auto;
+    width: max-content;
+    margin-top: 6rem;
+
+
+
+}
+
+.filter--active {
+    background-color: var(--primery-color) !important;
+    order: -1 !important;
+}
+
+
+.filter {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--main-dark-color);
+    padding: 1rem 1.5rem;
+    border-radius: 5rem;
+    cursor: pointer;
+
+
+
+}
+
+.filter__iconBox {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 1rem;
+    border-radius: 100%;
+
+}
+
+
+
+
+.filter svg {
+    width: 3rem;
+    height: 3rem;
+}
+
+/* filters end */
+
+
+/* course */
+
+.course {
+    background-color: var(--main-dark-color);
+    border-radius: 2rem;
+
+}
+
+.course__cover {
+    aspect-ratio: 16/9;
+    width: 100%;
+    border-radius: 2rem 2rem 0 0;
+
+}
+
+.course-box {
+    padding: 2rem;
+}
+
+.course-box__items {
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+
+
+.course-info__title {
+    margin-bottom: 1rem;
+    font-family: dana-black;
+    font-size: 2.5rem;
+}
+
+
+
+
+.course-teacher-box {
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+}
+
+.course-teacher__icon {
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+.course-teacher__icon path {
+    stroke: #7A7A7A;
+    stroke-width: 1.5px;
+}
+
+.course-teacher__fullname {
+    color: #7A7A7A;
+}
+
+.course-rate {
+
+    gap: 5px;
+}
+
+.course-rate__number {
+    height: 20px;
+    font-family: dana-farsi-num;
+}
+
+
+
+
+
 /* ---------------------------- tab content start --------------------------- */
 
 
@@ -484,15 +625,25 @@ main section {
 }
 
 
+.tab__content_Active {
+    display: block !important;
+}
+
+.tab__content {
+    display: none;
+}
+
+
 .tab__content__items {
     margin-top: 6rem;
     overflow: auto;
     height: 100vh;
     padding-bottom: 30rem;
 
-
-
 }
+
+
+
 
 .tab__content__items::-webkit-scrollbar {
     width: 0;
@@ -574,6 +725,136 @@ main section {
     width: 50%;
 
 }
+
+
+
+
+/* users tab */
+
+
+option {
+    background-color: var(--main-dark-color);
+    font-size: 1.8rem;
+}
+
+select {
+    font-size: 1.8rem;
+    width: 30%;
+}
+
+
+
+#userFullNameInput {
+    font-size: 2.3rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px dashed var(--primery-color);
+    position: relative;
+    border-radius: 2rem;
+}
+
+.userprofileinputlable {
+    position: absolute;
+    background-color: var(--primery-color);
+    color: #ffff;
+    padding: 1rem;
+    border-radius: 3rem;
+    z-index: 1;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    margin: auto;
+
+}
+
+
+
+body>main>div>div>div.tab__content__items.tab__content__items_active.grid-system>div:nth-child(1)>label>img {
+    filter: brightness(.2);
+}
+
+
+#userProfileInput {
+    display: none;
+}
+
+#user__btn_confirmChange {
+    width: 100%;
+    background-color: var(--primery-color);
+    padding: 2rem;
+    margin-top: 2rem;
+    border-radius: 1rem;
+    font-size: 2rem;
+}
+
+
+#user__btn_confirmChange:hover {
+    background-color: #003f97;
+}
+
+.user {
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 2rem;
+
+}
+
+.user__profile_img {
+    width: 100%;
+    border-radius: 2rem;
+
+
+}
+
+.user__details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2rem;
+
+}
+
+.userFullName {}
+
+.user__role_box {
+    display: flex;
+    align-items: center;
+    background-color: var(--primery-color);
+    padding: 7px;
+    gap: .5rem;
+    border-radius: 5rem;
+
+}
+
+.user__role {}
+
+.user__controlls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+
+
+
+}
+
+.user__controll {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1.5rem;
+    border-radius: 2rem;
+
+
+}
+
 
 /* --------------------------- tab content finish --------------------------- */
 

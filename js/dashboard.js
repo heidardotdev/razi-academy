@@ -35,6 +35,24 @@ const sidebarHandler = () => {
     const sidebarItems = $.querySelectorAll(".sidebar__item")
     sidebarItems.forEach(item => {
 
+        const tabContentHandler = () => {
+            const tabContents = document.querySelectorAll(".tab__content")
+            const itemId = item.getAttribute("id")
+
+
+            tabContents.forEach(item => {
+                if (item.getAttribute("id") == itemId) {
+                    item.classList.add("tab__content_Active")
+                } else {
+                    item.classList.remove("tab__content_Active")
+
+                }
+
+
+            })
+
+        }
+
         item.addEventListener("click", event => {
             event.preventDefault()
 
@@ -58,6 +76,12 @@ const sidebarHandler = () => {
 
 
             item.classList.add("sidebar__item_active")
+            tabContentHandler()
+
+
+
+
+
 
 
 
@@ -66,6 +90,22 @@ const sidebarHandler = () => {
 
 
         })
+
+
+
+
+        if (item.className.includes("sidebar__item_active")) {
+            tabContentHandler()
+
+
+
+
+
+
+
+        }
+
+
 
 
 
@@ -150,6 +190,7 @@ const stepperHandler = () => {
 window.addEventListener("load", () => {
     sidebarHandler()
     stepperHandler()
+
 
 })
 
