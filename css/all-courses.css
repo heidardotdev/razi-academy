@@ -1,85 +1,70 @@
 /* filters start */
 .couses__filters {
-    width: 100%;
-    overflow-x: auto;
+  width: 100%;
+  overflow-x: auto;
 }
 
 .couses__filters::-webkit-scrollbar {
-    height: 0 !important;
+  height: 0 !important;
 }
 
-
-
 .courses__filters_topBox {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: absolute;
 }
 
 .filters {
-    display: flex;
-    gap: 4rem;
-    overflow-x: auto;
-    width: max-content;
-    margin-top: 6rem;
-
-
-
+  display: flex;
+  gap: 4rem;
+  overflow-x: auto;
+  width: max-content;
+  margin-top: 6rem;
 }
 
 .filter--active {
-    background-color: var(--primery-color) !important;
-    order: -1 !important;
+  background-color: var(--primery-color) !important;
+  order: -1 !important;
 }
 
-
 .filter {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    background-color: var(--main-dark-color);
-    padding: 1rem 1.5rem;
-    border-radius: 5rem;
-    cursor: pointer;
-
-
-
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--main-dark-color);
+  padding: 1rem 1.5rem;
+  border-radius: 5rem;
+  cursor: pointer;
 }
 
 .filter__iconBox {
-    background-color: rgba(255, 255, 255, 0.2);
-    padding: 1rem;
-    border-radius: 100%;
-
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 1rem;
+  border-radius: 100%;
 }
 
-
-
-
 .filter svg {
-    width: 3rem;
-    height: 3rem;
+  width: 3rem;
+  height: 3rem;
 }
 
 /* filters end */
 
 .not__commnetBox {
-    align-items: center;
-    display: grid;
-    grid-template-columns: 100%;
-    justify-content: center;
-    text-align: center;
+  align-items: center;
+  display: grid;
+  grid-template-columns: 100%;
+  justify-content: center;
+  text-align: center;
 }
 
-.no__commentBoxCaption{
-    color: #ff5b7e;
-    margin-top: 5rem;
-    max-width: 40rem;
-
+.no__commentBoxCaption {
+  color: #ff5b7e;
+  margin-top: 5rem;
+  max-width: 40rem;
 }
 
-
-.section-title__content-caption{
-    font-family: dana-farsi-num !important;
+.section-title__content-caption {
+  font-family: dana-farsi-num !important;
 }

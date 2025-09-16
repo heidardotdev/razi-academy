@@ -1,261 +1,205 @@
 import { signUp, signIn } from "./funcs/auth.js";
 
+const $ = document;
 
-
-const $ = document
-
-const userFullNameInput = $.querySelector("#signup_userFullName")
-const userNameInput = $.querySelector("#signup_username")
-const passswordInput = $.querySelector("#signup_password")
-const checkBoxInput = $.querySelector("#signup_checkbox")
-const userFullNameInputMessage = $.querySelector("#userFullName_message")
-const registerUserNameInputMessage = $.querySelector("#register_username_message")
-const signupPassswordMessage = $.querySelector("#signup__password_message")
-const signUpEmptyInputsMessage = $.querySelector(".register__btn-box p")
-const signInBtn = $.querySelector("#signIn__btn")
-const registerLinks = $.querySelectorAll(".register__link")
-
-
-
-
+const userFullNameInput = $.querySelector("#signup_userFullName");
+const userNameInput = $.querySelector("#signup_username");
+const passswordInput = $.querySelector("#signup_password");
+const checkBoxInput = $.querySelector("#signup_checkbox");
+const userFullNameInputMessage = $.querySelector("#userFullName_message");
+const registerUserNameInputMessage = $.querySelector(
+  "#register_username_message"
+);
+const signupPassswordMessage = $.querySelector("#signup__password_message");
+const signUpEmptyInputsMessage = $.querySelector(".register__btn-box p");
+const signInBtn = $.querySelector("#signIn__btn");
+const registerLinks = $.querySelectorAll(".register__link");
 
 /* -------------------------------------------------------------------------- */
 /*                              input validation                              */
 /* -------------------------------------------------------------------------- */
 
-let isUserNameValid = false
-let isUserFullNameValid = false
-let isPasswordValid = false
+let isUserNameValid = false;
+let isUserFullNameValid = false;
+let isPasswordValid = false;
 
 userFullNameInput.addEventListener("keyup", () => {
-    const userFullNameRegex = /^(?!.*[0-9۰-۹])(?!.*[٬])(?!.*[٫])(?!.*[٪])(?!.*[،])(?!.*[a-zA-Z])[\u0600-\u06FF](?:[\u0600-\u06FF ]*[\u0600-\u06FF]){5,21}$/
+  const userFullNameRegex =
+    /^(?!.*[0-9۰-۹])(?!.*[٬])(?!.*[٫])(?!.*[٪])(?!.*[،])(?!.*[a-zA-Z])[\u0600-\u06FF](?:[\u0600-\u06FF ]*[\u0600-\u06FF]){5,21}$/;
 
-    if (userFullNameInput.value.length === 0) {
-        userFullNameInputMessage.style.display = "none"
+  if (userFullNameInput.value.length === 0) {
+    userFullNameInputMessage.style.display = "none";
+  } else {
+    if (userFullNameRegex.test(userFullNameInput.value)) {
+      isUserFullNameValid = true;
+      userFullNameInputMessage.style.display = "none";
     } else {
-        if (userFullNameRegex.test(userFullNameInput.value)) {
-            isUserFullNameValid = true
-            userFullNameInputMessage.style.display = "none"
-
-        } else {
-            userFullNameInputMessage.style.display = "block"
-            isUserFullNameValid = false
-
-        }
+      userFullNameInputMessage.style.display = "block";
+      isUserFullNameValid = false;
     }
-
-
-
-})
+  }
+});
 userNameInput.addEventListener("keyup", () => {
-    const userNameValidationRegex = /^[a-zA-Z][a-zA-Z0-9\-_.]{4,21}$/i
+  const userNameValidationRegex = /^[a-zA-Z][a-zA-Z0-9\-_.]{4,21}$/i;
 
-
-
-
-    if (userNameInput.value.length === 0) {
-        registerUserNameInputMessage.style.display = "none"
-
+  if (userNameInput.value.length === 0) {
+    registerUserNameInputMessage.style.display = "none";
+  } else {
+    if (userNameValidationRegex.test(userNameInput.value)) {
+      isUserNameValid = true;
+      registerUserNameInputMessage.style.display = "none";
     } else {
-
-        if (userNameValidationRegex.test(userNameInput.value)) {
-            isUserNameValid = true
-            registerUserNameInputMessage.style.display = "none"
-
-
-        } else {
-            registerUserNameInputMessage.style.display = "block"
-            isUserNameValid = false
-
-
-        }
+      registerUserNameInputMessage.style.display = "block";
+      isUserNameValid = false;
     }
-
-
-})
+  }
+});
 passswordInput.addEventListener("keyup", () => {
-    const passwordValidationRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,15}$/i
-    if (passswordInput.value.length === 0) {
-        signupPassswordMessage.style.display = "none"
-
+  const passwordValidationRegex =
+    /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,15}$/i;
+  if (passswordInput.value.length === 0) {
+    signupPassswordMessage.style.display = "none";
+  } else {
+    if (passwordValidationRegex.test(passswordInput.value)) {
+      isPasswordValid = true;
+      signupPassswordMessage.style.display = "none";
     } else {
-        if (passwordValidationRegex.test(passswordInput.value)) {
-            isPasswordValid = true
-            signupPassswordMessage.style.display = "none"
-
-        } else {
-            signupPassswordMessage.style.display = "block"
-            isPasswordValid = false
-
-
-        }
-
+      signupPassswordMessage.style.display = "block";
+      isPasswordValid = false;
     }
-
-})
+  }
+});
 
 window.addEventListener("change", () => {
-    if (isUserFullNameValid, isUserNameValid, isPasswordValid, checkBoxInput.checked) {
-        signUpEmptyInputsMessage.style.display = "none"
-    }
-})
-
-
-
-
-
-
-
-
-
-
+  if (
+    (isUserFullNameValid,
+    isUserNameValid,
+    isPasswordValid,
+    checkBoxInput.checked)
+  ) {
+    signUpEmptyInputsMessage.style.display = "none";
+  }
+});
 
 /* -------------------------------------------------------------------------- */
 /*                                   sign Up                                  */
 /* -------------------------------------------------------------------------- */
-const signUpBtn = $.querySelector("#signup__btn")
+const signUpBtn = $.querySelector("#signup__btn");
 
 window.addEventListener("keyup", (event) => {
-    if (event.key === "Enter") {
-        signUpHandler()
+  if (event.key === "Enter") {
+    signUpHandler();
+  }
+});
 
-    }
-})
-
-signUpBtn.addEventListener("click", event => {
-    event.preventDefault()
-    signUpHandler()
-
-
-})
+signUpBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  signUpHandler();
+});
 
 const signUpHandler = () => {
-    if (isUserFullNameValid && isUserNameValid && isPasswordValid && checkBoxInput.checked) {
-        signUp()
-        signUpEmptyInputsMessage.style.display = "none"
-    } else {
-        signUpEmptyInputsMessage.style.display = "block"
-
-    }
-
-}
-
-
-
+  if (
+    isUserFullNameValid &&
+    isUserNameValid &&
+    isPasswordValid &&
+    checkBoxInput.checked
+  ) {
+    signUp();
+    signUpEmptyInputsMessage.style.display = "none";
+  } else {
+    signUpEmptyInputsMessage.style.display = "block";
+  }
+};
 
 /* -------------------------------------------------------------------------- */
 /*                                   sign In                                  */
 /* -------------------------------------------------------------------------- */
 
 const signInLinksHandler = () => {
-
-    registerLinks.forEach(item => {
-        item.addEventListener("click", event => {
-            event.preventDefault()
-            registerBody.classList.toggle("signIn")
-        })
-    })
-
-
-
-
-
-}
-signInLinksHandler()
+  registerLinks.forEach((item) => {
+    item.addEventListener("click", (event) => {
+      event.preventDefault();
+      registerBody.classList.toggle("signIn");
+    });
+  });
+};
+signInLinksHandler();
 
 const signInHandler = () => {
-    if (isUserNameValid, isPasswordValid) {
-        signUpEmptyInputsMessage.style.display = "none"
-        signIn()
-    } else {
-        signUpEmptyInputsMessage.style.display = "block"
-    }
+  if ((isUserNameValid, isPasswordValid)) {
+    signUpEmptyInputsMessage.style.display = "none";
+    signIn();
+  } else {
+    signUpEmptyInputsMessage.style.display = "block";
+  }
+};
 
-}
+window.addEventListener("keyup", (event) => {
+  if (event.key === "Enter") {
+    signInHandler();
+  }
+});
 
-window.addEventListener("keyup", event => {
-    if (event.key === "Enter") {
-        signInHandler()
-    }
-})
-
-signInBtn.addEventListener("click", event => {
-    event.preventDefault()
-    signInHandler()
-
-})
+signInBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  signInHandler();
+});
 
 window.addEventListener("change", () => {
-    if (isUserNameValid, isPasswordValid) {
-        signUpEmptyInputsMessage.style.display = "none"
-    } else {
-        signUpEmptyInputsMessage.style.display = "block"
-
-    }
-})
-
-
-
-
-
-
-
-
-
+  if ((isUserNameValid, isPasswordValid)) {
+    signUpEmptyInputsMessage.style.display = "none";
+  } else {
+    signUpEmptyInputsMessage.style.display = "block";
+  }
+});
 
 /* -------------------------------------------------------------------------- */
 /*                           show and hide password                           */
 /* -------------------------------------------------------------------------- */
 
-const showPasswordBtn = $.querySelector("#show__password")
-const hidePasswordBtn = $.querySelector("#hide__password")
+const showPasswordBtn = $.querySelector("#show__password");
+const hidePasswordBtn = $.querySelector("#hide__password");
 
 showPasswordBtn.addEventListener("click", () => {
-    passswordInput.setAttribute("type", "text")
-    showPasswordBtn.style.display = "none"
-    hidePasswordBtn.style.display = "block"
-})
+  passswordInput.setAttribute("type", "text");
+  showPasswordBtn.style.display = "none";
+  hidePasswordBtn.style.display = "block";
+});
 
 hidePasswordBtn.addEventListener("click", () => {
-    passswordInput.setAttribute("type", "password")
-    showPasswordBtn.style.display = "block"
-    hidePasswordBtn.style.display = "none"
-})
-
-
+  passswordInput.setAttribute("type", "password");
+  showPasswordBtn.style.display = "block";
+  hidePasswordBtn.style.display = "none";
+});
 
 // register status modals
 
 const statusModalTimer = (userLocation) => {
+  let timeLineElemTime = 5;
+  let timeLineElemWidth = 0;
 
+  const timer = setInterval(() => {
+    timeLineElemWidth += 20;
 
-    let timeLineElemTime = 5
-    let timeLineElemWidth = 0
+    if (timeLineElemWidth === 100) {
+      clearInterval(timer);
+      location.href = userLocation;
+    }
 
-    const timer = setInterval(() => {
-        timeLineElemWidth += 20
+    let timeLineElem = document.querySelector(".status__modal_timeline");
+    let timeLineElemText = document.querySelector(
+      ".status__modal_timelinetext"
+    );
+    timeLineElemText.innerHTML = `انتقال به داشبورد پس از ${--timeLineElemTime} ثانیه`;
+    timeLineElem.style.width = `calc(100% - ${timeLineElemWidth}%)`;
+  }, 1000);
+};
 
-        if (timeLineElemWidth === 100) {
-            clearInterval(timer)
-            location.href = userLocation
-        }
-
-
-        let timeLineElem = document.querySelector(".status__modal_timeline")
-        let timeLineElemText = document.querySelector(".status__modal_timelinetext")
-        timeLineElemText.innerHTML = `انتقال به داشبورد پس از ${--timeLineElemTime} ثانیه`
-        timeLineElem.style.width = `calc(100% - ${timeLineElemWidth}%)`
-    }, 1000);
-}
-
-
-
-
-const registerBody = document.querySelector("#register_body")
+const registerBody = document.querySelector("#register_body");
 const registrationSuccesssHandler = (fullname, message) => {
-    statusModalTimer("dashboard.html")
+  statusModalTimer("dashboard.html");
 
-    const successStatusModalTemplate = `
+  const successStatusModalTemplate = `
 
  <div class="bg_galassmorphism__dark"></div>
  <div class="status__modal bg_glassmorphism_2 ">
@@ -286,19 +230,15 @@ const registrationSuccesssHandler = (fullname, message) => {
 
     </div>
 
-`
+`;
 
-    registerBody.innerHTML = successStatusModalTemplate
-
-
-}
-
-
+  registerBody.innerHTML = successStatusModalTemplate;
+};
 
 const registrationDangerHandler = () => {
-    statusModalTimer("register.html")
+  statusModalTimer("register.html");
 
-    const dangerStatusModalTemplate = `
+  const dangerStatusModalTemplate = `
 
 
     <div class="bg_galassmorphism__dark"></div>
@@ -324,26 +264,9 @@ const registrationDangerHandler = () => {
 
 
     </div>
-`
+`;
 
-    registerBody.innerHTML = dangerStatusModalTemplate
+  registerBody.innerHTML = dangerStatusModalTemplate;
+};
 
-
-
-
-
-}
-
-export {
-    registrationSuccesssHandler,
-    registrationDangerHandler,
-}
-
-
-
-
-
-
-
-
-
+export { registrationSuccesssHandler, registrationDangerHandler };

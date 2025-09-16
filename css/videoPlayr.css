@@ -1,176 +1,149 @@
 .videoIsFullScreen {
-    position: absolute;
-    margin: auto;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 /* video player */
 
-.container.fullscreen{
-    width: 100%;
-    max-width: 100%;
-
+.container.fullscreen {
+  width: 100%;
+  max-width: 100%;
 }
 
 .video__box {
-    position: relative;
-    overflow: hidden;
-    aspect-ratio: 16/9;
-    height: unset !important;
-    margin: 0 auto;
-    border-radius: 2rem;
-    overflow: hidden;
-
-
-
-
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  height: unset !important;
+  margin: 0 auto;
+  border-radius: 2rem;
+  overflow: hidden;
 }
 
-
-
 .video__btn {
-    background-color: var(--primery-color);
-    border-radius: 100%;
-    width: 4rem;
-    height: 4rem;
-
-
-
-
-
-
-
+  background-color: var(--primery-color);
+  border-radius: 100%;
+  width: 4rem;
+  height: 4rem;
 }
 
 .playPuaseBtn svg:first-child {
-    display: none !important;
+  display: none !important;
 }
 
 .puase svg:first-child {
-    display: block !important;
+  display: block !important;
 }
 
 .puase svg:last-child {
-    display: none !important;
+  display: none !important;
 }
 
-
-
 .video__controles-box {
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    margin-bottom: 5px !important;
-
-
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  margin-bottom: 5px !important;
 }
 
 .video__time-controles-box {
-
-    width: 100%;
-    padding: 0 7px;
-    gap: 1rem;
+  width: 100%;
+  padding: 0 7px;
+  gap: 1rem;
 }
 
 .video__time {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 .video__time-line-box {
-    background-color: #DDDDDD;
-    width: 100%;
-    height: 1rem;
-    border-radius: 2rem;
+  background-color: #dddddd;
+  width: 100%;
+  height: 1rem;
+  border-radius: 2rem;
 }
 
 .video__time-line {
-    position: relative;
-    width: 0%;
-    height: 1rem;
-    background-color: var(--primery-color);
-    border-radius: 5rem;
+  position: relative;
+  width: 0%;
+  height: 1rem;
+  background-color: var(--primery-color);
+  border-radius: 5rem;
 }
 
 .video__time-line::before {
-    position: absolute;
-    content: "";
-    right: -2px;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    width: 2rem;
-    height: 2rem;
-    background-color: #fff;
-    border-radius: 100%;
-    opacity: 0;
-    transition: opacity 250ms linear;
+  position: absolute;
+  content: "";
+  right: -2px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 2rem;
+  height: 2rem;
+  background-color: #fff;
+  border-radius: 100%;
+  opacity: 0;
+  transition: opacity 250ms linear;
 }
 
 .video__time-line-box:hover .video__time-line::before {
-    opacity: 1;
+  opacity: 1;
 }
-
 
 .video__sount-and-screen-controles {
-
-    width: 100%;
-    padding: 0 7px;
-
+  width: 100%;
+  padding: 0 7px;
 }
 
-
-.videoIsNotFullScreen{
-    border-radius: 2rem;
+.videoIsNotFullScreen {
+  border-radius: 2rem;
 }
 
-#mute, 
-#unmute{
-    cursor: pointer;
+#mute,
+#unmute {
+  cursor: pointer;
 }
 
-
-.video--unmute>svg:nth-child(2) {
-    display: none !important;
-
+.video--unmute > svg:nth-child(2) {
+  display: none !important;
 }
 
-.video--mute>svg:nth-child(1) {
-    display: none !important;
+.video--mute > svg:nth-child(1) {
+  display: none !important;
 }
 
 .video__volume-box {
-    gap: 1rem;
+  gap: 1rem;
 }
 
 .video__volume-box svg,
 .video__screen-control svg,
 .video__screen-control img {
-    width: 2.5rem;
-    height: 2.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
-.video__screen-control{
-    cursor: pointer;
+.video__screen-control {
+  cursor: pointer;
 }
 
 .volumeLevel {
-    width: 8rem;
-    background-color: var(--primery-color);
-    border-radius: 2rem;
-    accent-color: var(--primery-color);
-
+  width: 8rem;
+  background-color: var(--primery-color);
+  border-radius: 2rem;
+  accent-color: var(--primery-color);
 }
 
-
 .video__screen--normal img {
-    display: none;
+  display: none;
 }
 
 .video__screen--fullscreen svg {
-    display: none;
+  display: none;
 }
 
 /* video player */

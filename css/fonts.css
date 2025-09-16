@@ -1,69 +1,67 @@
 @font-face {
-    font-family: dana-thin;
-    src: url(/fonts/DanaVF/DanaVF.ttf) format(truetype);
-    font-weight: 100;
+  font-family: dana-thin;
+  src: url(/fonts/DanaVF/DanaVF.ttf) format(truetype);
+  font-weight: 100;
 }
 
 @font-face {
-    font-family: dana-light;
-    src: url(/fonts/DanaVF/DanaVF.ttf) format(truetype);
-    font-weight: 200;
+  font-family: dana-light;
+  src: url(/fonts/DanaVF/DanaVF.ttf) format(truetype);
+  font-weight: 200;
 }
 
 @font-face {
-    font-family: dana-regular;
-    src: url(/fonts/DanaVF/DanaVF.ttf) format(truetype);
-    font-weight: 300;
+  font-family: dana-regular;
+  src: url(/fonts/DanaVF/DanaVF.ttf) format(truetype);
+  font-weight: 300;
 }
 
 @font-face {
-    font-family: dana-medium;
-    src: url(/fonts/DanaVF/DanaVF.ttf) format(truetype);
-    font-weight: 400;
+  font-family: dana-medium;
+  src: url(/fonts/DanaVF/DanaVF.ttf) format(truetype);
+  font-weight: 400;
 }
 
 @font-face {
-    font-family: dana-demibold;
-    src: url(/fonts/DanaVF/DanaVF.ttf) format(truetype);
-    font-weight: 500;
+  font-family: dana-demibold;
+  src: url(/fonts/DanaVF/DanaVF.ttf) format(truetype);
+  font-weight: 500;
 }
 
 @font-face {
-    font-family: dana-bold;
-    src: url(/fonts/DanaVF/DanaVF.ttf) format(truetype);
-    font-weight: 600;
+  font-family: dana-bold;
+  src: url(/fonts/DanaVF/DanaVF.ttf) format(truetype);
+  font-weight: 600;
 }
 
 @font-face {
-    font-family: dana-extra-bold;
-    src: url(/fonts/DanaVF/DanaVF.ttf) format(truetype);
-    font-weight: 700;
+  font-family: dana-extra-bold;
+  src: url(/fonts/DanaVF/DanaVF.ttf) format(truetype);
+  font-weight: 700;
 }
 
 @font-face {
-    font-family: dana-black;
-    src: url(/fonts/DanaVF/DanaVF.ttf) format(truetype);
-    font-weight: 700;
+  font-family: dana-black;
+  src: url(/fonts/DanaVF/DanaVF.ttf) format(truetype);
+  font-weight: 700;
 }
 
 @font-face {
-    font-family: dana-ultra-black;
-    src: url(/fonts/DanaVF/DanaVF.ttf) format(truetype);
-    font-weight: 800;
+  font-family: dana-ultra-black;
+  src: url(/fonts/DanaVF/DanaVF.ttf) format(truetype);
+  font-weight: 800;
 }
 
 @font-face {
-    font-family: dana-heavy;
-    src: url(/fonts/DanaVF/DanaVF.ttf) format(truetype);
-    font-weight: 900;
+  font-family: dana-heavy;
+  src: url(/fonts/DanaVF/DanaVF.ttf) format(truetype);
+  font-weight: 900;
 }
 
 @font-face {
-    font-family: dana-farsi-num;
-    src: url(/fonts/Dana/DanaFaNum-Medium.ttf);
+  font-family: dana-farsi-num;
+  src: url(/fonts/Dana/DanaFaNum-Medium.ttf);
 }
-
-
 
 /* extra bold font family start */
 
@@ -94,8 +92,8 @@
 .video__title,
 .course_userName,
 .article__mainTopic,
-.status__modal_btn{
-    font-family: dana-extra-bold;
+.status__modal_btn {
+  font-family: dana-extra-bold;
 }
 
 /* extra bold font family end */

@@ -1,42 +1,35 @@
-const $ = document
-
+const $ = document;
 
 // course filter
 
-const filters = $.querySelectorAll(".filter")
-filters.forEach(filter => {
+const filters = $.querySelectorAll(".filter");
+filters.forEach((filter) => {
+  filter.addEventListener("click", () => {
+    filters.forEach((filter) => {
+      if (filter.className.includes("filter--active")) {
+        filter.className = "filter";
+      }
+    });
 
-    filter.addEventListener("click", () => {
-        filters.forEach(filter => {
-            if (filter.className.includes("filter--active")) {
-                filter.className = "filter"
-            }
-        })
+    filter.classList.add("filter--active");
 
+    const lastCoursesContainer = $.querySelector("#last-courses");
+    lastCoursesContainer.innerHTML = "";
 
+    const sectionTitle = $.querySelector(".section-title__conent-title");
+    sectionTitle.textContent = `دوره‌های ${filter.textContent.trim()}`;
+    const sectionSubTitle = $.querySelector(".section-title__content-caption");
 
+    /* -------------------------------------------------------------------------- */
+    /*                 filtering the courses based on the filters                 */
+    /* -------------------------------------------------------------------------- */
+    getAllCourses().then((courses) => {
+      const filteredCourses = courses.filter((course) => {
+        return course.courseCategoryID.title === filter.textContent.trim();
+      });
 
-        filter.classList.add("filter--active")
-
-        const lastCoursesContainer = $.querySelector("#last-courses")
-        lastCoursesContainer.innerHTML = ""
-
-        const sectionTitle = $.querySelector(".section-title__conent-title")
-        sectionTitle.textContent = `دوره‌های ${filter.textContent.trim()}`
-        const sectionSubTitle = $.querySelector(".section-title__content-caption")
-
-
-        /* -------------------------------------------------------------------------- */
-        /*                 filtering the courses based on the filters                 */
-        /* -------------------------------------------------------------------------- */
-        getAllCourses().then(courses => {
-            const filteredCourses = courses.filter(course => {
-                return course.courseCategoryID.title === filter.textContent.trim()
-            })
-
-
-            if (!filteredCourses.length) {
-                lastCoursesContainer.innerHTML = `
+      if (!filteredCourses.length) {
+        lastCoursesContainer.innerHTML = `
                 
                 <div class="not__commnetBox">
                     <svg xmlns="http://www.w3.org/2000/svg" width="322" height="322" viewBox="0 0 343 322" fill="none">
@@ -175,17 +168,17 @@ filters.forEach(filter => {
                     <p class="no__commentBoxCaption">دوره‌هارو داریم برگزار میکنیم منتظرمون بمونین. دمتون گرم :)</p>
                 </div>
 
-                `
+                `;
+      }
 
-            }
+      sectionSubTitle.textContent = !filteredCourses.length
+        ? "بزودی دوره‌ها برگزار میشن، منتظر بمونین:)"
+        : `${filteredCourses.length} دوره پروژه محور`;
 
-            sectionSubTitle.textContent = !filteredCourses.length ? "بزودی دوره‌ها برگزار میشن، منتظر بمونین:)" : `${filteredCourses.length} دوره پروژه محور`
-
-
-
-
-            filteredCourses.map(course => {
-                lastCoursesContainer.insertAdjacentHTML("beforeend", `
+      filteredCourses.map((course) => {
+        lastCoursesContainer.insertAdjacentHTML(
+          "beforeend",
+          `
                 
                 <div class="course">
                     <img src="${course.cover}" alt="${course.title}" class="course__cover">
@@ -223,18 +216,9 @@ filters.forEach(filter => {
                     </div>
                 </div>
 
-                `)
-            })
-
-        })
-
-
-
-    })
-
-
-
-
-})
-
-
+                `
+        );
+      });
+    });
+  });
+});
