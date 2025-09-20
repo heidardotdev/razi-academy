@@ -1,4 +1,5 @@
 import { getAllUsers } from "./funcs/shared.js";
+import { filterUsersByRole } from "./shared.js";
 
 const $ = document;
 
@@ -100,6 +101,7 @@ const showAllUsers = () => {
       const usersTabContentItems = $.querySelector(
         "#users .tab__content__items"
       );
+
       usersTabContentItems.insertAdjacentHTML(
         "beforeend",
         `
@@ -112,9 +114,41 @@ const showAllUsers = () => {
                             <h3 class="userFullName">${user.fullname}</h3>
                             <div class="user__role_box">
                                 <svg width="32" height="32">
-                                    <use href="#profile__linear"></use>
+                                    <use href="#${
+                                      user.role == "user"
+                                        ? "profile__linear"
+                                        : user.role == "admin"
+                                        ? "userTick__linear"
+                                        : user.role == "courseteacher"
+                                        ? "teacher__linear"
+                                        : user.role == "teacher"
+                                        ? "profileTick__linear"
+                                        : user.role == "author"
+                                        ? "userEdit__linear"
+                                        : user.role == "presentor"
+                                        ? "tagUser__linear"
+                                        : user.role == "manager"
+                                        ? "crown__linear"
+                                        : false
+                                    }"></use>
                                 </svg>
-                                <p class="user__role">کاربر</p>
+                                <p class="user__role">${
+                                  user.role == "user"
+                                    ? "کاربر"
+                                    : user.role == "admin"
+                                    ? "ادمین"
+                                    : user.role == "courseteacher"
+                                    ? "مدرس"
+                                    : user.role == "teacher"
+                                    ? "هنرآموز"
+                                    : user.role == "author"
+                                    ? "نویسنده"
+                                    : user.role == "presentor"
+                                    ? "مجری"
+                                    : user.role == "manager"
+                                    ? "مدیر"
+                                    : false
+                                }</p>
 
                             </div>
 
@@ -127,7 +161,7 @@ const showAllUsers = () => {
                                 </svg>
 
                             </button>
-                            <button class="user__controll center-xy  glassmorphism">
+                            <button  class="user__controll center-xy  glassmorphism"  >
                                 <svg width="32" height="32">
                                     <use href="#edit__linear"></use>
                                 </svg>
@@ -140,6 +174,7 @@ const showAllUsers = () => {
 
                             </button>
                         </div>
+
                 
             `
       );
@@ -151,4 +186,7 @@ window.addEventListener("load", () => {
   sidebarHandler();
   stepperHandler();
   showAllUsers();
+  filterUsersByRole();
 });
+
+export { showAllUsers };

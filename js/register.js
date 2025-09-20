@@ -39,6 +39,7 @@ userFullNameInput.addEventListener("keyup", () => {
     }
   }
 });
+
 userNameInput.addEventListener("keyup", () => {
   const userNameValidationRegex = /^[a-zA-Z][a-zA-Z0-9\-_.]{4,21}$/i;
 
@@ -174,7 +175,7 @@ hidePasswordBtn.addEventListener("click", () => {
 
 // register status modals
 
-const statusModalTimer = (userLocation) => {
+const statusModalTimer = (userLocation, timeLineText) => {
   let timeLineElemTime = 5;
   let timeLineElemWidth = 0;
 
@@ -190,14 +191,14 @@ const statusModalTimer = (userLocation) => {
     let timeLineElemText = document.querySelector(
       ".status__modal_timelinetext"
     );
-    timeLineElemText.innerHTML = `انتقال به داشبورد پس از ${--timeLineElemTime} ثانیه`;
+    timeLineElemText.innerHTML = `${timeLineText} ${--timeLineElemTime} ثانیه`;
     timeLineElem.style.width = `calc(100% - ${timeLineElemWidth}%)`;
   }, 1000);
 };
 
 const registerBody = document.querySelector("#register_body");
 const registrationSuccesssHandler = (fullname, message) => {
-  statusModalTimer("dashboard.html");
+  statusModalTimer("dashboard.html", "انتقال به داشبورد پس از ");
 
   const successStatusModalTemplate = `
 
@@ -236,7 +237,7 @@ const registrationSuccesssHandler = (fullname, message) => {
 };
 
 const registrationDangerHandler = () => {
-  statusModalTimer("register.html");
+  statusModalTimer("register.html", "لغو پس از");
 
   const dangerStatusModalTemplate = `
 

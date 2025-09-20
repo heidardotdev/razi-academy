@@ -1,0 +1,229 @@
+.modalBlur {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: 0;
+  z-index: 1;
+  backdrop-filter: blur(40px) !important;
+  filter: brightness(0.6);
+  display: none;
+}
+
+.gallery__modal_open .modalBlur {
+  display: block !important;
+}
+
+.gallery__modal_open .gallery__modal {
+  display: flex !important;
+}
+
+.icon_pack {
+  display: none;
+}
+
+.icon_pack svg path {
+  stroke: #fff;
+}
+
+/* gallery */
+
+.section-title {
+  z-index: 0 !important;
+  position: relative;
+}
+
+.gallery__modal {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 9.5rem;
+  background-color: var(--main-dark-color);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  padding: 2rem;
+  align-items: center;
+  flex-direction: column;
+  margin: auto;
+  display: none; /* flex */
+  animation: galleryModalAnimation forwards 850ms ease;
+}
+
+.galleryModalCloseAnimation {
+  animation: galleryModalAnimation2 forwards 850ms ease;
+}
+
+@keyframes galleryModalAnimation {
+  0% {
+    transform: translateY(100rem);
+  }
+  50% {
+    transform: translateY(-5rem);
+  }
+  70% {
+    transform: translateY(2rem);
+  }
+  100% {
+    transform: translateY(0rem);
+  }
+}
+@keyframes galleryModalAnimation2 {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(1000rem);
+  }
+}
+
+.gallery__modal > .close__gallery_modal {
+  margin-right: auto;
+  margin-top: 2rem;
+}
+
+#close_circle_linear path {
+  stroke: #7e7e7e;
+}
+
+.gallery__modal .gallery__item {
+  aspect-ratio: 1/1;
+  width: 100%;
+  margin-top: 20%;
+}
+.gallery__modal .gallery__item:hover {
+  border: unset;
+  filter: unset;
+  scale: unset;
+  cursor: default;
+}
+
+.gallery__modal__title {
+  margin-top: 2rem;
+}
+
+.gallery__modal__btns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  bottom: 20rem;
+  padding: 2rem;
+}
+
+.gallery__modal__btn {
+  border: 2px solid var(--primery-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5rem;
+  padding: 2rem;
+}
+
+.gallery__modal__btn:hover {
+  background-color: #006aff33;
+}
+
+#arrow_left_linear path,
+#arrow_right_linear path {
+  stroke: var(--primery-color);
+  stroke-width: 3px;
+}
+
+.gallery {
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+}
+
+.gallery__item:hover .gallery__details {
+  height: 100% !important;
+  justify-content: center;
+}
+
+.gallery__item:hover .gallery__details > a {
+  display: none;
+}
+
+.gallery__item:hover .gallery__details > a {
+  display: none;
+}
+
+.gallery__item:hover .gallery__title {
+  color: var(--primery-color);
+}
+
+.gallery__item:hover .gallery__item_items {
+  display: flex;
+}
+
+.gallery__item_items {
+  display: none;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.gallery__item {
+  overflow: hidden;
+  border-radius: 2rem;
+  height: 40rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  overflow-y: hidden;
+}
+
+.gallery__item {
+  background-image: url(/images/landing/education-fields/computer.png);
+  transition: ease 250ms all;
+}
+
+.gallery__item:hover {
+  filter: brightness(0.4);
+  border: 5px solid var(--primery-color);
+  cursor: pointer;
+  scale: 0.9;
+}
+.gallery__details {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  height: 10rem !important;
+  transition: all 300ms ease;
+  max-width: 65rem !important;
+  width: 100% !important;
+}
+
+.gallery__title {
+  font-size: 2.3rem;
+}
+
+.gallery__tag {
+  gap: 1rem;
+  background-color: var(--gallery-tag-bg);
+  padding: 0.5rem;
+  border-radius: 5rem;
+}
+
+.gallery__tagTitle {
+  font-size: 1.4rem;
+}
+
+.gallery__tagIconbox {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem;
+  border-radius: 100%;
+}
+
+.gallery__tagIconbox svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* gallery */
+/* -------------------------------------------------------------------------- */

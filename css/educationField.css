@@ -1,0 +1,256 @@
+/* books section */
+
+.books-section {
+  position: relative;
+}
+
+.books-section::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 20rem;
+  background-image: linear-gradient(90deg, #101113, transparent);
+  left: -1px;
+  z-index: 1;
+}
+
+.books__category {
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: start;
+  gap: 2rem;
+  overflow-x: auto;
+}
+
+.books__category::-webkit-scrollbar,
+.books::-webkit-scrollbar {
+  background-color: var(--bg-color);
+}
+
+.book__category--active {
+  padding: 1rem 2rem;
+  border-radius: 3rem;
+  background-color: var(--primery-color);
+}
+
+.book__category {
+  background-color: #2b2f35;
+  font-family: dana-regular;
+  padding: 1rem 2rem;
+  border-radius: 3rem;
+}
+
+.books {
+  display: grid;
+  grid-template-columns: repeat(8, 170px);
+  justify-content: start;
+  justify-items: center;
+  gap: 2rem;
+  overflow-x: auto;
+}
+
+.book {
+  flex-direction: column;
+  gap: 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+.book__cover {
+  width: 12rem;
+  height: 12rem;
+  border-radius: 100%;
+  overflow: hidden;
+  border: 2px solid var(--primery-color);
+  position: relative;
+}
+
+.book__cover-img {
+  width: 10rem;
+  height: 10rem;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 100%;
+}
+
+.book__education {
+  padding: 0.5rem 2rem;
+  border: 2px solid var(--primery-color);
+  color: var(--primery-color);
+  z-index: 1;
+  border-radius: 5rem;
+  width: 80%;
+}
+
+/* books */
+/* -------------------------------------------------------------------------- */
+
+/* teachers */
+.teachers {
+  margin-top: 18rem;
+  gap: 18rem;
+}
+
+.teacher {
+  background-color: var(--main-dark-color);
+  position: relative;
+  border-radius: 2rem;
+  height: 36rem;
+  padding: 0 2rem 3rem 2rem;
+  display: flex;
+  align-items: end;
+}
+
+.teacher__profile-box {
+  background-color: var(--main-dark-color);
+  border-radius: 100%;
+  position: absolute;
+  width: 23rem;
+  height: 23rem;
+  top: -11rem;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.teacher__profile-img {
+  width: 20rem;
+  height: 20rem;
+  border-radius: 100%;
+  border: 5px solid var(--primery-color);
+}
+
+.teacher__content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.teacher__icon {
+  padding: 1rem;
+  border: 2px solid var(--primery-color);
+  border-radius: 100%;
+}
+
+.teacher__icon svg path {
+  stroke: var(--primery-color);
+}
+
+/* teachers */
+
+/* gallery */
+
+.gallery {
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+}
+
+.gallery__item:hover .gallery__details {
+  height: 100% !important;
+  justify-content: center;
+}
+
+.gallery__item:hover .gallery__details > a {
+  display: none;
+}
+
+.gallery__item:hover .gallery__details > a {
+  display: none;
+}
+
+.gallery__item:hover .gallery__title {
+  color: var(--primery-color);
+}
+
+.gallery__item:hover .gallery__item_items {
+  display: flex;
+}
+
+.gallery__item_items {
+  display: none;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.gallery__item {
+  overflow: hidden;
+  border-radius: 2rem;
+  height: 40rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  overflow-y: hidden;
+}
+
+.gallery__item:first-child {
+  background-image: url(/images/landing/education-fields/computer.png);
+}
+
+.gallery__item:nth-child(2) {
+  background-image: url(/images/landing/education-fields/accounting.png);
+}
+
+.gallery__item:nth-child(3) {
+  background-image: url(/images/landing/education-fields/electronics.png);
+}
+
+.gallery__item:nth-child(4) {
+  background-image: url(/images/landing/education-fields/navigation.png);
+}
+
+.gallery__details {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  height: 10rem !important;
+  transition: all 300ms ease;
+  max-width: 65rem !important;
+  width: 100% !important;
+}
+
+.gallery__title {
+  font-size: 2.3rem;
+}
+
+.gallery__tag {
+  gap: 1rem;
+  background-color: var(--gallery-tag-bg);
+  padding: 0.5rem;
+  border-radius: 5rem;
+}
+
+.gallery__tagTitle {
+  font-size: 1.4rem;
+}
+
+.gallery__tagIconbox {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem;
+  border-radius: 100%;
+}
+
+.gallery__tagIconbox svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.popular-course__go-icon {
+  transform: rotateY(180deg);
+}
+
+.popular-course__go-icon path {
+  stroke: white !important;
+}
+
+/* gallery */
+/* -------------------------------------------------------------------------- */
+
+
+.chapters{
+  margin-bottom: 6rem;
+}

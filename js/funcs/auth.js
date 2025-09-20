@@ -2,7 +2,7 @@ import {
   registrationSuccesssHandler,
   registrationDangerHandler,
 } from "../register.js";
-import { clearInputs, saveInLocalStorage, getToken } from "./utils.js";
+import { clearInputs, saveInLocalStorage } from "./utils.js";
 const $ = document;
 
 const signUp = () => {
@@ -45,11 +45,11 @@ const signIn = () => {
   const passswordInput = $.querySelector("#signup_password");
 
   const userInfo = {
-    userName: userNameInput.value.toLowerCase().trim(),
-    password: passswordInput.value,
+    username: userNameInput.value.toLowerCase().trim(),
+    password: passswordInput.value.trim(),
   };
 
-  fetch("http://localhost:5000/api/users/login", {
+  fetch(`http://localhost:5000/api/users/signin`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -64,31 +64,14 @@ const signIn = () => {
     .then((result) => {
       clearInputs();
       registrationSuccesssHandler(
-        `${result.userFullName} عزیز `,
+        `${result.fullname} عزیز `,
         "با موفقیت وارد شدید"
       );
-      saveInLocaWlStorage("user", { token: result.token });
+      saveInLocalStorage("user", { token: result.token });
     })
     .catch(() => {
       registrationDangerHandler();
     });
 };
 
-const userTokenHandler = async () => {
-  const token = getToken();
-
-  if (!token) {
-    return false;
-  } else {
-    const res = await fetch("http://localhost:5000/api/users/profile", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-
-    const result = await res.json();
-    return result;
-  }
-};
-
-export { signUp, signIn, userTokenHandler };
+export { signUp, signIn };

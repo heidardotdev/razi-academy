@@ -61,6 +61,14 @@ const elementsLinkHandler = () => {
     });
   });
   /* --------------------------- course Category End -------------------------- */
+
+  const educationFields = $.querySelectorAll(".education-field");
+  educationFields.forEach((item) => {
+    item.addEventListener("click", (event) => {
+      event.preventDefault();
+      location.href = "educationField.html";
+    });
+  });
 };
 
 export { elementsLinkHandler };

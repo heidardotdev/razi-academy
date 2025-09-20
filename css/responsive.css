@@ -214,6 +214,28 @@
   .article__topicsBox {
     justify-content: start;
   }
+  .gallery__modal {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 70vh;
+    max-width: 49.2rem;
+    border-radius: 2rem;
+  }
+
+  .gallery__modal .gallery__modal__btns {
+    bottom: 0;
+  }
+
+  .gallery__modal .gallery__item {
+    margin: 0;
+  }
+
+  .gallery__modal > .close__gallery_modal {
+    margin-bottom: 2rem;
+    margin-top: -0.5rem;
+  }
 }
 
 @media (min-width: 768px) {
