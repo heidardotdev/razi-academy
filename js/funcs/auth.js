@@ -49,7 +49,7 @@ const signIn = () => {
     password: passswordInput.value.trim(),
   };
 
-  fetch(`http://localhost:5000/api/users/signin`, {
+  fetch("http://localhost:5000/api/users/signin", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -67,7 +67,10 @@ const signIn = () => {
         `${result.fullname} عزیز `,
         "با موفقیت وارد شدید"
       );
+
       saveInLocalStorage("user", { token: result.token });
+      saveInLocalStorage("fullname", result.fullname);
+      console.log(result);
     })
     .catch(() => {
       registrationDangerHandler();

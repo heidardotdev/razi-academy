@@ -1,4 +1,5 @@
 import { elementsLinkHandler } from "./funcs/elementsLink.js";
+import { getLocalStorage, isSignedIn } from "./funcs/utils.js";
 const $ = document;
 
 const mobileSideBarHandler = () => {
@@ -36,9 +37,15 @@ const mobileSideBarHandler = () => {
   });
 };
 
-
+const navBtnTextHandler = () => {
+  const menuBtnText = $.querySelector(".menu__btn-text");
+  isSignedIn()
+    ? (menuBtnText.textContent = JSON.parse(getLocalStorage("fullname")))
+    : (menuBtnText.textContent = "حساب کاربری");
+};
 
 window.addEventListener("load", () => {
+  navBtnTextHandler();
   mobileSideBarHandler();
   elementsLinkHandler();
 });
