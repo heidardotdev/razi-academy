@@ -1,3 +1,5 @@
+const $ = document;
+
 const galleryModalHandler = () => {
   const galleryModal = $.querySelector(".gallery__modal");
   const galleryModalCloseBtn = $.querySelector(".close__gallery_modal");
