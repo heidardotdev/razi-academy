@@ -1,4 +1,3 @@
-import { showAllUsers } from "./dashboard.js";
 import { getAllUsers } from "./funcs/shared.js";
 const $ = document;
 
@@ -341,5 +340,7 @@ const filterUsersByRole = () => {
     });
   });
 };
+
+
 
 export { filterUsersByRole };
