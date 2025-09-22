@@ -39,9 +39,16 @@ const mobileSideBarHandler = () => {
 
 const navBtnTextHandler = () => {
   const menuBtnText = $.querySelector(".menu__btn-text");
-  isSignedIn()
-    ? (menuBtnText.textContent = JSON.parse(getLocalStorage("fullname")))
-    : (menuBtnText.textContent = "حساب کاربری");
+  const menuBtn = $.querySelector(".menu__btn");
+  const myAccountBtn = $.querySelector("#myAccountBtn");
+  if (isSignedIn()) {
+    menuBtnText.textContent = JSON.parse(getLocalStorage("fullname"));
+    menuBtn.setAttribute("href", "dashboard.html");
+    myAccountBtn.remove();
+  } else {
+    menuBtnText.textContent = "حساب کاربری";
+    menuBtn.setAttribute("href", "register.html");
+  }
 };
 
 window.addEventListener("load", () => {
