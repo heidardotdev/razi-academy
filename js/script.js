@@ -43,7 +43,12 @@ const navBtnTextHandler = () => {
   const menuBtn = $.querySelector(".menu__btn");
   if (isSignedIn()) {
     menuBtnText.textContent = JSON.parse(getLocalStorage("fullname"));
-    menuBtn.setAttribute("href", "dashboard.html");
+    menuBtn.setAttribute(
+      "href",
+      JSON.stringify(getLocalStorage("role")) === "admin"
+        ? "dashboard.html"
+        : "user-dashboard.html"
+    );
     myAccountBtn.remove();
   } else {
     menuBtnText.textContent = "حساب کاربری";

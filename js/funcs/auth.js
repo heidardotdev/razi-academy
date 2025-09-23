@@ -33,6 +33,8 @@ const signUp = () => {
         "ثبت نام شما با موفقیت انجام شد"
       );
       saveInLocalStorage("user", { token: result.token });
+      saveInLocalStorage("fullname", result.fullname);
+      saveInLocalStorage("role", result.role);
     })
     .catch(() => {
       console.clear();
@@ -70,7 +72,7 @@ const signIn = () => {
 
       saveInLocalStorage("user", { token: result.token });
       saveInLocalStorage("fullname", result.fullname);
-      console.log(result);
+      saveInLocalStorage("role", result.role);
     })
     .catch(() => {
       registrationDangerHandler();

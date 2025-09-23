@@ -1,4 +1,5 @@
 import { signUp, signIn } from "./funcs/auth.js";
+import { getLocalStorage } from "./funcs/utils.js";
 
 const $ = document;
 
@@ -198,7 +199,12 @@ const statusModalTimer = (userLocation, timeLineText) => {
 
 const registerBody = document.querySelector("#register_body");
 const registrationSuccesssHandler = (fullname, message) => {
-  statusModalTimer("dashboard.html", "انتقال به داشبورد پس از ");
+  statusModalTimer(
+    JSON.stringify(getLocalStorage("role")) === "admin"
+      ? "dashboard.html"
+      : "user-dashboard.html",
+    "انتقال به داشبورد پس از "
+  );
 
   const successStatusModalTemplate = `
 
@@ -222,7 +228,11 @@ const registrationSuccesssHandler = (fullname, message) => {
 
         <div class="status__modal_btns">
             <a href="/" class="status__modal_btn">رازی آکادمی</a>
-            <a href="dashboard.html"  class="status__modal_btn status__modal_btn_important">داشبورد</a>
+            <a href="${
+              JSON.stringify(getLocalStorage("role")) === "admin"
+                ? "dashboard.html"
+                : "user-dashboard.html"
+            }"  class="status__modal_btn status__modal_btn_important">داشبورد</a>
         </div>
 
 
