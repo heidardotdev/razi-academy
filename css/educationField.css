@@ -254,3 +254,19 @@
 .chapters{
   margin-bottom: 6rem;
 }
+
+.chapter__itemLinkTitle{
+  width: 100% !important;
+  overflow: unset !important;
+  text-overflow: unset !important;
+  display: block !important;
+  height: unset !important;
+}
+
+.chapter__itemNumber {
+  margin-bottom: auto !important;
+}
+
+.chapter__lessonCount::after{
+  display: none !important;
+}

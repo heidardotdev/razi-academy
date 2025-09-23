@@ -38,9 +38,9 @@ const mobileSideBarHandler = () => {
 };
 
 const navBtnTextHandler = () => {
+  const myAccountBtn = $.querySelector("#myAccountBtn");
   const menuBtnText = $.querySelector(".menu__btn-text");
   const menuBtn = $.querySelector(".menu__btn");
-  const myAccountBtn = $.querySelector("#myAccountBtn");
   if (isSignedIn()) {
     menuBtnText.textContent = JSON.parse(getLocalStorage("fullname"));
     menuBtn.setAttribute("href", "dashboard.html");

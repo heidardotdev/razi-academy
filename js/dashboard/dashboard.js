@@ -1,13 +1,15 @@
-import { getAllUsers } from "./funcs/shared.js";
-import { filterUsersByRole } from "./shared.js";
+import { getAllUsers } from "../funcs/shared.js";
+import { filterUsersByRole } from "../shared.js";
 
 const $ = document;
 
-const createNewItemBtn = $.querySelector(".new__item");
-createNewItemBtn.addEventListener("click", () => {
-  document.body.classList.add("createItem");
-  tabContentBtnsBox.classList.add("course__coverBox__active");
-});
+const createNewItemHandler = () => {
+  const createNewItemBtn = $.querySelector(".new__item");
+  createNewItemBtn.addEventListener("click", () => {
+    document.body.classList.add("createItem");
+    tabContentBtnsBox.classList.add("course__coverBox__active");
+  });
+};
 
 const sidebarHandler = () => {
   const menuBtnElem = $.querySelector(".menu__btn");
@@ -61,7 +63,7 @@ const sidebarHandler = () => {
   });
 };
 
-const stepperHandler = () => {
+const courseStepperHandler = () => {
   const NextStepBtn = $.querySelector("#NextStepBtn");
   const previousStepBtn = $.querySelector("#previousStepBtn");
   const cancelActionsBtn = $.querySelector("#cancelActionsBtn");
@@ -96,15 +98,16 @@ const stepperHandler = () => {
 };
 
 const showAllUsers = () => {
-  getAllUsers().then((users) => {
-    users.forEach((user) => {
-      const usersTabContentItems = $.querySelector(
-        "#users .tab__content__items"
-      );
+  getAllUsers()
+    .then((users) => {
+      users.forEach((user) => {
+        const usersTabContentItems = $.querySelector(
+          "#users .tab__content__items"
+        );
 
-      usersTabContentItems.insertAdjacentHTML(
-        "beforeend",
-        `
+        usersTabContentItems.insertAdjacentHTML(
+          "beforeend",
+          `
                 
                 <div class="user glassmorphism_2">
                         <img src="/images/landing/teachers/programmer.webp" alt="profile" draggable="false"
@@ -177,14 +180,19 @@ const showAllUsers = () => {
 
                 
             `
-      );
+        );
+      });
+    })
+    .catch(() => {
+      console.clear();
+      return false;
     });
-  });
 };
 
 window.addEventListener("load", () => {
+  createNewItemHandler();
   sidebarHandler();
-  stepperHandler();
+  courseStepperHandler();
   showAllUsers();
   filterUsersByRole();
 });
