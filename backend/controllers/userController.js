@@ -33,7 +33,7 @@ const signIn = async (req, res, next) => {
     if (!isMatch) return res.status(400).json({ error: 'Invalid credentials' });
 
     const token = jwt.sign({ id: user._id }, 'secretkey');
-    res.json({ token, fullname: user.fullname });
+    res.json({ token, fullname: user.fullname, role: user.role });
   } catch (err) {
     next(err);
   }
