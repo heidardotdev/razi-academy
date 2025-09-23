@@ -45,7 +45,7 @@ const navBtnTextHandler = () => {
     menuBtnText.textContent = JSON.parse(getLocalStorage("fullname"));
     menuBtn.setAttribute(
       "href",
-      JSON.stringify(getLocalStorage("role")) === "admin"
+      JSON.parse(getLocalStorage("role")) === "admin"
         ? "dashboard.html"
         : "user-dashboard.html"
     );
