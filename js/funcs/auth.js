@@ -73,17 +73,9 @@ const signIn = () => {
         `${user.fullname} عزیز `,
         "با موفقیت وارد شدید"
       );
-<<<<<<< HEAD
     })
     .catch(() => {
-=======
-      console.log(user);
-    })
-    .catch((err) => {
->>>>>>> c57e868a534964093d153d04cc2d6ca283741a7b
-      console.clear();
       registrationDangerHandler();
-      throw err;
     });
 };
 
