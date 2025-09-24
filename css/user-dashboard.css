@@ -552,3 +552,11 @@ main section {
 .tab__content__items::-webkit-scrollbar {
   width: 0;
 }
+
+.popular-course__go-icon path {
+  stroke: #fff;
+}
+
+.popular-course__go-icon {
+  rotate: -90deg;
+}

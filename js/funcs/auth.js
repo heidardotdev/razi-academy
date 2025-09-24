@@ -63,18 +63,19 @@ const signIn = () => {
         return res.json();
       }
     })
-    .then((result) => {
+    .then((user) => {
+      saveInLocalStorage("user", { token: user.token });
+      saveInLocalStorage("fullname", user.fullname);
+      saveInLocalStorage("role", user.role);
+
       clearInputs();
       registrationSuccesssHandler(
-        `${result.fullname} عزیز `,
+        `${user.fullname} عزیز `,
         "با موفقیت وارد شدید"
       );
-
-      saveInLocalStorage("user", { token: result.token });
-      saveInLocalStorage("fullname", result.fullname);
-      saveInLocalStorage("role", result.role);
     })
     .catch(() => {
+      console.clear();
       registrationDangerHandler();
     });
 };

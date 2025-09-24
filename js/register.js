@@ -200,7 +200,7 @@ const statusModalTimer = (userLocation, timeLineText) => {
 const registerBody = document.querySelector("#register_body");
 const registrationSuccesssHandler = (fullname, message) => {
   statusModalTimer(
-    JSON.pars(getLocalStorage("role")) === "admin"
+    getLocalStorage("role") == "admin"
       ? "dashboard.html"
       : "user-dashboard.html",
     "انتقال به داشبورد پس از "
@@ -229,7 +229,7 @@ const registrationSuccesssHandler = (fullname, message) => {
         <div class="status__modal_btns">
             <a href="/" class="status__modal_btn">رازی آکادمی</a>
             <a href="${
-              JSON.parse(getLocalStorage("role")) === "admin"
+              getLocalStorage("role") == "admin"
                 ? "dashboard.html"
                 : "user-dashboard.html"
             }"  class="status__modal_btn status__modal_btn_important">داشبورد</a>
