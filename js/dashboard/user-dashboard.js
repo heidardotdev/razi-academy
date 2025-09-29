@@ -1,6 +1,5 @@
+import { getLocalStorage, isSignedIn } from "../funcs/utils.js";
 const $ = document;
-
-
 
 const sidebarHandler = () => {
   const menuBtnElem = $.querySelector(".menu__btn");
@@ -54,10 +53,13 @@ const sidebarHandler = () => {
   });
 };
 
-
+const userDashboardRoutProtection = () => {
+  if (!isSignedIn() || JSON.parse(getLocalStorage("role")) !== "user") {
+    location.replace("register.html");
+  }
+};
 
 window.addEventListener("load", () => {
   sidebarHandler();
-
+  userDashboardRoutProtection();
 });
-

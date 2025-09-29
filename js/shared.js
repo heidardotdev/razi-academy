@@ -12,7 +12,6 @@ const filterHandler = () => {
       });
 
       filter.classList.add("filter--active");
-   
 
       // const lastCoursesContainer = $.querySelector("#last-courses");
       // lastCoursesContainer.innerHTML = "";
@@ -229,6 +228,10 @@ const filterUsersByRole = () => {
     "#users .tab__content__items"
   );
 
+  // filteredUsersWrapper.addEventListener("click", (event) => {
+  //   console.log(event.target.closest("#userEditBtn").dataset);
+  // });
+
   const usersTabFilters = $.querySelectorAll(".user__filter");
   const usersFilterTopTextElem = $.querySelector("#usersFilterTopText");
 
@@ -253,11 +256,7 @@ const filterUsersByRole = () => {
           filteredUsersWrapper.insertAdjacentHTML(
             "beforeend",
             `
-            
-  
-  
-             
-                     
+                
                 <div class="user glassmorphism_2">
                         <img src="/images/landing/teachers/programmer.webp" alt="profile" draggable="false"
                             class="user__profile_img">
@@ -267,37 +266,37 @@ const filterUsersByRole = () => {
                             <div class="user__role_box">
                                 <svg width="32" height="32">
                                     <use href="#${
-                                      user.role === "user"
+                                      user.role == "user"
                                         ? "profile__linear"
-                                        : user.role === "admin"
+                                        : user.role == "admin"
                                         ? "userTick__linear"
-                                        : user.role === "courseteacher"
+                                        : user.role == "courseteacher"
                                         ? "teacher__linear"
-                                        : user.role === "teacher"
+                                        : user.role == "teacher"
                                         ? "profileTick__linear"
-                                        : user.role === "author"
+                                        : user.role == "author"
                                         ? "userEdit__linear"
-                                        : user.role === "presentor"
+                                        : user.role == "presentor"
                                         ? "tagUser__linear"
-                                        : user.role === "manager"
+                                        : user.role == "manager"
                                         ? "crown__linear"
                                         : false
                                     }"></use>
                                 </svg>
                                 <p class="user__role">${
-                                  user.role === "user"
+                                  user.role == "user"
                                     ? "کاربر"
-                                    : user.role === "admin"
+                                    : user.role == "admin"
                                     ? "ادمین"
-                                    : user.role === "courseteacher"
+                                    : user.role == "courseteacher"
                                     ? "مدرس"
-                                    : user.role === "teacher"
+                                    : user.role == "teacher"
                                     ? "هنرآموز"
-                                    : user.role === "author"
+                                    : user.role == "author"
                                     ? "نویسنده"
-                                    : user.role === "presentor"
+                                    : user.role == "presentor"
                                     ? "مجری"
-                                    : user.role === "manager"
+                                    : user.role == "manager"
                                     ? "مدیر"
                                     : false
                                 }</p>
@@ -313,7 +312,14 @@ const filterUsersByRole = () => {
                                 </svg>
 
                             </button>
-                            <button  class="user__controll center-xy  glassmorphism"  >
+                            <button id="userEditBtn" data-isbanned="${user.isBanned}" data-profile="${
+                              user.profile
+                            }" data-username="${user.username}" data-role="${
+              user.role
+            }" data-fullname="${user.fullname}" data-id="${
+              user._id
+            }"  class="user__controll center-xy  glassmorphism"  >
+                            
                                 <svg width="32" height="32">
                                     <use href="#edit__linear"></use>
                                 </svg>
@@ -327,8 +333,7 @@ const filterUsersByRole = () => {
                             </button>
                         </div>
 
-              
-            
+                
             `
           );
         });

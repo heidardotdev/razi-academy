@@ -25,7 +25,8 @@ connectDB();
 
 // روت‌ها
 app.use("/api/users", userRoutes);
-
+const courseRoutes = require("./routes/courseRoutes");
+app.use("/api/courses", courseRoutes);
 app.get("/", (req, res) => {
   res.send("سرور بالا هست 😎");
 });

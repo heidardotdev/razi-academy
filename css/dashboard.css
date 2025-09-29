@@ -421,7 +421,6 @@ main section {
   display: flex;
   align-items: center;
   gap: 1rem;
-  position: absolute;
 }
 
 .filters {
@@ -544,8 +543,6 @@ main section {
 
 .tab__content__items {
   margin-top: 6rem;
-  overflow: auto;
-  height: 100vh;
   padding-bottom: 50rem;
 }
 
@@ -656,10 +653,8 @@ label {
   padding: 1rem;
   border-radius: 3rem;
   z-index: 1;
-  left: auto;
-  right: auto;
-  top: auto;
-  bottom: auto;
+
+
   margin: auto;
 }
 
@@ -678,13 +673,23 @@ body
   display: none;
 }
 
-#user__btn_confirmChange {
-  width: 100%;
+#user__btn_confirmChange,
+#user__btn_cancelChange {
+  width: 50%;
   background-color: var(--primery-color);
   padding: 2rem;
   margin-top: 2rem;
   border-radius: 1rem;
   font-size: 2rem;
+}
+
+#user__btn_cancelChange {
+  background-color: #690000 !important;
+}
+
+.user__edit__active .user__edit__btns {
+  display: flex !important;
+  gap: 2rem !important;
 }
 
 #user__btn_confirmChange:hover {
@@ -903,4 +908,57 @@ body
 
 .createNewItemStepActive .createNewItemStep {
   display: none !important;
+}
+
+/* user */
+
+.user__edit__active .user__controlls {
+  display: none;
+}
+
+.user__edit__active h3.userFullName {
+  display: none;
+}
+
+.user__edit__active .user__role_box {
+  display: none;
+}
+
+.user__edit__active #userFullNameInput {
+  display: block;
+}
+.user__edit__active #userRoleSelect {
+  display: block;
+}
+
+.user__edit__active .user__edit__btns {
+  display: block;
+}
+
+.user__edit__active .user__profile_img {
+  display: none;
+}
+
+.user__edit__active label {
+  display: flex;
+}
+.user__edit__active label img {
+  display: block !important;
+  filter: brightness(0.2);
+}
+
+#userFullNameInput,
+#userRoleSelect,
+.user__edit__btns,
+label {
+  display: none;
+}
+
+.tab__content {
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.tab__content::-webkit-scrollbar {
+  width: 0;
 }
