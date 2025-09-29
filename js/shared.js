@@ -312,11 +312,13 @@ const filterUsersByRole = () => {
                                 </svg>
 
                             </button>
-                            <button id="userEditBtn" data-isbanned="${user.isBanned}" data-profile="${
-                              user.profile
-                            }" data-username="${user.username}" data-role="${
-              user.role
-            }" data-fullname="${user.fullname}" data-id="${
+                            <button id="userEditBtn" data-isbanned="${
+                              user.isBanned
+                            }" data-profile="${user.profile}" data-username="${
+              user.username
+            }" data-role="${user.role}" data-fullname="${
+              user.fullname
+            }" data-id="${
               user._id
             }"  class="user__controll center-xy  glassmorphism"  >
                             
@@ -342,7 +344,19 @@ const filterUsersByRole = () => {
   });
 };
 
-export { filterUsersByRole };
+const updateUserFromAdminPanel = async (userID, updateUserInfo) => {
+  const res = await fetch(`http://localhost:5000/api/users/${userID}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(updateUserInfo),
+  });
+  const result = await res.json();
+  return result;
+};
+
+export { filterUsersByRole, updateUserFromAdminPanel };
 
 window.addEventListener("load", () => {
   filterHandler();

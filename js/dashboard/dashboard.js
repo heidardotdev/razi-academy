@@ -1,5 +1,5 @@
 import { getAllUsers } from "../funcs/shared.js";
-import { filterUsersByRole } from "../shared.js";
+import { filterUsersByRole, updateUserFromAdminPanel } from "../shared.js";
 import { getLocalStorage, isSignedIn } from "../funcs/utils.js";
 
 const $ = document;
@@ -102,15 +102,9 @@ const showAllUsers = () => {
   const usersTabContentItems = $.querySelector("#users .tab__content__items");
 
   usersTabContentItems.addEventListener("click", (event) => {
-    const updateUserInfo = {
-      _id: event.target.closest(".user").dataset.id,
-      username: event.target.closest(".user").dataset.username,
-      fullname: document.querySelector("#userFullNameInput").value,
-      profile: document.querySelector("#userProfileInput").value,
-      role: document.querySelector("#userRoleSelect").value,
-    };
-
     const dashboardBlur = document.querySelector(".dashboard__blur");
+
+    
     if (event.target.closest("#userEditBtn")) {
       event.target.closest(".user").classList.add("user__edit__active");
       event.target.closest(".user").style.zIndex = "4";
@@ -128,11 +122,34 @@ const showAllUsers = () => {
       event.target.closest(".user").style.zIndex = "unset";
     }
 
+    // update user info
     if (event.target.closest("#user__btn_confirmChange")) {
-      event.target.closest(".user").classList.remove("user__edit__active");
+      const userEl = event.target.closest(".user");
+      const fullNameInput = userEl.querySelector("#userFullNameInput");
+      const profileInput = userEl.querySelector("#userProfileInput");
+      const roleSelector = userEl.querySelector("#userRoleSelect");
+      const updateUserInfo = {
+        _id: event.target.closest(".user").dataset.id,
+        username: event.target.closest(".user").dataset.username,
+        fullname: fullNameInput.value,
+        profile: profileInput.value,
+        role: roleSelector.value,
+      };
+
+      updateUserFromAdminPanel(updateUserInfo._id, updateUserInfo)
+        .then((res) => {
+          console.log(res);
+
+          // location.reload();
+        })
+        .catch(() => {
+          console.clear();
+          return false;
+        });
+
+      userEl.classList.remove("user__edit__active");
       dashboardBlur.style.display = "none";
-      event.target.closest(".user").style.zIndex = "unset";
-      console.log(updateUserInfo);
+      userEl.style.zIndex = "unset";
     }
   });
 
@@ -154,7 +171,11 @@ const showAllUsers = () => {
                             <img src="/images/landing/teachers/programmer.webp" alt="profile" draggable="false"
                                 class="user__profile_img">
                         </label>
-                        <img src="/images/landing/teachers/programmer.webp" alt="profile" draggable="false"
+                        <img src="${
+                          user.profile
+                            ? user.profile
+                            : "/images/landing/teachers/programmer.webp"
+                        }" alt="profile" draggable="false"
                             class="user__profile_img">
 
                         <div class="user__details">
