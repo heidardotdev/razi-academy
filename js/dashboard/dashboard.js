@@ -41,7 +41,7 @@ const sidebarHandler = () => {
       const itemId = item.getAttribute("id");
 
       tabContents.forEach((item) => {
-        if (item.getAttribute("id") == itemId) {
+        if (item.getAttribute("id") == "users") {
           item.classList.add("tab__content_Active");
         } else {
           item.classList.remove("tab__content_Active");
