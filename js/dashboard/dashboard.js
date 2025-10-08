@@ -265,11 +265,6 @@ const showAndUpdateUsers = () => {
           return false;
         });
     }
-    if (event.target.closest("#user__btn_cancelChange")) {
-      event.target.closest(".user").classList.remove("user__edit__active");
-      dashboardBlur.style.display = "none";
-      event.target.closest(".user").style.zIndex = "unset";
-    }
 
     // update user info
     if (event.target.closest("#user__btn_confirmChange")) {
@@ -434,6 +429,13 @@ const showAndUpdateUsers = () => {
       dashboardBlur.style.display = "none";
       userEl.style.zIndex = "unset";
     }
+
+    //cancle updating
+    if (event.target.closest("#user__btn_cancelChange")) {
+      event.target.closest(".user").classList.remove("user__edit__active");
+      dashboardBlur.style.display = "none";
+      event.target.closest(".user").style.zIndex = "unset";
+    }
   });
 
   // show all users
@@ -545,7 +547,7 @@ const showAndUpdateUsers = () => {
                                 </svg>
 
                             </button>
-                             <button class="user__controll center-xy  glassmorphism" id="userBanBtn">
+                             <button id="userBanBtn" class="user__controll center-xy  glassmorphism" >
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
                               <g id="slash" transform="translate(0.5 0.5)">
                                 <g id="vuesax_linear_slash" data-name="vuesax/linear/slash">
@@ -573,6 +575,30 @@ const showAndUpdateUsers = () => {
     });
 };
 
+const createNewUserFromAdminPanelHanler = () => {
+  // const formData = new FormData();
+  // formData.append("profile", "");
+  // formData.append("username", userNameInput.value.trim());
+  // formData.append("fullname", userFullNameInput.value.trim());
+  // formData.append("password", passswordInput.value.trim());
+  // formData.append("role", "user");
+
+  const createNewUserBtn = $.querySelector("#createNewUserBtn");
+
+  
+
+  //blur hide/show handler
+  createNewUserBtn.addEventListener("click", () => {
+    const blur = $.querySelector(".dashboard__blur");
+    blur.style.display = "block";
+    blur.addEventListener("click", () => {
+      blur.style.display = "none";
+    });
+  });
+
+
+};
+
 const adminDashboardRoutProtection = () => {
   if (JSON.parse(getLocalStorage("role")) !== "admin") {
     location.replace("/");
@@ -586,6 +612,7 @@ window.addEventListener("load", () => {
   showAndUpdateUsers();
   filterUsersByRole();
   adminDashboardRoutProtection();
+  createNewUserFromAdminPanelHanler();
 });
 
 export { showAndUpdateUsers };

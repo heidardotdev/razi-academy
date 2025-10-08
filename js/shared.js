@@ -381,7 +381,7 @@ const filterUsersByRole = () => {
   filteredUsersWrapper.addEventListener("click", (event) => {
     const dashboardBlur = document.querySelector(".dashboard__blur");
 
-    //handle blur when editing user 
+    //handle blur when editing user
     if (event.target.closest("#userEditBtn")) {
       event.target.closest(".user").classList.add("user__edit__active");
       event.target.closest(".user").style.zIndex = "4";
@@ -708,7 +708,6 @@ const filterUsersByRole = () => {
           console.clear();
           return false;
         });
-      
     }
   });
 };
@@ -733,10 +732,19 @@ const deleteUserFromAdminPanel = async (userID) => {
   return result;
 };
 
+const createNewUserFromAdminPanel = async (userInfo) => {
+  const res = await fetch("http://localhost:5000/api/users", {
+    method: "POST",
+    body: userInfo,
+  });
+
+};
+
 export {
   filterUsersByRole,
   updateUserFromAdminPanel,
   deleteUserFromAdminPanel,
+  createNewUserFromAdminPanel
 };
 
 window.addEventListener("load", () => {
