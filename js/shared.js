@@ -578,7 +578,19 @@ const updateUserFromAdminPanel = async (userID, updateUserInfo) => {
   return result;
 };
 
-export { filterUsersByRole, updateUserFromAdminPanel };
+const deleteUserFromAdminPanel = async (userID) => {
+  const res = await fetch(`http://localhost:5000/api/users/${userID}`, {
+    method: "DELETE",
+  });
+  const result = await res.json();
+  return result;
+};
+
+export {
+  filterUsersByRole,
+  updateUserFromAdminPanel,
+  deleteUserFromAdminPanel,
+};
 
 window.addEventListener("load", () => {
   filterHandler();
