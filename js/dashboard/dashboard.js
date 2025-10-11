@@ -585,8 +585,6 @@ const createNewUserFromAdminPanelHanler = () => {
 
   const createNewUserBtn = $.querySelector("#createNewUserBtn");
 
-  
-
   //blur hide/show handler
   createNewUserBtn.addEventListener("click", () => {
     const blur = $.querySelector(".dashboard__blur");
@@ -595,8 +593,6 @@ const createNewUserFromAdminPanelHanler = () => {
       blur.style.display = "none";
     });
   });
-
-
 };
 
 const adminDashboardRoutProtection = () => {

@@ -223,6 +223,7 @@ const filterHandler = () => {
   });
 };
 
+
 const filterUsersByRole = () => {
   const filteredUsersWrapper = document.querySelector(
     "#users .tab__content__items"
@@ -737,14 +738,15 @@ const createNewUserFromAdminPanel = async (userInfo) => {
     method: "POST",
     body: userInfo,
   });
-
+  const result = await res.json();
+  return result;
 };
 
 export {
   filterUsersByRole,
   updateUserFromAdminPanel,
   deleteUserFromAdminPanel,
-  createNewUserFromAdminPanel
+  createNewUserFromAdminPanel,
 };
 
 window.addEventListener("load", () => {

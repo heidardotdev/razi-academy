@@ -1,0 +1,904 @@
+course.html comment__caption
+we have to define char limit.
+
+# ---------------------------------------------------------------------------- #
+
+
+
+
+# ------------------------------- dana FaNumber ------------------------------ #
+
+add danaFaNumber font faces
+
+# ---------------------------------------------------------------------------- #
+
+
+
+# ---------------------------- regex for FaNumber ---------------------------- #
+
+write regex to change number to farssi Numbers
+
+# ---------------------------------------------------------------------------- #
+
+
+# -------------------- manage overflow-y userCommentText: -------------------- #
+
+if lenth > 96 => overflow-y = scrolle 
+
+# ---------------------------------------------------------------------------- #
+
+
+grid system count
+from size 1200 if gridsystem content count < 3  grid system => 
+grid-template-columns: repeat(4, 347px);
+justify-content: start;
+
+
+# ---------------------------------- course ---------------------------------- #
+if course studdent {
+    theres no top btn
+    
+}els{
+    theres course top btn
+}
+
+
+# ---------------------------------------------------------------------------- #
+
+
+
+
+
+
+# -------------------------------- breadcrumb component -------------------------------- #
+           <!-- breadcrumb -->
+            <section class="breadcrumb">
+                <div class="breadcrumb__item">
+                    <a href="/" class="breadcrumb__link">خانه</a>
+                    <svg width="61" height="122" viewBox="0 0 61 122" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M55.1015 116.709L9.24076 70.8485C3.82469 65.4324 3.82469 56.5698 9.24076 51.1537L55.1015 5.29297"
+                            stroke="#101113" stroke-width="10" stroke-miterlimit="10" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+
+
+                </div>
+                <div class="breadcrumb__item">
+                    <a href="courses-category.html" class="breadcrumb__link">دسته بندی دور‌ه‌ها</a>
+                    <svg width="61" height="122" viewBox="0 0 61 122" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M55.1015 116.709L9.24076 70.8485C3.82469 65.4324 3.82469 56.5698 9.24076 51.1537L55.1015 5.29297"
+                            stroke="#101113" stroke-width="10" stroke-miterlimit="10" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+
+                </div>
+                <div class="breadcrumb__item">
+                    <a href="course-category.html" class="breadcrumb__link">شبکه و ارتباطات</a>
+                    <svg width="61" height="122" viewBox="0 0 61 122" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M55.1015 116.709L9.24076 70.8485C3.82469 65.4324 3.82469 56.5698 9.24076 51.1537L55.1015 5.29297"
+                            stroke="#101113" stroke-width="10" stroke-miterlimit="10" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+
+                </div>
+                <div class="breadcrumb__item">
+                    <a href="course.html" class="breadcrumb__link">دوره آزمایشگاه شبکه</a>
+
+
+                </div>
+            </section>
+            <!-- breadcrumb -->
+            <!-- ----------------------------------------------------------------------- -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* breadcrumb */
+
+.breadcrumb {
+    background-color: var(--main-dark-color);
+    overflow-x: auto;
+    overflow-y: hidden;
+    border-radius: 2rem;
+    height: 9rem !important;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-right: 5rem;
+    margin-top: 2rem;
+
+}
+
+.breadcrumb .breadcrumb__item:last-child {
+    margin-left: 5rem;
+
+}
+
+.breadcrumb::-webkit-scrollbar {
+    background-color: var(--main-dark-color);
+    height: 0;
+}
+
+
+
+.breadcrumb__item {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb__item svg {
+    width: 10rem;
+    height: 10rem;
+}
+
+.breadcrumb__link {
+    white-space: nowrap;
+}
+
+
+
+
+/* breadcrumb */
+/* -------------------------------------------------------------------------- */
+
+
+# -------------------------------- breadcrumb component -------------------------------- #
+
+
+
+
+
+
+
+# ------------------------------- presentations ------------------------------ #
+if click on presentation category go to all presentation page the presentations of the fields is theres
+# ---------------------------------------------------------------------------- #
+
+
+
+
+.course
+ {
+    background-color: #ffffff;
+    border-radius: 2rem;
+    box-shadow: 0 0 22px #c1c1c142;
+}
+
+
+tab content users
+
+
+                    <div class="user glassmorphism_2">
+                        <label for="userProfileInput">
+                            <div draggable="false" class="userprofileinputlable">پروفایلی بارگزاری کنید</div>
+                            <input type="file" id="userProfileInput">
+                            <img src="/images/landing/teachers/programmer.webp" alt="profile" draggable="false"
+                                class="user__profile_img">
+                        </label>
+
+                        <div class="user__details">
+
+                            <!-- if click on the edit controll change the elements to these -->
+                            <!-- <h3 class="userFullName">نام و نام خانوادگی</h3> -->
+                            <input type="text" name="" value="نام و نام خانوادگی" id="userFullNameInput">
+                            <!-- <div class="user__role_box" id="user">
+                                    <svg width="32" height="32">
+                                        <use href="#profile__linear"></use>
+                                    </svg>
+                                    <p class="user__role">کاربر</p>
+
+
+
+
+                                </div> -->
+                            <select name="" id="userRoleSelect">
+                                <option value="user">کاربر</option>
+                                <option value="courseteacher">مدرس</option>
+                                <option value="teacher">هنرآموز</option>
+                                <option value="admin">ادمین</option>
+                                <option value="author">نویسنده</option>
+                                <option value="presentor">مجری</option>
+                            </select>
+
+
+                        </div>
+
+                        <button id="user__btn_confirmChange">تایید</button>
+
+                        <!-- <div class="user__controlls">
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#trash__linear"></use>
+                                </svg>
+
+                            </button>
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#edit__linear"></use>
+                                </svg>
+
+                            </button>
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#userEdit__linear"></use>
+                                </svg>
+
+                            </button>
+                        </div> -->
+
+                    </div>
+                    <div class="user glassmorphism_2">
+                        <img src="/images/landing/teachers/programmer.webp" alt="profile" draggable="false"
+                            class="user__profile_img">
+
+                        <div class="user__details">
+                            <h3 class="userFullName">نام و نام خانوادگی</h3>
+                            <div class="user__role_box">
+                                <svg width="32" height="32">
+                                    <use href="#profile__linear"></use>
+                                </svg>
+                                <p class="user__role">کاربر</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="user__controlls">
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#trash__linear"></use>
+                                </svg>
+
+                            </button>
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#edit__linear"></use>
+                                </svg>
+
+                            </button>
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#userEdit__linear"></use>
+                                </svg>
+
+                            </button>
+                        </div>
+
+                    </div>
+                    <div class="user glassmorphism_2">
+                        <img src="/images/landing/teachers/programmer.webp" alt="profile" draggable="false"
+                            class="user__profile_img">
+
+                        <div class="user__details">
+                            <h3 class="userFullName">نام و نام خانوادگی</h3>
+                            <div class="user__role_box">
+                                <svg width="32" height="32">
+                                    <use href="#profile__linear"></use>
+                                </svg>
+                                <p class="user__role">کاربر</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="user__controlls">
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#trash__linear"></use>
+                                </svg>
+
+                            </button>
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#edit__linear"></use>
+                                </svg>
+
+                            </button>
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#userEdit__linear"></use>
+                                </svg>
+
+                            </button>
+                        </div>
+
+                    </div>
+                    <div class="user glassmorphism_2">
+                        <img src="/images/landing/teachers/programmer.webp" alt="profile" draggable="false"
+                            class="user__profile_img">
+
+                        <div class="user__details">
+                            <h3 class="userFullName">نام و نام خانوادگی</h3>
+                            <div class="user__role_box">
+                                <svg width="32" height="32">
+                                    <use href="#profile__linear"></use>
+                                </svg>
+                                <p class="user__role">کاربر</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="user__controlls">
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#trash__linear"></use>
+                                </svg>
+
+                            </button>
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#edit__linear"></use>
+                                </svg>
+
+                            </button>
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#userEdit__linear"></use>
+                                </svg>
+
+                            </button>
+                        </div>
+
+                    </div>
+                    <div class="user glassmorphism_2">
+                        <img src="/images/landing/teachers/programmer.webp" alt="profile" draggable="false"
+                            class="user__profile_img">
+
+                        <div class="user__details">
+                            <h3 class="userFullName">نام و نام خانوادگی</h3>
+                            <div class="user__role_box">
+                                <svg width="32" height="32">
+                                    <use href="#profile__linear"></use>
+                                </svg>
+                                <p class="user__role">کاربر</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="user__controlls">
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#trash__linear"></use>
+                                </svg>
+
+                            </button>
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#edit__linear"></use>
+                                </svg>
+
+                            </button>
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#userEdit__linear"></use>
+                                </svg>
+
+                            </button>
+                        </div>
+
+                    </div>
+                    <div class="user glassmorphism_2">
+                        <img src="/images/landing/teachers/programmer.webp" alt="profile" draggable="false"
+                            class="user__profile_img">
+
+                        <div class="user__details">
+                            <h3 class="userFullName">نام و نام خانوادگی</h3>
+                            <div class="user__role_box">
+                                <svg width="32" height="32">
+                                    <use href="#profile__linear"></use>
+                                </svg>
+                                <p class="user__role">کاربر</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="user__controlls">
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#trash__linear"></use>
+                                </svg>
+
+                            </button>
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#edit__linear"></use>
+                                </svg>
+
+                            </button>
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#userEdit__linear"></use>
+                                </svg>
+
+                            </button>
+                        </div>
+
+                    </div>
+                    <div class="user glassmorphism_2">
+                        <img src="/images/landing/teachers/programmer.webp" alt="profile" draggable="false"
+                            class="user__profile_img">
+
+                        <div class="user__details">
+                            <h3 class="userFullName">نام و نام خانوادگی</h3>
+                            <div class="user__role_box">
+                                <svg width="32" height="32">
+                                    <use href="#profile__linear"></use>
+                                </svg>
+                                <p class="user__role">کاربر</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="user__controlls">
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#trash__linear"></use>
+                                </svg>
+
+                            </button>
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#edit__linear"></use>
+                                </svg>
+
+                            </button>
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#userEdit__linear"></use>
+                                </svg>
+
+                            </button>
+                        </div>
+
+                    </div>
+                    <div class="user glassmorphism_2">
+                        <img src="/images/landing/teachers/programmer.webp" alt="profile" draggable="false"
+                            class="user__profile_img">
+
+                        <div class="user__details">
+                            <h3 class="userFullName">نام و نام خانوادگی</h3>
+                            <div class="user__role_box">
+                                <svg width="32" height="32">
+                                    <use href="#profile__linear"></use>
+                                </svg>
+                                <p class="user__role">کاربر</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="user__controlls">
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#trash__linear"></use>
+                                </svg>
+
+                            </button>
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#edit__linear"></use>
+                                </svg>
+
+                            </button>
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#userEdit__linear"></use>
+                                </svg>
+
+                            </button>
+                        </div>
+
+                    </div>
+                    <div class="user glassmorphism_2">
+                        <img src="/images/landing/teachers/programmer.webp" alt="profile" draggable="false"
+                            class="user__profile_img">
+
+                        <div class="user__details">
+                            <h3 class="userFullName">نام و نام خانوادگی</h3>
+                            <div class="user__role_box">
+                                <svg width="32" height="32">
+                                    <use href="#profile__linear"></use>
+                                </svg>
+                                <p class="user__role">کاربر</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="user__controlls">
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#trash__linear"></use>
+                                </svg>
+
+                            </button>
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#edit__linear"></use>
+                                </svg>
+
+                            </button>
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#userEdit__linear"></use>
+                                </svg>
+
+                            </button>
+                        </div>
+
+                    </div>
+                    <div class="user glassmorphism_2">
+                        <img src="/images/landing/teachers/programmer.webp" alt="profile" draggable="false"
+                            class="user__profile_img">
+
+                        <div class="user__details">
+                            <h3 class="userFullName">نام و نام خانوادگی</h3>
+                            <div class="user__role_box">
+                                <svg width="32" height="32">
+                                    <use href="#profile__linear"></use>
+                                </svg>
+                                <p class="user__role">کاربر</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="user__controlls">
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#trash__linear"></use>
+                                </svg>
+
+                            </button>
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#edit__linear"></use>
+                                </svg>
+
+                            </button>
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#userEdit__linear"></use>
+                                </svg>
+
+                            </button>
+                        </div>
+
+                    </div>
+                    <div class="user glassmorphism_2">
+                        <img src="/images/landing/teachers/programmer.webp" alt="profile" draggable="false"
+                            class="user__profile_img">
+
+                        <div class="user__details">
+                            <h3 class="userFullName">نام و نام خانوادگی</h3>
+                            <div class="user__role_box">
+                                <svg width="32" height="32">
+                                    <use href="#profile__linear"></use>
+                                </svg>
+                                <p class="user__role">کاربر</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="user__controlls">
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#trash__linear"></use>
+                                </svg>
+
+                            </button>
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#edit__linear"></use>
+                                </svg>
+
+                            </button>
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#userEdit__linear"></use>
+                                </svg>
+
+                            </button>
+                        </div>
+
+                    </div>
+                    <div class="user glassmorphism_2">
+                        <img src="/images/landing/teachers/programmer.webp" alt="profile" draggable="false"
+                            class="user__profile_img">
+
+                        <div class="user__details">
+                            <h3 class="userFullName">نام و نام خانوادگی</h3>
+                            <div class="user__role_box">
+                                <svg width="32" height="32">
+                                    <use href="#profile__linear"></use>
+                                </svg>
+                                <p class="user__role">کاربر</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="user__controlls">
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#trash__linear"></use>
+                                </svg>
+
+                            </button>
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#edit__linear"></use>
+                                </svg>
+
+                            </button>
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#userEdit__linear"></use>
+                                </svg>
+
+                            </button>
+                        </div>
+
+                    </div>
+                    <div class="user glassmorphism_2">
+                        <img src="/images/landing/teachers/programmer.webp" alt="profile" draggable="false"
+                            class="user__profile_img">
+
+                        <div class="user__details">
+                            <h3 class="userFullName">نام و نام خانوادگی</h3>
+                            <div class="user__role_box">
+                                <svg width="32" height="32">
+                                    <use href="#profile__linear"></use>
+                                </svg>
+                                <p class="user__role">کاربر</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="user__controlls">
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#trash__linear"></use>
+                                </svg>
+
+                            </button>
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#edit__linear"></use>
+                                </svg>
+
+                            </button>
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#userEdit__linear"></use>
+                                </svg>
+
+                            </button>
+                        </div>
+
+                    </div>
+                    <div class="user glassmorphism_2">
+                        <img src="/images/landing/teachers/programmer.webp" alt="profile" draggable="false"
+                            class="user__profile_img">
+
+                        <div class="user__details">
+                            <h3 class="userFullName">نام و نام خانوادگی</h3>
+                            <div class="user__role_box">
+                                <svg width="32" height="32">
+                                    <use href="#profile__linear"></use>
+                                </svg>
+                                <p class="user__role">کاربر</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="user__controlls">
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#trash__linear"></use>
+                                </svg>
+
+                            </button>
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#edit__linear"></use>
+                                </svg>
+
+                            </button>
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#userEdit__linear"></use>
+                                </svg>
+
+                            </button>
+                        </div>
+
+                    </div>
+                    <div class="user glassmorphism_2">
+                        <img src="/images/landing/teachers/programmer.webp" alt="profile" draggable="false"
+                            class="user__profile_img">
+
+                        <div class="user__details">
+                            <h3 class="userFullName">نام و نام خانوادگی</h3>
+                            <div class="user__role_box">
+                                <svg width="32" height="32">
+                                    <use href="#profile__linear"></use>
+                                </svg>
+                                <p class="user__role">کاربر</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="user__controlls">
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#trash__linear"></use>
+                                </svg>
+
+                            </button>
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#edit__linear"></use>
+                                </svg>
+
+                            </button>
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#userEdit__linear"></use>
+                                </svg>
+
+                            </button>
+                        </div>
+
+                    </div>
+                    <div class="user glassmorphism_2">
+                        <img src="/images/landing/teachers/programmer.webp" alt="profile" draggable="false"
+                            class="user__profile_img">
+
+                        <div class="user__details">
+                            <h3 class="userFullName">نام و نام خانوادگی</h3>
+                            <div class="user__role_box">
+                                <svg width="32" height="32">
+                                    <use href="#profile__linear"></use>
+                                </svg>
+                                <p class="user__role">کاربر</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="user__controlls">
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#trash__linear"></use>
+                                </svg>
+
+                            </button>
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#edit__linear"></use>
+                                </svg>
+
+                            </button>
+                            <button class="user__controll center-xy  glassmorphism">
+                                <svg width="32" height="32">
+                                    <use href="#userEdit__linear"></use>
+                                </svg>
+
+                            </button>
+                        </div>
+
+
+                        # ---------------------------------- log out --------------------------------- #
+                                <div
+              style="
+                position: absolute;
+                bottom: -14rem !important;
+                left: 0;
+                background-color: var(--main-dark-color);
+                width: 100%;
+                padding: 2rem;
+                border-radius: 2rem;
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+              "
+              class="logout">
+              <a href="#" style="display: flex; align-items: center; gap: 2rem">
+                <svg
+                  width="35"
+                  height="35"
+                  viewBox="0 0 30 30"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M15.1504 15.975C15.0629 15.9625 14.9504 15.9625 14.8504 15.975C12.6504 15.9 10.9004 14.1 10.9004 11.8875C10.9004 9.62498 12.7254 7.78748 15.0004 7.78748C17.2629 7.78748 19.1004 9.62498 19.1004 11.8875C19.0879 14.1 17.3504 15.9 15.1504 15.975Z"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M23.4252 24.225C21.2002 26.2625 18.2502 27.5 15.0002 27.5C11.7502 27.5 8.8002 26.2625 6.5752 24.225C6.7002 23.05 7.4502 21.9 8.7877 21C12.2127 18.725 17.8127 18.725 21.2127 21C22.5502 21.9 23.3002 23.05 23.4252 24.225Z"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M15 27.5C21.9036 27.5 27.5 21.9036 27.5 15C27.5 8.09644 21.9036 2.5 15 2.5C8.09644 2.5 2.5 8.09644 2.5 15C2.5 21.9036 8.09644 27.5 15 27.5Z"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+                داشبورد
+              </a>
+              <a href="#" style="display: flex; align-items: center; gap: 2rem">
+                <svg
+                  width="35"
+                  height="35"
+                  viewBox="0 0 30 30"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M15.1504 15.975C15.0629 15.9625 14.9504 15.9625 14.8504 15.975C12.6504 15.9 10.9004 14.1 10.9004 11.8875C10.9004 9.62498 12.7254 7.78748 15.0004 7.78748C17.2629 7.78748 19.1004 9.62498 19.1004 11.8875C19.0879 14.1 17.3504 15.9 15.1504 15.975Z"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M23.4252 24.225C21.2002 26.2625 18.2502 27.5 15.0002 27.5C11.7502 27.5 8.8002 26.2625 6.5752 24.225C6.7002 23.05 7.4502 21.9 8.7877 21C12.2127 18.725 17.8127 18.725 21.2127 21C22.5502 21.9 23.3002 23.05 23.4252 24.225Z"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M15 27.5C21.9036 27.5 27.5 21.9036 27.5 15C27.5 8.09644 21.9036 2.5 15 2.5C8.09644 2.5 2.5 8.09644 2.5 15C2.5 21.9036 8.09644 27.5 15 27.5Z"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+                خروج
+              </a>
+            </div>
