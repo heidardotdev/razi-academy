@@ -2020,9 +2020,9 @@
             کاربر جدید
           </button>
 
-          <!-- <div class="createNewUserModal">
+           <div class="createNewUserModal">
 <div class="user glassmorphism_2">
-              <label for="userProfileInput">
+              <label for="userProfileInput" class="createNewUser__label">
                 <div draggable="false" class="userprofileinputlable">
                   پروفایلی بارگزاری کنید
                 </div>
@@ -2035,14 +2035,28 @@
               </label>
  
 
-              <div class="user__details">
-                <input
+              <div class="user__details createNewUser__userDetails">
+
+                   <input
                   type="text"
                   name=""
                   value="نام و نام خانوادگی"
-                  id="userFullNameInput" />
+                  id="userFullNameInput "
+                  class="createNewUser__fullname" />
+                <input
+                  type="text"
+                  name=""
+                  value="نام کاربری"
+                  id="createNewUser__UserName" />
+                <input
+                  type="text"
+                  name=""
+                  value="گذرواژه"
+                  id="createNewUser__password" />
 
-                <select id="userRoleSelect">
+               
+
+                <select id="userRoleSelect" class="usrRoleSelect__creatNewUser">
                   <option value="user">کاربر</option>
                   <option value="courseteacher">مدرس</option>
                   <option value="teacher">هنرآموز</option>
@@ -2057,7 +2071,7 @@
                 <button id="user__btn_cancelChange">لغو</button>
               </div>
             </div>
-          </div> -->
+          </div> 
             
         
 

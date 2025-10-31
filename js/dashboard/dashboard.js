@@ -3,6 +3,7 @@ import {
   filterUsersByRole,
   updateUserFromAdminPanel,
   deleteUserFromAdminPanel,
+  createNewUserFromAdminPanel,
 } from "../shared.js";
 import { getLocalStorage } from "../funcs/utils.js";
 
@@ -576,21 +577,56 @@ const showAndUpdateUsers = () => {
 };
 
 const createNewUserFromAdminPanelHanler = () => {
-  // const formData = new FormData();
-  // formData.append("profile", "");
-  // formData.append("username", userNameInput.value.trim());
-  // formData.append("fullname", userFullNameInput.value.trim());
-  // formData.append("password", passswordInput.value.trim());
-  // formData.append("role", "user");
-
   const createNewUserBtn = $.querySelector("#createNewUserBtn");
 
   //blur hide/show handler
   createNewUserBtn.addEventListener("click", () => {
     const blur = $.querySelector(".dashboard__blur");
+    document.body.className = "createNewUser";
+
+    const cancelCreatingNewUser = () => {
+      document.body.classList.remove("createNewUser");
+      blur.style.display = "none";
+    };
+
     blur.style.display = "block";
     blur.addEventListener("click", () => {
       blur.style.display = "none";
+
+      cancelCreatingNewUser();
+    });
+
+    const createUserModalElem = document.querySelector(".user");
+    createUserModalElem.addEventListener("click", (event) => {
+      if (event.target.closest("#user__btn_cancelChange")) {
+        cancelCreatingNewUser();
+      }
+      if (event.target.closest("#user__btn_confirmChange")) {
+        const userName = createUserModalElem.querySelector(
+          "#createNewUser__UserName"
+        );
+        const userFullName = createUserModalElem.querySelector(
+          ".createNewUser__fullname"
+        );
+        const userPassword = createUserModalElem.querySelector(
+          "#createNewUser__password"
+        );
+        const userRole = createUserModalElem.querySelector(
+          ".usrRoleSelect__creatNewUser"
+        );
+
+        createNewUserFromAdminPanel(
+          userName.value,
+          userFullName.value.trim(),
+          userPassword.value.trim(),
+          userRole.value.trim()
+        )
+          .then(() => cancelCreatingNewUser())
+          .catch((err) => {
+            console.clear();
+            return false;
+          });
+      }
     });
   });
 };

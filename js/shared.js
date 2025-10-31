@@ -223,7 +223,6 @@ const filterHandler = () => {
   });
 };
 
-
 const filterUsersByRole = () => {
   const filteredUsersWrapper = document.querySelector(
     "#users .tab__content__items"
@@ -733,10 +732,21 @@ const deleteUserFromAdminPanel = async (userID) => {
   return result;
 };
 
-const createNewUserFromAdminPanel = async (userInfo) => {
+const createNewUserFromAdminPanel = async (
+  userName,
+  userFullName,
+  userPassword,
+  userRole
+) => {
+  const formData = new FormData();
+  formData.append("profile", "");
+  formData.append("username", userName);
+  formData.append("fullname", userFullName);
+  formData.append("password", userPassword);
+  formData.append("role", userRole);
   const res = await fetch("http://localhost:5000/api/users", {
     method: "POST",
-    body: userInfo,
+    body: formData,
   });
   const result = await res.json();
   return result;

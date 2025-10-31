@@ -629,12 +629,22 @@ select {
   width: 30%;
 }
 
-#userFullNameInput {
+#userFullNameInput,
+#createNewUser__UserName,
+#createNewUser__password,
+select,
+.createNewUser__fullname {
   font-size: 2.3rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
   width: 50%;
   border-radius: 1rem;
   padding: 1rem;
+}
+
+.createNewUser__inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 label {
@@ -653,7 +663,6 @@ label {
   padding: 1rem;
   border-radius: 3rem;
   z-index: 1;
-
 
   margin: auto;
 }
@@ -708,12 +717,21 @@ body
 }
 
 .user__details {
-  display: flex;
+  display: grid;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  grid-template-columns: repeat(2, 50%);
   margin-top: 2rem;
+  gap: 2rem;
 }
 
+select{
+  grid-column: 1/3;
+}
+
+.user__edit__btns{
+  gap: 2rem;
+}
 .userFullName {
 }
 
@@ -926,6 +944,8 @@ body
 
 .user__edit__active #userFullNameInput {
   display: block;
+  grid-column: 1/3 !important;
+  width: 100%;
 }
 .user__edit__active #userRoleSelect {
   display: block;
@@ -962,3 +982,60 @@ label {
 .tab__content::-webkit-scrollbar {
   width: 0;
 }
+
+/* create new user modal */
+.createNewUserModal {
+  display: none;
+  z-index: 2 !important;
+  position: relative;
+}
+
+
+
+.createNewUser .createNewUserModal {
+  display: block;
+  max-width: 320px;
+  position: relative;
+  left: 0;
+  right: 0;
+  margin: auto;
+  margin-top: -10rem;
+}
+
+.createNewUser .tab__content{
+  overflow-y: hidden !important;
+}
+
+
+
+.createNewUser .createNewUser__label{
+  display: flex;
+}
+
+.createNewUser .user__edit__btns {
+  gap: 2rem;
+}
+
+.createNewUser .createNewUserModal .createNewUser__userDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100% !important;
+}
+
+.createNewUser__userDetails input,
+select {
+  width: 100% !important;
+
+}
+
+.createNewUser .user__edit__btns{
+  display: flex;
+}
+
+
+.createNewUser .usrRoleSelect__creatNewUser{
+  display: block !important;
+}
+
